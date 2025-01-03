@@ -1,0 +1,30 @@
+{
+  "name": "@losaweb/database",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "db:generate": "prisma generate --schema=prisma/LosaGame.prisma",
+    "db:push": "prisma db push --schema=prisma/LosaGame.prisma --skip-generate"
+  },
+  "exports": {
+    "./client/*": "./src/client/*.ts",
+    "./model/*": "./src/model/*.ts",
+    "./types/*": "./src/types/*.ts",
+    "./lib/*": "./src/lib/*.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@losaweb/eslint-config": "workspace:*",
+    "@losaweb/typescript-config": "workspace:*",
+    "eslint": "^8.57.0",
+    "prisma": "^6.1.0",
+    "@types/node": "^20.11.17",
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@prisma/client": "6.1.0"
+  }
+}

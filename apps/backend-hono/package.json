@@ -1,0 +1,21 @@
+{
+  "name": "@losaweb/backend-hono",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file .env src/index.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "@hono/zod-validator": "^0.4.2",
+    "@losaweb/database": "workspace:*",
+    "@t3-oss/env-core": "^0.11.1",
+    "bcrypt-ts": "^5.0.3",
+    "fastest-levenshtein": "^1.0.16",
+    "hono": "^4.6.15",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1"
+  }
+}
