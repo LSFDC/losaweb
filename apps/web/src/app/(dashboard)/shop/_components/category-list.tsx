@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@losaweb/ui/components/button";
 
 interface CategoryListProps {
   categories: string[];

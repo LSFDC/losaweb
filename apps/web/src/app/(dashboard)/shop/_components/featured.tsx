@@ -1,6 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@losaweb/ui/components/card";
+import { Badge } from "@losaweb/ui/components/badge";
+import { Button } from "@losaweb/ui/components/button";
 import { Product } from "../_data/product";
 import Image from "next/image";
 

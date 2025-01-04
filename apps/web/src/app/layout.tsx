@@ -2,6 +2,7 @@ import "@losaweb/ui/globals.css";
 import { Poppins } from "next/font/google";
 
 import { Providers } from "@/components/providers";
+import { Toaster } from "@losaweb/ui/components/sonner";
 import { cn } from "@losaweb/ui/lib/utils";
 import type { Metadata } from "next";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
         className={cn("font-sans min-h-screen antialiased", font.className)}
       >
         <Providers>{children}</Providers>
+        <Toaster position="top-right" richColors expand />
       </body>
     </html>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@losaweb/ui/components/tabs";
 
 interface CategoryTabsProps {
   categories: string[];

@@ -1,6 +1,6 @@
 "use client";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@losaweb/ui/components/card";
+import { Button } from "@losaweb/ui/components/button";
 import Image from "next/image";
 import { CategoryTabs } from "./category-tab";
 import { useState } from "react";

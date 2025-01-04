@@ -10,8 +10,6 @@ export default async function Middleware(request: NextRequest) {
 
   const session = await SessionService.getSession();
 
-  console.log(session);
-
   if (isProtectedRoute) {
     if (!session) {
       return NextResponse.redirect(new URL("/login", request.url));

@@ -8,6 +8,7 @@ export const getEnv = (c: Context) =>
     server: {
       //core
       CORS_ORIGIN: z.string().url(),
+      USE_IP_STRICT: z.string().transform((s) => s !== "false" && s !== "0"),
       API_KEY: z.string(),
       AUTH_API_KEY: z.string(),
 

@@ -5,7 +5,11 @@ export const protectedRoutes = [
   "/patch-notes",
   "/leaderboard",
   "/seasonpass",
+  "/wallet",
+  "/wallet/topup",
   "/settings",
+  "/settings/account",
+  "/settings/security",
 ];
 
 export const authRoutes = [
