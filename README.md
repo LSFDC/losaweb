@@ -1,7 +1,10 @@
+
+
 # Losaweb
 
 Modern full-stack application using Turborepo, Next.js, Hono, and MSSQL related to Lost Saga Game. <br>
 This project maintained by [LSFDC (Lost Saga For Developer Community)](https://github.com/LSFDC)
+
 
 ## Tech Stack
 
@@ -41,7 +44,7 @@ This project maintained by [LSFDC (Lost Saga For Developer Community)](https://g
 
 1. Clone and install dependencies:
 ```bash
-git clone https://github.com/yourusername/losaweb.git
+git clone https://github.com/LSFDC/losaweb.git
 cd losaweb
 pnpm install
 ```
@@ -123,6 +126,6 @@ pnpm build
 - losaadmin runs at `http://localhost:3001`
 - losadb runs at `http://localhost:3002`
 
-## Notes
-- # This project uses a monorepo structure, with all applications and packages in the same repository.
-- # Please keep all sensitive information in `.env` files (url, secet-key, api-key).
+> [!NOTE]  
+> # This project uses a monorepo structure, with all applications and packages in the same repository.
+> # Please keep all sensitive information in `.env` files (url, secet-key, api-key).
