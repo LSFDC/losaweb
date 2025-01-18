@@ -217,13 +217,34 @@ model define_config {
     @@ignore
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+/// launcher model list
 model define_encode_key {
     idx       Int      @default(autoincrement())
     encodeKey String   @db.Char(15)
     regDate   DateTime @default(now(), map: "DF__define_en__regDa__634EBE90") @db.DateTime
 
-    @@ignore
+    @@unique([encodeKey])
+}
+
+model define_launcher_info {
+    launcherKey String   @db.Char(50)
+    status      Int      @default(0) @db.TinyInt
+    regDate     DateTime @default(now()) @db.DateTime
+
+    @@unique([launcherKey])
+}
+
+model define_hwid_blocklist {
+    hwid String @db.VarChar(50)
+
+    @@id([hwid])
+    @@unique([hwid])
+}
+
+model define_launcher_whitelist {
+    username String @db.VarChar(50)
+
+    @@unique([username])
 }
 
 model define_game_server {
@@ -2822,25 +2843,4 @@ model userTransactionDB {
     createdAt       DateTime @default(now()) @db.DateTime2
 
     wallet userWalletDB @relation(fields: [walletIDX], references: [walletIDX], onDelete: Cascade, onUpdate: NoAction)
-}
-
-model define_launcher_info {
-    launcherKey String   @db.Char(50)
-    status      Int      @default(0) @db.TinyInt
-    regDate     DateTime @default(now()) @db.DateTime
-
-    @@unique([launcherKey])
-}
-
-model define_hwid_blocklist {
-    hwid String @db.VarChar(50)
-
-    @@id([hwid])
-    @@unique([hwid])
-}
-
-model define_launcher_whitelist {
-    username String @db.VarChar(50)
-
-    @@unique([username])
 }
