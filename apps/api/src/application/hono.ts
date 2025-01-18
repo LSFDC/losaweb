@@ -12,7 +12,7 @@ hono.onError((err, c) => {
   if (err instanceof HTTPException) {
     return c.json(
       {
-        error: err.message,
+        error: err.message || "Something went wrong",
       },
       err.status
     );

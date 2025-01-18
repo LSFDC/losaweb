@@ -1,9 +1,12 @@
 import { serve } from "@hono/node-server";
-import hono from "@/application/app";
+import hono from "@/application/hono";
 
-serve({
-  fetch: hono.fetch,
-  port: 5000,
-}).on("listening", () => {
-  console.log("API Server is listening on port 5000");
-});
+serve(
+  {
+    fetch: hono.fetch,
+    port: 5000,
+  },
+  (info) => {
+    console.log(`Listening on http://localhost:${info.port}`);
+  }
+);
