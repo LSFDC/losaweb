@@ -1,0 +1,10 @@
+generator client {
+    provider = "prisma-client-js"
+    output   = "./client/losaadmin"
+}
+
+datasource db {
+    provider     = "sqlserver"
+    url          = env("LOSAADMIN_URL")
+    relationMode = "prisma"
+}

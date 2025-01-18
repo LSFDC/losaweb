@@ -1,0 +1,19 @@
+#session
+SESSION_SECRET=""
+SESSION_KEY=""
+
+# cloudflare
+CF_TURNSTILE_SECRET_KEY=""
+
+#database (required)
+LOSAGAME_URL="sqlserver://HOST:1433;database=LosaGame;user=sa;password=PASSWORD;trustServerCertificate=true"
+LOSAADMIN_URL="sqlserver://HOST:1433;database=LosaAdmin;user=sa;password=PASSWORD;trustServerCertificate=true"
+LOSALOGDATA_URL="sqlserver://HOST:1433;database=LosaLogData;user=sa;password=PASSWORD;trustServerCertificate=true"
+
+#PAYMENT GATEWAY
+TRIPAY_API_SECRET=""
+TRIPAY_API_KEY=""
+TRIPAY_MERCHANT_CODE=""
+
+#public
+NEXT_PUBLIC_CF_SITE_KEY=""

@@ -1,0 +1,1118 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client/losalogdata"
+}
+
+datasource db {
+  provider     = "sqlserver"
+  url          = env("LOSALOGDATA_URL")
+  relationMode = "prisma"
+}
+
+model GAME_LOG {
+  RegDate    DateTime @db.DateTime
+  LogIDX     BigInt   @default(autoincrement())
+  LogType    Int
+  AccountIDX Int
+  UserID     String   @db.VarChar(20)
+  UserName   String   @db.VarChar(20)
+  UserLevel  Int
+  UserExp    Int
+  CpType     Int
+  TBLIDX     Int
+  ObjCode    Int
+  EventType  Int      @db.TinyInt
+  Param1     Int
+  Param2     Int
+  Param3     Int
+  Param4     Int
+  Param5     String   @db.VarChar(50)
+  UserIP     String   @db.VarChar(15)
+
+  @@id([RegDate, LogIDX], map: "PK_GAME_LOG_LogIndex")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Log_buy_gold_item {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickname   String   @db.VarChar(12)
+  itemType   Int      @default(0, map: "DF__Log_buy_g__itemT__49C3F6B7")
+  itemCode   Int      @default(0, map: "DF__Log_buy_g__itemC__4AB81AF0")
+  amount     Int      @default(0, map: "DF__Log_buy_g__amoun__4BAC3F29")
+  userIP     String   @db.VarChar(15)
+  note       String   @db.VarChar(200)
+  regDate    DateTime @default(now(), map: "DF__Log_buy_g__regDa__4CA06362") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Log_buy_item {
+  idx       Int      @default(autoincrement())
+  userID    String   @db.VarChar(12)
+  applyType String   @db.Char(2)
+  userIP    String   @db.VarChar(15)
+  playType  Int      @default(0, map: "DF__Log_buy_i__playT__4E88ABD4")
+  modeType  Int      @default(0, map: "DF__Log_buy_i__modeT__4F7CD00D")
+  sub1Type  Int      @default(0, map: "DF__Log_buy_i__sub1T__5070F446")
+  sub2Type  Int      @default(0, map: "DF__Log_buy_i__sub2T__5165187F")
+  buyplace  Int?     @default(0, map: "DF__Log_buy_i__buypl__52593CB8")
+  classType Int      @default(0, map: "DF__Log_buy_i__class__534D60F1")
+  kindred   Int      @default(-1, map: "DF__Log_buy_i__kindr__5441852A")
+  decoType  Int      @default(-1, map: "DF__Log_buy_i__decoT__5535A963")
+  decoCode  Int      @default(-1, map: "DF__Log_buy_i__decoC__5629CD9C")
+  itemType  Int      @default(0, map: "DF__Log_buy_i__itemT__571DF1D5")
+  buyType   Int      @default(0, map: "DF__Log_buy_i__buyTy__5812160E")
+  amount    Int      @default(0, map: "DF__Log_buy_i__amoun__59063A47")
+  note      String?  @db.VarChar(100)
+  regDate   DateTime @default(now(), map: "DF__Log_buy_i__regDa__59FA5E80") @db.DateTime
+
+  @@index([userID], map: "idx_userID")
+  @@ignore
+}
+
+model log_buy_item_accessory {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.NVarChar(20)
+  userLevel  Int      @default(0, map: "DF__log_buy_i__userL__5BE2A6F2")
+  itemCode   Int      @default(0, map: "DF__log_buy_i__itemC__5CD6CB2B")
+  eventType  Int      @default(0, map: "DF__log_buy_i__event__5DCAEF64")
+  amount     Int      @default(0, map: "DF__log_buy_i__amoun__5EBF139D")
+  userIP     String   @db.VarChar(15)
+  note       String?  @db.VarChar(100)
+  regDate    DateTime @default(now(), map: "DF__log_buy_i__regDa__5FB337D6") @db.DateTime
+
+  @@id([regDate, idx], map: "PK_log_buy_item_accessory")
+  @@index([accountIDX], map: "NC_log_buy_item_accessory_accountIDX")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_buy_item_class {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.VarChar(20)
+  userLevel  Int      @default(0, map: "DF__log_buy_i__userL__619B8048")
+  classType  Int      @default(0, map: "DF__log_buy_i__class__628FA481")
+  limitType  Int      @default(0, map: "DF__log_buy_i__limit__6383C8BA")
+  eventType  Int      @default(0, map: "DF__log_buy_i__event__6477ECF3")
+  amount     Int      @default(0, map: "DF__log_buy_i__amoun__656C112C")
+  userIP     String   @db.VarChar(15)
+  note       String?  @db.VarChar(100)
+  regDate    DateTime @default(now(), map: "DF__log_buy_i__regDa__66603565") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_buy_item_costume {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.NVarChar(20)
+  userLevel  Int      @default(0, map: "DF__log_buy_i__userL__68487DD7")
+  itemCode   Int      @default(0, map: "DF__log_buy_i__itemC__693CA210")
+  eventType  Int      @default(0, map: "DF__log_buy_i__event__6A30C649")
+  amount     Int      @default(0, map: "DF__log_buy_i__amoun__6B24EA82")
+  userIP     String   @db.VarChar(15)
+  note       String   @db.VarChar(100)
+  regDate    DateTime @default(now(), map: "DF__log_buy_i__regDa__6C190EBB") @db.DateTime
+
+  @@index([accountIDX], map: "NC_log_buy_item_costume_accountIDX")
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_buy_item_decoration {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.VarChar(20)
+  classType  Int      @default(0, map: "DF__log_buy_i__class__6E01572D")
+  kindred    Int      @default(0, map: "DF__log_buy_i__kindr__6EF57B66")
+  itemType   Int      @default(0, map: "DF__log_buy_i__itemT__6FE99F9F")
+  itemCode   Int      @default(0, map: "DF__log_buy_i__itemC__70DDC3D8")
+  eventType  Int      @default(0, map: "DF__log_buy_i__event__71D1E811")
+  amount     Int      @default(0, map: "DF__log_buy_i__amoun__72C60C4A")
+  userIP     String   @db.VarChar(15)
+  note       String?  @db.VarChar(100)
+  regDate    DateTime @default(now(), map: "DF__log_buy_i__regDa__73BA3083") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_buy_item_equip {
+  idx         Int      @default(autoincrement())
+  accountIDX  Int
+  nickName    String   @db.VarChar(20)
+  itemType    Int      @default(0, map: "DF__log_buy_i__itemT__75A278F5")
+  itemCode    Int      @default(0, map: "DF__log_buy_i__itemC__76969D2E")
+  reinforce   Int      @default(0, map: "DF__log_buy_i__reinf__778AC167")
+  machineType Int      @default(0, map: "DF__log_buy_i__machi__787EE5A0")
+  limitDate   Int      @default(0, map: "DF__log_buy_i__limit__797309D9")
+  eventType   Int      @default(0, map: "DF__log_buy_i__event__7A672E12")
+  amount      Int      @default(0, map: "DF__log_buy_i__amoun__7B5B524B")
+  userIP      String   @db.VarChar(15)
+  note        String?  @db.VarChar(100)
+  regDate     DateTime @default(now(), map: "DF__log_buy_i__regDa__7C4F7684") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_buy_item_gold {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.VarChar(20)
+  userLevel  Int      @default(0, map: "DF__log_buy_i__userL__7E37BEF6")
+  itemType   Int      @default(0, map: "DF__log_buy_i__itemT__7F2BE32F")
+  itemCode   Int      @default(0, map: "DF__log_buy_i__itemC__00200768")
+  itemValue  Int      @default(0, map: "DF__log_buy_i__itemV__01142BA1")
+  amount     Int      @default(0, map: "DF__log_buy_i__amoun__02084FDA")
+  cpType     Int      @default(0, map: "DF__log_buy_i__cpTyp__02FC7413") @db.SmallInt
+  billingID  String?  @db.VarChar(64)
+  buyType    Int      @default(0, map: "DF__log_buy_i__buyTy__03F0984C") @db.TinyInt
+  userIP     String   @db.VarChar(15)
+  note       String?  @db.VarChar(100)
+  regDate    DateTime @default(now(), map: "DF__log_buy_i__regDa__04E4BC85") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_buy_item_sbox {
+  idx         Int      @default(autoincrement())
+  accountIDX  Int
+  nickName    String   @db.NVarChar(20)
+  userLevel   Int      @default(0, map: "DF__log_buy_i__userL__06CD04F7")
+  presentType Int      @default(0, map: "DF__log_buy_i__prese__07C12930") @db.SmallInt
+  value1      Int      @default(0, map: "DF__log_buy_i__value__08B54D69")
+  value2      Int      @default(0, map: "DF__log_buy_i__value__09A971A2")
+  amount      Int      @default(0, map: "DF__log_buy_i__amoun__0A9D95DB")
+  cpType      Int      @default(0, map: "DF__log_buy_i__cpTyp__0B91BA14") @db.SmallInt
+  billingID   String   @default("0", map: "DF__log_buy_i__billi__0C85DE4D") @db.VarChar(64)
+  logType     Int      @default(0, map: "DF__log_buy_i__logTy__0D7A0286")
+  userIP      String   @db.VarChar(15)
+  note        String?  @db.NVarChar(100)
+  limitDate   Int
+  regDate     DateTime @default(now(), map: "DF__log_buy_i__regDa__0E6E26BF") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_buy_item_special {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.VarChar(15)
+  itemType   Int      @default(0, map: "DF__log_buy_i__itemT__10566F31")
+  itemValue  Int      @default(0, map: "DF__log_buy_i__itemV__114A936A")
+  eventType  Int      @default(0, map: "DF__log_buy_i__event__123EB7A3")
+  amount     Int      @default(0, map: "DF__log_buy_i__amoun__1332DBDC")
+  userIP     String   @db.VarChar(15)
+  note       String   @db.VarChar(100)
+  regDate    DateTime @default(now(), map: "DF__log_buy_i__regDa__14270015") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_accessory_upgrade {
+  idx                Int      @default(autoincrement())
+  accountIDX         Int
+  nickName           String   @db.NVarChar(20)
+  userLevel          Int      @default(0, map: "DF__log_data___userL__160F4887")
+  itemCode           Int      @default(0, map: "DF__log_data___itemC__17036CC0")
+  nowUpgradeValue    Int      @default(0, map: "DF__log_data___nowUp__17F790F9")
+  resultUpgradeValue Int      @default(0, map: "DF__log_data___resul__18EBB532")
+  pieceCode          Int      @default(0, map: "DF__log_data___piece__19DFD96B")
+  logType            Int      @default(0, map: "DF__log_data___logTy__1AD3FDA4") @db.TinyInt
+  regDate            DateTime @default(now(), map: "DF__log_data___regDa__1BC821DD") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_awake {
+  idx           Int      @default(autoincrement())
+  accountIDX    Int
+  nickName      String   @db.NVarChar(20)
+  userLevel     Int      @default(0, map: "DF__log_data___userL__1DB06A4F")
+  classType     Int      @default(0, map: "DF__log_data___class__1EA48E88")
+  pieceCode     Int      @default(0, map: "DF__log_data___piece__1F98B2C1")
+  pieceUseCount Int      @default(0, map: "DF__log_data___piece__208CD6FA") @db.SmallInt
+  awakeType     Int      @default(0, map: "DF__log_data___awake__2180FB33") @db.TinyInt
+  regDate       DateTime @default(now(), map: "DF__log_data___regDa__22751F6C") @db.DateTime
+
+  @@index([accountIDX], map: "NC_log_data_awake_accountIDX")
+  @@index([idx], map: "NC_log_data_awake_idx")
+  @@ignore
+}
+
+model log_data_cardmatching {
+  idx          Int      @default(autoincrement())
+  AccountIDX   Int
+  NickName     String   @db.NVarChar(20)
+  UserLevel    Int
+  LogType      Int      @default(0, map: "DF__log_data___LogTy__245D67DE")
+  MissionType  Int      @default(0, map: "DF__log_data___Missi__25518C17")
+  MissionMark1 Int      @default(0, map: "DF__log_data___Missi__2645B050")
+  MissionMark2 Int      @default(0, map: "DF__log_data___Missi__2739D489")
+  UserMark1    Int      @default(0, map: "DF__log_data___UserM__282DF8C2")
+  UserMark2    Int      @default(0, map: "DF__log_data___UserM__29221CFB")
+  RewardStep   Int      @default(0, map: "DF__log_data___Rewar__2A164134")
+  ItemType     Int      @default(0, map: "DF__log_data___ItemT__2B0A656D")
+  ItemCode     Int      @default(0, map: "DF__log_data___ItemC__2BFE89A6")
+  ItemValue    Int      @default(0, map: "DF__log_data___ItemV__2CF2ADDF")
+  RegDate      DateTime @default(now(), map: "DF__log_data___RegDa__2DE6D218") @db.DateTime
+
+  @@id([RegDate, idx], map: "PK_log_data_cardmatching")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_character {
+  idx           Int      @default(autoincrement())
+  accountIDX    Int
+  nickName      String   @db.VarChar(20)
+  playType      Int      @default(0, map: "DF__log_data___playT__2FCF1A8A")
+  modeType      Int      @default(0, map: "DF__log_data___modeT__30C33EC3")
+  subType1      Int      @default(0, map: "DF__log_data___subTy__31B762FC")
+  subType2      Int      @default(0, map: "DF__log_data___subTy__32AB8735")
+  playTime      Int      @default(0, map: "DF__log_data___playT__339FAB6E")
+  characterType Int      @default(0, map: "DF__log_data___chara__3493CFA7")
+  kill          Int      @default(0, map: "DF__log_data_c__kill__3587F3E0")
+  death         Int      @default(0, map: "DF__log_data___death__367C1819")
+  regDate       DateTime @default(dbgenerated("0"), map: "DF__log_data___regDa__37703C52") @db.DateTime
+
+  @@ignore
+}
+
+model log_data_cheating {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  userID     String   @db.VarChar(20)
+  userLevel  Int      @default(0, map: "DF__log_data___userL__395884C4")
+  userIP     String   @db.VarChar(20)
+  mainIDX    Int      @default(0, map: "DF__log_data___mainI__3A4CA8FD")
+  subIDX     Int      @default(0, map: "DF__log_data___subID__3B40CD36")
+  regDate    DateTime @default(now(), map: "DF__log_data___regDa__3C34F16F") @db.DateTime
+
+  @@id([regDate, idx], map: "PK_log_data_cheating")
+  @@index([accountIDX], map: "NC_log_data_cheating_accountIDX")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_clover {
+  idx         Int      @default(autoincrement())
+  accountIDX  Int
+  friendIDX   Int      @default(0, map: "DF__log_data___frien__3E1D39E1")
+  eventType   Int      @default(0, map: "DF__log_data___event__3F115E1A") @db.SmallInt
+  CloverCount Int      @default(0, map: "DF__log_data___Clove__40058253")
+  regDate     DateTime @default(now(), map: "DF__log_data___regDa__40F9A68C") @db.DateTime
+
+  @@index([accountIDX], map: "idx_accountIDX")
+  @@index([eventType], map: "idx_eventType")
+  @@ignore
+}
+
+model log_data_custom_medal {
+  idx          Int      @default(autoincrement())
+  AccountIDX   Int      @default(0, map: "DF__log_data___Accou__42E1EEFE")
+  MedalIDX     Int      @default(0, map: "DF__log_data___Medal__43D61337")
+  MedalCode    Int      @default(0, map: "DF__log_data___Medal__44CA3770")
+  BasicGrowth1 Int      @default(0, map: "DF__log_data___Basic__45BE5BA9")
+  BasicGrowth2 Int      @default(0, map: "DF__log_data___Basic__46B27FE2")
+  BasicGrowth3 Int      @default(0, map: "DF__log_data___Basic__47A6A41B")
+  BasicGrowth4 Int      @default(0, map: "DF__log_data___Basic__489AC854")
+  SkillGrowth1 Int      @default(0, map: "DF__log_data___Skill__498EEC8D")
+  SkillGrowth2 Int      @default(0, map: "DF__log_data___Skill__4A8310C6")
+  SkillGrowth3 Int      @default(0, map: "DF__log_data___Skill__4B7734FF")
+  SkillGrowth4 Int      @default(0, map: "DF__log_data___Skill__4C6B5938")
+  LimitType    Int      @default(0, map: "DF__log_data___Limit__4D5F7D71")
+  LimitDate    DateTime @db.DateTime
+  LogType      Int      @default(0, map: "DF__log_data___LogTy__4E53A1AA") @db.TinyInt
+  regDate      DateTime @default(now(), map: "DF__log_data___regDa__4F47C5E3") @db.DateTime
+
+  @@id([regDate, idx], map: "PK_log_data_custom_medal")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_DiceGame {
+  AccountIDX      Int
+  GameState       Int
+  DiceCountUsed   Int
+  BoardCountUsed  Int
+  RewardCountUsed Int
+  Position        Int
+  Trace01         Int
+  Trace02         Int
+  Trace03         Int
+  Trace04         Int
+  Trace05         Int
+  Trace06         Int
+  Board           Int       @db.TinyInt
+  RewardStep01    Int
+  RewardStep02    Int
+  RewardStep03    Int
+  RewardStep04    Int
+  RewardStep05    Int
+  RewardStep06    Int
+  RewardStep07    Int
+  RewardStep08    Int
+  RewardStep09    Int
+  RewardStep10    Int
+  StartTime       DateTime? @db.DateTime
+  EndTime         DateTime? @db.DateTime
+
+  @@ignore
+}
+
+model log_data_excavating_new {
+  RegDate     DateTime @db.DateTime
+  LogIDX      BigInt   @default(autoincrement())
+  LogType     Int
+  AccountIDX  Int
+  UserID      String   @db.VarChar(20)
+  UserName    String   @db.VarChar(20)
+  ExLevel     Int
+  ExEXP       Int
+  CType       Int
+  CLevel      Int
+  CExpert     Int
+  RCount      Int      @db.TinyInt
+  MapID       Int
+  X           Int
+  Y           Int
+  Z           Int
+  RewardType  Int
+  Index       Int
+  Price       Int
+  Mutiple     Int
+  ResultMoney Int
+  UserIP      String   @db.VarChar(15)
+
+  @@id([RegDate, LogIDX], map: "PK_log_data_excavating_new_idx")
+  @@index([AccountIDX], map: "NC_log_data_excavating_new_AccountIDX")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_gear_upgrade {
+  idx                Int      @default(autoincrement())
+  accountIDX         Int
+  nickName           String   @db.NVarChar(20)
+  userLevel          Int      @default(0, map: "DF__log_data___userL__531856C7")
+  gearCode           Int      @default(0, map: "DF__log_data___gearC__540C7B00")
+  nowUpgradeValue    Int      @default(0, map: "DF__log_data___nowUp__55009F39") @db.TinyInt
+  resultUpgradeValue Int      @default(0, map: "DF__log_data___resul__55F4C372") @db.TinyInt
+  pieceCode          Int      @default(0, map: "DF__log_data___piece__56E8E7AB")
+  logType            Int      @default(0, map: "DF__log_data___logTy__57DD0BE4") @db.TinyInt
+  regDate            DateTime @default(now(), map: "DF__log_data___regDa__58D1301D") @db.DateTime
+
+  @@index([accountIDX], map: "NC_log_data_pet_accountIDX")
+  @@index([idx], map: "NC_log_data_pet_idx")
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_league_present {
+  idx          Int      @default(autoincrement())
+  accountIDX   Int
+  nickName     String   @db.NVarChar(20)
+  leagueIDX    Int      @default(0, map: "DF__log_data___leagu__5AB9788F")
+  currentRound Int      @db.TinyInt
+  presentCode1 Int      @default(0, map: "DF__log_data___prese__5BAD9CC8")
+  presentCode2 Int      @default(0, map: "DF__log_data___prese__5CA1C101")
+  presentCode3 Int      @default(0, map: "DF__log_data___prese__5D95E53A")
+  presentCode4 Int      @default(0, map: "DF__log_data___prese__5E8A0973")
+  regDate      DateTime @default(now(), map: "DF__log_data___regDa__5F7E2DAC") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_localinfo {
+  idx              Int      @default(autoincrement())
+  accountIDX       Int
+  nickName         String   @db.VarChar(20)
+  userLevel        Int      @default(0, map: "DF__log_data___userL__6166761E")
+  os               String   @db.NVarChar(100)
+  ie               String   @db.NVarChar(100)
+  directx          String   @db.NVarChar(100)
+  cpu              String   @db.NVarChar(100)
+  gpu              String   @db.NVarChar(100)
+  memory           String   @db.NVarChar(100)
+  systemResolution String   @default("0", map: "DF__log_data___syste__625A9A57") @db.NVarChar(20)
+  losaResolution   String   @default("0", map: "DF__log_data___losaR__634EBE90") @db.NVarChar(20)
+  screenType       Int      @default(0, map: "DF__log_data___scree__6442E2C9") @db.TinyInt
+  userIP           String   @db.VarChar(15)
+  regDate          DateTime @default(now(), map: "DF__log_data___regDa__65370702") @db.DateTime
+  hdd_serial       String?  @db.NVarChar(100)
+
+  @@ignore
+}
+
+model log_data_matchmode {
+  idx        Int      @default(autoincrement())
+  AccountIDX Int
+  nickName   String   @db.NVarChar(20)
+  userLevel  Int
+  Tier1      Int
+  Tier2      Int
+  MatchTime  Int      @default(0, map: "DF__log_data___Match__681373AD")
+  logType    Int      @default(0, map: "DF__log_data___logTy__690797E6")
+  regDate    DateTime @default(now(), map: "DF__log_data___regDa__69FBBC1F") @db.DateTime
+  RoomNumber Int      @default(0, map: "DF__log_data___RoomN__6AEFE058")
+
+  @@id([regDate, idx], map: "PK_log_data_matchmode")
+}
+
+model log_data_matchmode2 {
+  idx                Int      @default(autoincrement())
+  AccountIDX         Int
+  nickName           String   @db.NVarChar(20)
+  userLevel          Int
+  Tier1              Int
+  Tier2              Int
+  MatchTime          Int      @default(0, map: "DF__log_data___Match__6CD828CA")
+  MatchPoint         Int      @default(0, map: "DF__log_data___Match__6DCC4D03")
+  WinningStreakCount Int      @default(0, map: "DF__log_data___Winni__6EC0713C")
+  logType            Int      @default(0, map: "DF__log_data___logTy__6FB49575")
+  MatchType          Int      @default(0, map: "DF__log_data___Match__70A8B9AE")
+  RoomNumber         Int      @default(0, map: "DF__log_data___RoomN__719CDDE7")
+  regDate            DateTime @default(now(), map: "DF__log_data___regDa__72910220") @db.DateTime
+
+  @@id([regDate, idx], map: "PK_log_data_matchmode2")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_medal {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.VarChar(20)
+  medalType  Int
+  limitType  Int
+  logType    Int      @default(0, map: "DF__log_data___logTy__74794A92")
+  regDate    DateTime @default(now(), map: "DF__log_data___regDa__756D6ECB") @db.DateTime
+
+  @@index([accountIDX], map: "idx_accountIDX")
+  @@index([logType], map: "idx_eventType")
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_medal_extend {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.VarChar(20)
+  userLevel  Int      @default(0, map: "DF__log_data___userL__7755B73D")
+  classType  Int      @default(0, map: "DF__log_data___class__7849DB76")
+  slotNum    Int      @default(0, map: "DF__log_data___slotN__793DFFAF") @db.TinyInt
+  period     Int      @default(0, map: "DF__log_data___perio__7A3223E8")
+  logType    Int      @default(0, map: "DF__log_data___logTy__7B264821")
+  regDate    DateTime @default(now(), map: "DF__log_data___regDa__7C1A6C5A") @db.DateTime
+
+  @@ignore
+}
+
+model log_data_oakbarrel {
+  idx        Int      @default(autoincrement())
+  AccountIDX Int
+  NickName   String   @db.NVarChar(20)
+  UserLevel  Int
+  ItemType   Int      @default(0, map: "DF__log_data___ItemT__7E02B4CC")
+  ItemCode   Int      @default(0, map: "DF__log_data___ItemC__7EF6D905")
+  ItemValue  Int      @default(0, map: "DF__log_data___ItemV__7FEAFD3E")
+  SwordCount Int      @default(0, map: "DF__log_data___Sword__00DF2177")
+  LogType    Int      @default(0, map: "DF__log_data___LogTy__01D345B0")
+  RegDate    DateTime @default(now(), map: "DF__log_data___RegDa__02C769E9") @db.DateTime
+
+  @@id([RegDate, idx], map: "PK_log_data_oakbarrel")
+  @@index([AccountIDX], map: "NC_log_data_oakbarrel_accountIDX")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_pcroom {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.VarChar(20)
+  playTime   Int      @default(0, map: "DF__log_data___playT__04AFB25B")
+  userIP     String   @db.VarChar(15)
+  pcnum      Int      @default(0, map: "DF__log_data___pcnum__05A3D694")
+  logType    Int      @default(0, map: "DF__log_data___logTy__0697FACD")
+  pcrType    Int      @default(0, map: "DF__log_data___pcrTy__078C1F06")
+  regDate    DateTime @default(now(), map: "DF__log_data___regDa__0880433F") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_peso {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.VarChar(20)
+  peso       Int      @default(0, map: "DF__log_data_p__peso__0A688BB1")
+  logType    Int      @default(0, map: "DF__log_data___logTy__0B5CAFEA")
+  regDate    DateTime @default(now(), map: "DF__log_data___regDa__0C50D423") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_pet {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.NVarChar(20)
+  userLevel  Int      @default(0, map: "DF__log_data___userL__0E391C95")
+  petIDX     Int
+  petCode    Int      @default(0, map: "DF__log_data___petCo__0F2D40CE")
+  petRank    Int      @default(0, map: "DF__log_data___petRa__10216507") @db.TinyInt
+  petLevel   Int      @default(0, map: "DF__log_data___petLe__11158940")
+  petExp     Int      @default(0, map: "DF__log_data___petEx__1209AD79")
+  itemCode   Int      @default(0, map: "DF__log_data___itemC__12FDD1B2")
+  logType    Int      @default(0, map: "DF__log_data___logTy__13F1F5EB") @db.TinyInt
+  logSubType Int      @default(0, map: "DF__log_data___logSu__14E61A24")
+  logNote    String?  @db.VarChar(200)
+  regDate    DateTime @default(now(), map: "DF__log_data___regDa__15DA3E5D") @db.DateTime
+
+  @@index([accountIDX], map: "NX_log_data_pet_accountIDX")
+  @@index([idx], map: "NX_log_data_pet_idx")
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_piece_divide {
+  idx          Int      @default(autoincrement())
+  accountIDX   Int
+  nickName     String   @db.NVarChar(20)
+  userLevel    Int      @default(0, map: "DF__log_data___userL__17C286CF")
+  itemType     Int      @default(0, map: "DF__log_data___itemT__18B6AB08")
+  itemCode     Int      @default(0, map: "DF__log_data___itemC__19AACF41")
+  amount       Int      @default(0, map: "DF__log_data___amoun__1A9EF37A")
+  materialCode Int      @default(0, map: "DF__log_data___mater__1B9317B3")
+  regDate      DateTime @default(now(), map: "DF__log_data___regDa__1C873BEC") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_piece_mix {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.NVarChar(20)
+  userLevel  Int      @default(0, map: "DF__log_data___userL__1E6F845E")
+  mixType    Int      @default(0, map: "DF__log_data___mixTy__1F63A897") @db.SmallInt
+  mixCode    Int      @default(0, map: "DF__log_data___mixCo__2057CCD0")
+  resultType Int      @default(0, map: "DF__log_data___resul__214BF109") @db.TinyInt
+  useA       Int      @default(0, map: "DF__log_data_p__useA__22401542")
+  useB       Int      @default(0, map: "DF__log_data_p__useB__2334397B")
+  resultA    Int      @default(0, map: "DF__log_data___resul__24285DB4")
+  resultB    Int      @default(0, map: "DF__log_data___resul__251C81ED")
+  regDate    DateTime @default(now(), map: "DF__log_data___regDa__2610A626") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_piece_obtain {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.NVarChar(50)
+  userLevel  Int      @default(0, map: "DF__log_data___userL__27F8EE98")
+  playTime   Int      @default(0, map: "DF__log_data___playT__28ED12D1")
+  step       Int      @default(0, map: "DF__log_data_p__step__29E1370A") @db.TinyInt
+  amount     Int      @default(0, map: "DF__log_data___amoun__2AD55B43")
+  regDate    DateTime @default(now(), map: "DF__log_data___regDa__2BC97F7C") @db.DateTime
+
+  @@ignore
+}
+
+model log_data_play {
+  idx            Int      @default(autoincrement())
+  accountIDX     Int
+  nickName       String   @db.VarChar(20)
+  playType       Int      @default(0, map: "DF__log_data___playT__2DB1C7EE")
+  modeType       Int      @default(0, map: "DF__log_data___modeT__2EA5EC27")
+  subType1       Int      @default(0, map: "DF__log_data___subTy__2F9A1060")
+  subType2       Int      @default(0, map: "DF__log_data___subTy__308E3499")
+  playTime       Int      @default(0, map: "DF__log_data___playT__318258D2")
+  deathTime      Int      @default(0, map: "DF__log_data___death__32767D0B")
+  peso           Int      @default(0, map: "DF__log_data_p__peso__336AA144")
+  win            Int      @default(0, map: "DF__log_data_pl__win__345EC57D")
+  lose           Int      @default(0, map: "DF__log_data_p__lose__3552E9B6")
+  kill           Int      @default(0, map: "DF__log_data_p__kill__36470DEF")
+  death          Int      @default(0, map: "DF__log_data___death__373B3228")
+  roomNumber     Int      @default(0, map: "DF__log_data___roomN__382F5661")
+  contribution   Int      @default(0, map: "DF__log_data___contr__39237A9A")
+  logType        Int      @default(0, map: "DF__log_data___logTy__3A179ED3")
+  pcnum          Int      @default(0, map: "DF__log_data___pcnum__3B0BC30C")
+  blueTeamMember Int      @default(0, map: "DF__log_data___blueT__3BFFE745")
+  redTeamMember  Int      @default(0, map: "DF__log_data___redTe__3CF40B7E")
+  regDate        DateTime @default(now(), map: "DF__log_data___regDa__3DE82FB7") @db.DateTime
+
+  @@id([regDate, idx], map: "PK_log_data_play_regDate")
+  @@index([accountIDX], map: "NX_log_data_play_accountIDX")
+  @@index([logType], map: "NX_log_data_play_logType")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_play_old {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.VarChar(20)
+  playType   Int      @default(0, map: "DF__log_data___playT__3FD07829")
+  modeType   Int      @default(0, map: "DF__log_data___modeT__40C49C62")
+  subType1   Int      @default(0, map: "DF__log_data___subTy__41B8C09B")
+  subType2   Int      @default(0, map: "DF__log_data___subTy__42ACE4D4")
+  playTime   Int      @default(0, map: "DF__log_data___playT__43A1090D")
+  deathTime  Int      @default(0, map: "DF__log_data___death__44952D46")
+  peso       Int      @default(0, map: "DF__log_data_p__peso__4589517F")
+  win        Int      @default(0, map: "DF__log_data_pl__win__467D75B8")
+  lose       Int      @default(0, map: "DF__log_data_p__lose__477199F1")
+  kill       Int      @default(0, map: "DF__log_data_p__kill__4865BE2A")
+  death      Int      @default(0, map: "DF__log_data___death__4959E263")
+  logType    Int      @default(0, map: "DF__log_data___logTy__4A4E069C")
+  pcnum      Int      @default(0, map: "DF__log_data___pcnum__4B422AD5")
+  regDate    DateTime @default(now(), map: "DF__log_data___regDa__4C364F0E") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_quest {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.VarChar(20)
+  userLevel  Int      @default(0, map: "DF__log_data___userL__4E1E9780")
+  mainIDX    Int      @default(0, map: "DF__log_data___mainI__4F12BBB9")
+  subIDX     Int      @default(0, map: "DF__log_data___subID__5006DFF2")
+  logType    Int      @default(0, map: "DF__log_data___logTy__50FB042B")
+  regDate    DateTime @default(now(), map: "DF__log_data___regDa__51EF2864") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_quest_vfun {
+  idx            Int      @default(autoincrement())
+  accountIDX     Int
+  nickName       String   @db.VarChar(20)
+  userLevel      Int      @default(0, map: "DF__log_data___userL__53D770D6")
+  mainIDX        Int      @default(0, map: "DF__log_data___mainI__54CB950F")
+  subIDX         Int      @default(0, map: "DF__log_data___subID__55BFB948")
+  channelingType Int
+  success        Int
+  reason         String   @db.VarChar(256)
+  regDate        DateTime @default(now(), map: "DF__log_data___regDa__56B3DD81") @db.DateTime
+
+  @@ignore
+}
+
+model log_data_roominfo {
+  idx            Int      @default(autoincrement())
+  RoomNumber     Int      @default(0, map: "DF__log_data___RoomN__589C25F3")
+  BlueWin        Int      @default(0, map: "DF__log_data___BlueW__59904A2C")
+  BlueLose       Int      @default(0, map: "DF__log_data___BlueL__5A846E65")
+  BlueTeamMember Int      @default(0, map: "DF__log_data___BlueT__5B78929E")
+  RedWin         Int      @default(0, map: "DF__log_data___RedWi__5C6CB6D7")
+  RedLose        Int      @default(0, map: "DF__log_data___RedLo__5D60DB10")
+  RedTeamMember  Int      @default(0, map: "DF__log_data___RedTe__5E54FF49")
+  PlayType       Int      @default(0, map: "DF__log_data___PlayT__5F492382")
+  ModeType       Int      @default(0, map: "DF__log_data___ModeT__603D47BB")
+  ModeSubType    Int      @default(0, map: "DF__log_data___ModeS__61316BF4")
+  RegDate        DateTime @default(now(), map: "DF__log_data___RegDa__6225902D") @db.DateTime
+  Tier1          Int      @default(0, map: "DF__log_data___Tier1__6319B466")
+  Tier2          Int      @default(0, map: "DF__log_data___Tier2__640DD89F")
+  logType        Int      @default(0, map: "DF__log_data___logTy__6501FCD8")
+  playTime       Int      @default(0, map: "DF__log_data___playT__65F62111")
+
+  @@id([RegDate, idx], map: "PK_log_data_roominfo")
+}
+
+model log_data_spirit_change {
+  idx            Int      @default(autoincrement())
+  AccountIDX     Int
+  NickName       String   @db.NVarChar(20)
+  UserLevel      Int
+  SetSpiritCode  Int
+  SetSpiritCount Int
+  GetSpiritCode  Int
+  GetSpiritCount Int
+  CriticalType   Int      @db.TinyInt
+  regDate        DateTime @default(now(), map: "DF__log_data___regDa__67DE6983") @db.DateTime
+
+  @@id([regDate, idx], map: "PK_log_data_spirit_change")
+  @@index([AccountIDX], map: "NC_log_data_spirit_change_AccountIDX")
+}
+
+model log_data_spirit_divide {
+  idx            Int      @default(autoincrement())
+  AccountIDX     Int
+  NickName       String   @db.NVarChar(20)
+  UserLevel      Int
+  HeroType       Int
+  SpiritCode     Int
+  SpiritCount    Int
+  SoulStoneCount Int
+  CriticalType   Int      @db.TinyInt
+  regDate        DateTime @default(now(), map: "DF__log_data___regDa__69C6B1F5") @db.DateTime
+
+  @@id([regDate, idx], map: "PK_log_data_spirit_divide")
+  @@index([AccountIDX], map: "NC_log_data_spirit_divide_AccountIDX")
+}
+
+model log_data_spirit_mix {
+  idx                Int      @default(autoincrement())
+  AccountIDX         Int
+  NickName           String   @db.NVarChar(20)
+  UserLevel          Int
+  HeroType           Int
+  SpiritCode         Int
+  SpiritCount        Int
+  UnknownSpiritCode  Int
+  UnknownSpiritCount Int
+  regDate            DateTime @default(now(), map: "DF__log_data___regDa__6BAEFA67") @db.DateTime
+
+  @@id([regDate, idx], map: "PK_log_data_spirit_mix")
+  @@index([AccountIDX], map: "NC_log_data_spirit_mix_AccountIDX")
+}
+
+model log_data_spirit_obtain {
+  idx         Int      @default(autoincrement())
+  AccountIDX  Int
+  NickName    String   @db.NVarChar(20)
+  UserLevel   Int
+  SpiritCode  Int
+  SpiritCount Int
+  Value       Int
+  logType     Int      @db.TinyInt
+  regDate     DateTime @default(now(), map: "DF__log_data___regDa__6D9742D9") @db.DateTime
+
+  @@id([regDate, idx], map: "PK_log_data_spirit_obtain")
+  @@index([AccountIDX, logType], map: "NC_log_data_spirit_obtain_AccountIDX")
+}
+
+model log_data_spirit_peso {
+  idx            Int      @default(autoincrement())
+  AccountIDX     Int
+  NickName       String   @db.NVarChar(20)
+  UserLevel      Int
+  PieceCount     Int
+  DimensionCount Int
+  Peso           Int
+  regDate        DateTime @default(now(), map: "DF__log_data___regDa__6F7F8B4B") @db.DateTime
+
+  @@id([regDate, idx], map: "PK_log_data_spirit_peso")
+  @@index([AccountIDX], map: "NC_log_data_spirit_peso_AccountIDX")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_time {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.VarChar(20)
+  playTime   Int      @default(0, map: "DF__log_data___playT__7167D3BD")
+  logType    Int      @default(0, map: "DF__log_data___logTy__725BF7F6")
+  regDate    DateTime @default(now(), map: "DF__log_data___regDa__73501C2F") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_trade {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickname   String   @db.VarChar(20)
+  itemType   Int      @default(0, map: "DF__log_data___itemT__753864A1")
+  value1     Int      @default(0, map: "DF__log_data___value__762C88DA")
+  value2     Int      @default(0, map: "DF__log_data___value__7720AD13")
+  price      BigInt   @default(0, map: "DF__log_data___price__7814D14C")
+  logType    Int      @default(0, map: "DF__log_data___logTy__7908F585")
+  userIP     String?  @db.VarChar(16)
+  note       String?  @db.VarChar(100)
+  regDate    DateTime @default(now(), map: "DF__log_data___regDa__79FD19BE") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_data_tutorial {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.VarChar(20)
+  step       Int      @default(0, map: "DF__log_data_t__step__7BE56230")
+  playTime   Int      @default(0, map: "DF__log_data___playT__7CD98669")
+  regDate    DateTime @default(now(), map: "DF__log_data___regDa__7DCDAAA2") @db.DateTime
+
+  @@ignore
+}
+
+model log_define {
+  objName    String  @db.VarChar(32)
+  code       Int
+  itemNameKO String? @db.VarChar(100)
+  itemNameID String? @db.VarChar(100)
+  itemNameEN String? @db.VarChar(100)
+
+  @@id([objName, code], map: "PK_define_manage")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_error_billing {
+  idx     Int      @default(autoincrement())
+  cpType  Int      @default(0, map: "DF__log_error__cpTyp__00AA174D") @db.SmallInt
+  errType Int      @default(0, map: "DF__log_error__errTy__019E3B86")
+  note    String   @db.VarChar(200)
+  regDate DateTime @default(now(), map: "DF__log_error__regDa__02925FBF") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_event_bingo {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.NVarChar(20)
+  choiceType Int      @default(0, map: "DF__log_event__choic__047AA831") @db.TinyInt
+  number     Int      @default(0, map: "DF__log_event__numbe__056ECC6A") @db.TinyInt
+  stateType  Int      @default(0, map: "DF__log_event__state__0662F0A3") @db.TinyInt
+  regDate    DateTime @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_event_cash {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickName   String   @db.NVarChar(20)
+  userLevel  Int      @default(0, map: "DF__log_event__userL__084B3915")
+  itemCode   Int      @default(0, map: "DF__log_event__itemC__093F5D4E")
+  amount     Int      @default(0, map: "DF__log_event__amoun__0A338187")
+  eventType  Int      @default(0, map: "DF__log_event__event__0B27A5C0") @db.TinyInt
+  userIP     String   @db.NVarChar(16)
+  regDate    DateTime @default(now(), map: "DF__log_event__regDa__0C1BC9F9") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Log_game_concurrent {
+  idx        Int      @default(autoincrement())
+  serverID   BigInt   @default(0, map: "DF__Log_game___serve__0E04126B")
+  serverIP   String   @db.VarChar(15)
+  serverPort Int
+  serverName String?  @db.VarChar(32)
+  concurrent Int      @default(0, map: "DF__Log_game___concu__0EF836A4")
+  cpType     Int      @default(0, map: "DF__Log_game___cpTyp__0FEC5ADD") @db.SmallInt
+  regDate    DateTime @default(now(), map: "DF__Log_game___regDa__10E07F16") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Log_play_character {
+  idx            Int      @default(autoincrement())
+  userID         String   @db.VarChar(12)
+  playType       Int      @default(0, map: "DF__Log_play___playT__12C8C788")
+  modeType       Int      @default(0, map: "DF__Log_play___modeT__13BCEBC1")
+  sub1Type       Int      @default(0, map: "DF__Log_play___sub1T__14B10FFA")
+  sub2Type       Int      @default(0, map: "DF__Log_play___sub2T__15A53433")
+  playTime       Int      @default(0, map: "DF__Log_play___playT__1699586C")
+  characterType  Int      @default(0, map: "DF__Log_play___chara__178D7CA5")
+  cnt_kill       Int      @default(0, map: "DF__Log_play___cnt_k__1881A0DE")
+  cnt_killed     Int      @default(0, map: "DF__Log_play___cnt_k__1975C517")
+  cnt_selfkilled Int      @default(0, map: "DF__Log_play___cnt_s__1A69E950")
+  regDate        DateTime @default(now(), map: "DF__Log_play___regDa__1B5E0D89") @db.DateTime
+
+  @@index([userID], map: "idx_userID")
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Log_play_game {
+  idx              Int      @default(autoincrement())
+  userID           String   @db.VarChar(12)
+  playType         Int      @default(0, map: "DF__Log_play___playT__1D4655FB")
+  modeType         Int      @default(0, map: "DF__Log_play___modeT__1E3A7A34")
+  sub1Type         Int      @default(0, map: "DF__Log_play___sub1T__1F2E9E6D")
+  sub2Type         Int      @default(0, map: "DF__Log_play___sub2T__2022C2A6")
+  playTime         Int      @default(0, map: "DF__Log_play___playT__2116E6DF")
+  deathTime        Int      @default(0, map: "DF__Log_play___death__220B0B18")
+  basicPeso        Int      @default(0, map: "DF__Log_play___basic__22FF2F51")
+  total_peso       Int      @default(0, map: "DF__Log_play___total__23F3538A")
+  total_emblem     Int      @default(0, map: "DF__Log_play___total__24E777C3")
+  total_play_num   Int      @default(0, map: "DF__Log_play___total__25DB9BFC")
+  total_round      Int      @default(0, map: "DF__Log_play___total__26CFC035")
+  total_contribute Int      @default(0, map: "DF__Log_play___total__27C3E46E")
+  total_win        Int      @default(0, map: "DF__Log_play___total__28B808A7")
+  total_lose       Int      @default(0, map: "DF__Log_play___total__29AC2CE0")
+  cnt_kill         Int      @default(0, map: "DF__Log_play___cnt_k__2AA05119")
+  cnt_killed       Int      @default(0, map: "DF__Log_play___cnt_k__2B947552")
+  cnt_selfkilled   Int      @default(0, map: "DF__Log_play___cnt_s__2C88998B")
+  logType          Int      @default(0, map: "DF__Log_play___logTy__2D7CBDC4")
+  regDate          DateTime @default(now(), map: "DF__Log_play___regDa__2E70E1FD") @db.DateTime
+
+  @@index([userID], map: "idx_userID")
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Log_play_tutorial {
+  idx      Int      @default(autoincrement())
+  userID   String   @db.VarChar(12)
+  step     Int      @default(0, map: "DF__Log_play_t__step__30592A6F")
+  playTime Int      @default(0, map: "DF__Log_play___playT__314D4EA8")
+  regDate  DateTime @default(now(), map: "DF__Log_play___regDa__324172E1") @db.DateTime
+
+  @@index([userID], map: "idx_userID")
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_present {
+  idx         Int      @default(autoincrement())
+  accountIDX  Int
+  nickname    String   @db.VarChar(20)
+  receiveIDX  Int
+  presentType Int      @default(0, map: "DF__log_prese__prese__3429BB53") @db.SmallInt
+  value1      Int      @default(0, map: "DF__log_prese__value__351DDF8C")
+  value2      Int      @default(0, map: "DF__log_prese__value__361203C5")
+  eventType   Int      @default(0, map: "DF__log_prese__event__370627FE")
+  userIP      String   @db.VarChar(15)
+  note        String?  @db.VarChar(100)
+  regDate     DateTime @default(now(), map: "DF__log_prese__regDa__37FA4C37") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Log_system_info {
+  idx        Int      @default(autoincrement())
+  logType    String?  @db.VarChar(32)
+  serverIP   String?  @db.VarChar(15)
+  concurrent Int?
+  cpu        Int?
+  memory     Int?
+  regDate    DateTime @default(now(), map: "DF__Log_syste__regDa__39E294A9") @db.DateTime
+
+  @@index([logType], map: "idx_logType")
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model log_temp_bckim {
+  accountIDX  Int?
+  regdate     DateTime? @db.DateTime
+  regdate_str String?   @db.VarChar(10)
+
+  @@ignore
+}
+
+model log_trace_prisoner_option {
+  idx              Int      @default(autoincrement())
+  BlueMember       Int      @default(0, map: "DF__log_trace__BlueM__3CBF0154")
+  RedMember        Int      @default(0, map: "DF__log_trace__RedMe__3DB3258D")
+  BlueMaxMember    Int      @default(0, map: "DF__log_trace__BlueM__3EA749C6")
+  RedMaxMember     Int      @default(0, map: "DF__log_trace__RedMa__3F9B6DFF")
+  TeamMixOption    Int      @default(0, map: "DF__log_trace__TeamM__408F9238")
+  regDate          DateTime @default(now(), map: "DF__log_trace__regDa__4183B671") @db.DateTime
+  closedRoomOption Int      @default(0, map: "DF__log_trace__close__4277DAAA")
+  userModeOption   Int      @default(0, map: "DF__log_trace__userM__436BFEE3")
+
+  @@id([regDate, idx], map: "PK_log_trace_prisoner_option")
+}
+
+model log_trace_prisoner_start {
+  idx        Int      @default(autoincrement())
+  ServerID   BigInt   @default(0, map: "DF__log_trace__Serve__45544755")
+  MakeRoom   Int      @default(0, map: "DF__log_trace__MakeR__46486B8E")
+  QuickStart Int      @default(0, map: "DF__log_trace__Quick__473C8FC7")
+  ListSelect Int      @default(0, map: "DF__log_trace__ListS__4830B400")
+  RegDate    DateTime @default(now(), map: "DF__log_trace__RegDa__4924D839") @db.DateTime
+
+  @@id([RegDate, idx], map: "PK_log_trace_prisoner_start")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model Log_use_item {
+  idx        Int      @default(autoincrement())
+  accountIDX Int
+  nickname   String   @db.VarChar(20)
+  itemType   Int      @default(0, map: "DF__Log_use_i__itemT__4B0D20AB")
+  itemCode   Int      @default(0, map: "DF__Log_use_i__itemC__4C0144E4")
+  rowIDX     Int      @default(0, map: "DF__Log_use_i__rowID__4CF5691D")
+  colIDX     Int      @default(0, map: "DF__Log_use_i__colID__4DE98D56")
+  userIP     String   @db.VarChar(15)
+  note       String?  @db.VarChar(200)
+  regDate    DateTime @default(now(), map: "DF__Log_use_i__regDa__4EDDB18F") @db.DateTime
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model LosaGamelog_TEMP_QUEST_LOGIN_BCKIM {
+  AccountIDX    Int
+  Term_05220612 Int? @default(0, map: "DF__LosaGamel__Term___50C5FA01")
+  Term_06120619 Int? @default(0, map: "DF__LosaGamel__Term___51BA1E3A")
+  Term_05220619 Int? @default(0, map: "DF__LosaGamel__Term___52AE4273")
+  progress      Int? @default(0, map: "DF__LosaGamel__progr__53A266AC")
+  result        Int? @default(0, map: "DF__LosaGamel__resul__54968AE5")
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model LosaGamelog_TEMP_QUEST_LOGIN_BCKIM_logdate {
+  AccountIDX Int
+  logincnt   Int
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model LosaGamelog_TEMP_QUEST_LOGIN_BCKIM_progress {
+  AccountIDX Int
+  progress   Int?
+
+  @@ignore
+}
+
+model SQL_ERROR_LOG {
+  ErrorID        Int      @id(map: "PK__SQL_ERRO__358565CA0E2B5780") @default(autoincrement())
+  AccountIDX     Int
+  ErrorNo        Int
+  ErrorProcedure String?  @db.VarChar(50)
+  ErrorLine      Int?
+  ErrorServerity Int?
+  ErrorState     Int?
+  ErrorMessage   String   @db.VarChar(500)
+  ErrorTime      DateTime @default(now(), map: "DF__SQL_ERROR__Error__58671BC9") @db.DateTime
+}
+
+model TBL_LOG_HACK {
+  idx        Int      @default(autoincrement())
+  AccountIDX Int
+  NickName   String   @db.NVarChar(20)
+  UserLevel  Int      @default(0, map: "DF__TBL_LOG_H__UserL__5A4F643B")
+  PlayType   Int      @default(0, map: "DF__TBL_LOG_H__PlayT__5B438874")
+  ModeType   Int      @default(0, map: "DF__TBL_LOG_H__ModeT__5C37ACAD")
+  SubType1   Int      @default(0, map: "DF__TBL_LOG_H__SubTy__5D2BD0E6")
+  SubType2   Int      @default(0, map: "DF__TBL_LOG_H__SubTy__5E1FF51F")
+  ItemType   Int      @default(0, map: "DF__TBL_LOG_H__ItemT__5F141958")
+  ItemCode   Int      @default(0, map: "DF__TBL_LOG_H__ItemC__60083D91")
+  ItemValue  Int      @default(0, map: "DF__TBL_LOG_H__ItemV__60FC61CA")
+  RegDate    DateTime @default(now(), map: "DF__TBL_LOG_H__RegDa__61F08603") @db.DateTime
+
+  @@id([RegDate, idx], map: "PK_TBL_LOG_HACK")
+  @@index([AccountIDX], map: "NC_TBL_LOG_HACK_AccountIDX")
+}
+
+model TBL_LOG_HACK_MESSAGE {
+  idx        Int      @default(autoincrement())
+  AccountIDX Int
+  Msg        String
+  RegDate    DateTime @default(now(), map: "DF__TBL_LOG_H__RegDa__63D8CE75") @db.DateTime
+
+  @@id([RegDate, idx], map: "PK_TBL_LOG_HACK_MESSAGE")
+  @@index([AccountIDX], map: "NC_TBL_LOG_HACK_MESSAGE_AccountIDX")
+}

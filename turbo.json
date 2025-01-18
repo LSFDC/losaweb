@@ -1,0 +1,37 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "losagame:generate": {
+      "cache": false
+    },
+    "losalogdata:generate": {
+      "cache": false
+    },
+
+    "build": {
+      "dependsOn": ["^build", "^losagame:generate", "^losalogdata:generate"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [".next/**", "!.next/cache/**", "/dist/**"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
+    },
+    "dev": {
+      "env": ["LOSAGAME_URL", "LOSALOGDATA_URL"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env.development.local",
+        ".env.local",
+        ".env.development",
+        ".env"
+      ],
+      "dependsOn": ["^losagame:generate", "^losalogdata:generate"],
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

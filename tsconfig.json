@@ -1,0 +1,3 @@
+{
+  "extends": "@losaweb/typescript-config/base.json"
+}

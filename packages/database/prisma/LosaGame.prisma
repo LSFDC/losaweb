@@ -1,0 +1,2825 @@
+generator client {
+    provider = "prisma-client-js"
+    output   = "../node_modules/.prisma/client/losagame"
+}
+
+datasource db {
+    provider = "sqlserver"
+    url      = env("LOSAGAME_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model define_award {
+    idx               Int    @db.SmallInt
+    awardHanName      String @db.VarChar(32)
+    awardEngName      String @db.VarChar(32)
+    limitrankingPoint Int
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model define_blockIP {
+    idx     Int       @default(autoincrement())
+    userID  String?   @db.NChar(10)
+    userIP  String    @db.VarChar(15)
+    endDate DateTime? @default(dbgenerated("2050-01-01"), map: "DF__define_bl__endDa__49C3F6B7") @db.DateTime
+    note    String?
+    regDate DateTime  @default(now(), map: "DF__define_bl__regDa__4AB81AF0") @db.DateTime
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model define_class {
+    idx               Int    @db.SmallInt
+    classHanName      String @db.VarChar(32)
+    classEngName      String @db.VarChar(32)
+    movieorderby      Int    @db.SmallInt
+    limitrankingLevel Int    @default(0, map: "DF__define_cl__limit__4CA06362") @db.TinyInt
+    limituseLevel     Int    @default(0, map: "DF__define_cl__limit__4D94879B") @db.SmallInt
+    premiumType       Int    @default(0, map: "DF__define_cl__premi__4E88ABD4") @db.TinyInt
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model define_class_price {
+    idx            Int      @default(autoincrement())
+    class1_price   Int      @default(0, map: "DF__define_cl__class__5070F446")
+    class2_price   Int      @default(0, map: "DF__define_cl__class__5165187F")
+    class3_price   Int      @default(0, map: "DF__define_cl__class__52593CB8")
+    class4_price   Int      @default(0, map: "DF__define_cl__class__534D60F1")
+    class5_price   Int      @default(0, map: "DF__define_cl__class__5441852A")
+    class6_price   Int      @default(0, map: "DF__define_cl__class__5535A963")
+    class7_price   Int      @default(0, map: "DF__define_cl__class__5629CD9C")
+    class8_price   Int      @default(0, map: "DF__define_cl__class__571DF1D5")
+    class9_price   Int      @default(0, map: "DF__define_cl__class__5812160E")
+    class10_price  Int      @default(0, map: "DF__define_cl__class__59063A47")
+    class11_price  Int      @default(0, map: "DF__define_cl__class__59FA5E80")
+    class12_price  Int      @default(0, map: "DF__define_cl__class__5AEE82B9")
+    class13_price  Int      @default(0, map: "DF__define_cl__class__5BE2A6F2")
+    class14_price  Int      @default(0, map: "DF__define_cl__class__5CD6CB2B")
+    class15_price  Int      @default(0, map: "DF__define_cl__class__5DCAEF64")
+    class16_price  Int      @default(0, map: "DF__define_cl__class__5EBF139D")
+    class17_price  Int      @default(0, map: "DF__define_cl__class__5FB337D6")
+    class18_price  Int      @default(0, map: "DF__define_cl__class__60A75C0F")
+    class19_price  Int      @default(0, map: "DF__define_cl__class__619B8048")
+    class20_price  Int      @default(0, map: "DF__define_cl__class__628FA481")
+    class21_price  Int      @default(0, map: "DF__define_cl__class__6383C8BA")
+    class22_price  Int      @default(0, map: "DF__define_cl__class__6477ECF3")
+    class23_price  Int      @default(0, map: "DF__define_cl__class__656C112C")
+    class24_price  Int      @default(0, map: "DF__define_cl__class__66603565")
+    class25_price  Int      @default(0, map: "DF__define_cl__class__6754599E")
+    class26_price  Int      @default(0, map: "DF__define_cl__class__68487DD7")
+    class27_price  Int      @default(0, map: "DF__define_cl__class__693CA210")
+    class28_price  Int      @default(0, map: "DF__define_cl__class__6A30C649")
+    class29_price  Int      @default(0, map: "DF__define_cl__class__6B24EA82")
+    class30_price  Int      @default(0, map: "DF__define_cl__class__6C190EBB")
+    class31_price  Int      @default(0, map: "DF__define_cl__class__6D0D32F4")
+    class32_price  Int      @default(0, map: "DF__define_cl__class__6E01572D")
+    class33_price  Int      @default(0, map: "DF__define_cl__class__6EF57B66")
+    class34_price  Int      @default(0, map: "DF__define_cl__class__6FE99F9F")
+    class35_price  Int      @default(0, map: "DF__define_cl__class__70DDC3D8")
+    class36_price  Int      @default(0, map: "DF__define_cl__class__71D1E811")
+    class37_price  Int      @default(0, map: "DF__define_cl__class__72C60C4A")
+    class38_price  Int      @default(0, map: "DF__define_cl__class__73BA3083")
+    class39_price  Int      @default(0, map: "DF__define_cl__class__74AE54BC")
+    class40_price  Int      @default(0, map: "DF__define_cl__class__75A278F5")
+    class41_price  Int      @default(0, map: "DF__define_cl__class__76969D2E")
+    class42_price  Int      @default(0, map: "DF__define_cl__class__778AC167")
+    class43_price  Int      @default(0, map: "DF__define_cl__class__787EE5A0")
+    class44_price  Int      @default(0, map: "DF__define_cl__class__797309D9")
+    class45_price  Int      @default(0, map: "DF__define_cl__class__7A672E12")
+    class46_price  Int      @default(0, map: "DF__define_cl__class__7B5B524B")
+    class47_price  Int      @default(0, map: "DF__define_cl__class__7C4F7684")
+    class48_price  Int      @default(0, map: "DF__define_cl__class__7D439ABD")
+    class49_price  Int      @default(0, map: "DF__define_cl__class__7E37BEF6")
+    class50_price  Int      @default(0, map: "DF__define_cl__class__7F2BE32F")
+    class51_price  Int      @default(0, map: "DF__define_cl__class__00200768")
+    class52_price  Int      @default(0, map: "DF__define_cl__class__01142BA1")
+    class53_price  Int      @default(0, map: "DF__define_cl__class__02084FDA")
+    class54_price  Int      @default(0, map: "DF__define_cl__class__02FC7413")
+    class55_price  Int      @default(0, map: "DF__define_cl__class__03F0984C")
+    class56_price  Int      @default(0, map: "DF__define_cl__class__04E4BC85")
+    class57_price  Int      @default(0, map: "DF__define_cl__class__05D8E0BE")
+    class58_price  Int      @default(0, map: "DF__define_cl__class__06CD04F7")
+    class59_price  Int      @default(0, map: "DF__define_cl__class__07C12930")
+    class60_price  Int      @default(0, map: "DF__define_cl__class__08B54D69")
+    class61_price  Int      @default(0, map: "DF__define_cl__class__09A971A2")
+    class62_price  Int      @default(0, map: "DF__define_cl__class__0A9D95DB")
+    class63_price  Int      @default(0, map: "DF__define_cl__class__0B91BA14")
+    class64_price  Int      @default(0, map: "DF__define_cl__class__0C85DE4D")
+    class65_price  Int      @default(0, map: "DF__define_cl__class__0D7A0286")
+    class66_price  Int      @default(0, map: "DF__define_cl__class__0E6E26BF")
+    class67_price  Int      @default(0, map: "DF__define_cl__class__0F624AF8")
+    class68_price  Int      @default(0, map: "DF__define_cl__class__10566F31")
+    class69_price  Int      @default(0, map: "DF__define_cl__class__114A936A")
+    class70_price  Int      @default(0, map: "DF__define_cl__class__123EB7A3")
+    class71_price  Int      @default(0, map: "DF__define_cl__class__1332DBDC")
+    class72_price  Int      @default(0, map: "DF__define_cl__class__14270015")
+    class73_price  Int      @default(0, map: "DF__define_cl__class__151B244E")
+    class74_price  Int      @default(0, map: "DF__define_cl__class__160F4887")
+    class75_price  Int      @default(0, map: "DF__define_cl__class__17036CC0")
+    class76_price  Int      @default(0, map: "DF__define_cl__class__17F790F9")
+    class77_price  Int      @default(0, map: "DF__define_cl__class__18EBB532")
+    class78_price  Int      @default(0, map: "DF__define_cl__class__19DFD96B")
+    class79_price  Int      @default(0, map: "DF__define_cl__class__1AD3FDA4")
+    class80_price  Int      @default(0, map: "DF__define_cl__class__1BC821DD")
+    class81_price  Int      @default(0, map: "DF__define_cl__class__1CBC4616")
+    class82_price  Int      @default(0, map: "DF__define_cl__class__1DB06A4F")
+    class83_price  Int      @default(0, map: "DF__define_cl__class__1EA48E88")
+    class84_price  Int      @default(0, map: "DF__define_cl__class__1F98B2C1")
+    class85_price  Int      @default(0, map: "DF__define_cl__class__208CD6FA")
+    class86_price  Int      @default(0, map: "DF__define_cl__class__2180FB33")
+    class87_price  Int      @default(0, map: "DF__define_cl__class__22751F6C")
+    class88_price  Int      @default(0, map: "DF__define_cl__class__236943A5")
+    class89_price  Int      @default(0, map: "DF__define_cl__class__245D67DE")
+    class90_price  Int      @default(0, map: "DF__define_cl__class__25518C17")
+    class91_price  Int      @default(0, map: "DF__define_cl__class__2645B050")
+    class92_price  Int      @default(0, map: "DF__define_cl__class__2739D489")
+    class93_price  Int      @default(0, map: "DF__define_cl__class__282DF8C2")
+    class94_price  Int      @default(0, map: "DF__define_cl__class__29221CFB")
+    class95_price  Int      @default(0, map: "DF__define_cl__class__2A164134")
+    class96_price  Int      @default(0, map: "DF__define_cl__class__2B0A656D")
+    class97_price  Int      @default(0, map: "DF__define_cl__class__2BFE89A6")
+    class98_price  Int      @default(0, map: "DF__define_cl__class__2CF2ADDF")
+    class99_price  Int      @default(0, map: "DF__define_cl__class__2DE6D218")
+    class100_price Int      @default(0, map: "DF__define_cl__class__2EDAF651")
+    class101_price Int      @default(0, map: "DF__define_cl__class__2FCF1A8A")
+    class102_price Int      @default(0, map: "DF__define_cl__class__30C33EC3")
+    class103_price Int      @default(0, map: "DF__define_cl__class__31B762FC")
+    class104_price Int      @default(0, map: "DF__define_cl__class__32AB8735")
+    class105_price Int      @default(0, map: "DF__define_cl__class__339FAB6E")
+    class106_price Int      @default(0, map: "DF__define_cl__class__3493CFA7")
+    class107_price Int      @default(0, map: "DF__define_cl__class__3587F3E0")
+    class108_price Int      @default(0, map: "DF__define_cl__class__367C1819")
+    class109_price Int      @default(0, map: "DF__define_cl__class__37703C52")
+    class110_price Int      @default(0, map: "DF__define_cl__class__3864608B")
+    class111_price Int      @default(0, map: "DF__define_cl__class__395884C4")
+    class112_price Int      @default(0, map: "DF__define_cl__class__3A4CA8FD")
+    class113_price Int      @default(0, map: "DF__define_cl__class__3B40CD36")
+    class114_price Int      @default(0, map: "DF__define_cl__class__3C34F16F")
+    class115_price Int      @default(0, map: "DF__define_cl__class__3D2915A8")
+    class116_price Int      @default(0, map: "DF__define_cl__class__3E1D39E1")
+    class117_price Int      @default(0, map: "DF__define_cl__class__3F115E1A")
+    class118_price Int      @default(0, map: "DF__define_cl__class__40058253")
+    class119_price Int      @default(0, map: "DF__define_cl__class__40F9A68C")
+    class120_price Int      @default(0, map: "DF__define_cl__class__41EDCAC5")
+    class121_price Int      @default(0, map: "DF__define_cl__class__42E1EEFE")
+    class122_price Int      @default(0, map: "DF__define_cl__class__43D61337")
+    class123_price Int      @default(0, map: "DF__define_cl__class__44CA3770")
+    class124_price Int      @default(0, map: "DF__define_cl__class__45BE5BA9")
+    class125_price Int      @default(0, map: "DF__define_cl__class__46B27FE2")
+    class126_price Int      @default(0, map: "DF__define_cl__class__47A6A41B")
+    class127_price Int      @default(0, map: "DF__define_cl__class__489AC854")
+    class128_price Int      @default(0, map: "DF__define_cl__class__498EEC8D")
+    class129_price Int      @default(0, map: "DF__define_cl__class__4A8310C6")
+    class130_price Int      @default(0, map: "DF__define_cl__class__4B7734FF")
+    class131_price Int      @default(0, map: "DF__define_cl__class__4C6B5938")
+    class132_price Int      @default(0, map: "DF__define_cl__class__4D5F7D71")
+    class133_price Int      @default(0, map: "DF__define_cl__class__4E53A1AA")
+    class134_price Int      @default(0, map: "DF__define_cl__class__4F47C5E3")
+    class135_price Int      @default(0, map: "DF__define_cl__class__503BEA1C")
+    class136_price Int      @default(0, map: "DF__define_cl__class__51300E55")
+    class137_price Int      @default(0, map: "DF__define_cl__class__5224328E")
+    class138_price Int      @default(0, map: "DF__define_cl__class__531856C7")
+    class139_price Int      @default(0, map: "DF__define_cl__class__540C7B00")
+    class140_price Int      @default(0, map: "DF__define_cl__class__55009F39")
+    class141_price Int      @default(0, map: "DF__define_cl__class__55F4C372")
+    class142_price Int      @default(0, map: "DF__define_cl__class__56E8E7AB")
+    class143_price Int      @default(0, map: "DF__define_cl__class__57DD0BE4")
+    class144_price Int      @default(0, map: "DF__define_cl__class__58D1301D")
+    class145_price Int      @default(0, map: "DF__define_cl__class__59C55456")
+    class146_price Int      @default(0, map: "DF__define_cl__class__5AB9788F")
+    class147_price Int      @default(0, map: "DF__define_cl__class__5BAD9CC8")
+    class148_price Int      @default(0, map: "DF__define_cl__class__5CA1C101")
+    class149_price Int      @default(0, map: "DF__define_cl__class__5D95E53A")
+    class150_price Int      @default(0, map: "DF__define_cl__class__5E8A0973")
+    regDate        DateTime @default(now(), map: "DF__define_cl__regDa__5F7E2DAC") @db.DateTime
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model define_config {
+    idx     Int      @default(autoincrement())
+    objName String   @db.VarChar(32)
+    value1  String   @db.VarChar(200)
+    value2  String?  @db.VarChar(200)
+    value3  String?  @db.VarChar(200)
+    value4  String?  @db.VarChar(200)
+    value5  String?  @db.VarChar(200)
+    note    String?  @db.VarChar(200)
+    regDate DateTime @default(now(), map: "DF__define_co__regDa__6166761E") @db.DateTime
+
+    @@index([objName], map: "idx_objName")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model define_encode_key {
+    idx       Int      @default(autoincrement())
+    encodeKey String   @db.Char(15)
+    regDate   DateTime @default(now(), map: "DF__define_en__regDa__634EBE90") @db.DateTime
+
+    @@ignore
+}
+
+model define_game_server {
+    idx        Int      @default(autoincrement())
+    serverID   BigInt   @id(map: "PK_define_game_server") @default(0, map: "DF__define_ga__serve__65370702")
+    serverIP   String   @db.VarChar(15)
+    serverPort Int
+    serverName String?  @db.VarChar(50)
+    clientPort Int
+    connNumber Int      @default(0, map: "DF__define_ga__connN__662B2B3B")
+    status     Int      @default(0, map: "DF__define_ga__statu__671F4F74") @db.TinyInt
+    regDate    DateTime @default(now(), map: "DF__define_ga__regDa__681373AD") @db.DateTime
+
+    @@index([connNumber], map: "idx_connNumber")
+    @@index([serverIP], map: "idx_serverIP")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model define_gear_customidx {
+    idx        Int @default(autoincrement())
+    accountIDX Int @default(0, map: "DF__define_ge__accou__69FBBC1F")
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model define_geoip {
+    sip         String @db.VarChar(16)
+    eip         String @db.VarChar(16)
+    sbwv        BigInt
+    ebwv        BigInt
+    country     String @db.VarChar(4)
+    countryname String @db.VarChar(100)
+
+    @@ignore
+}
+
+model define_hero_price {
+    HeroCode  Int @id(map: "PK_define_hero_price") @default(0, map: "DF__define_he__HeroC__6CD828CA")
+    HeroPrice Int @default(0, map: "DF__define_he__HeroP__6DCC4D03")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model define_manage {
+    idx      Int     @default(autoincrement())
+    objName  String  @db.VarChar(32)
+    code     Int?
+    itemName String? @db.VarChar(32)
+
+    @@ignore
+}
+
+model define_medal {
+    idx       Int
+    medalCode Int      @id(map: "PK_define_medal")
+    eng_name  String   @db.VarChar(20)
+    point     Int      @default(0, map: "DF__define_me__point__70A8B9AE")
+    title     String   @db.VarChar(64)
+    content1  String   @db.VarChar(400)
+    content2  String   @db.VarChar(400)
+    regDate   DateTime @default(now(), map: "DF__define_me__regDa__719CDDE7") @db.DateTime
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model define_quest {
+    idx      Int     @default(autoincrement())
+    questIDX Int
+    title    String  @db.VarChar(100)
+    progress String  @db.VarChar(100)
+    content1 String? @db.VarChar(150)
+    content2 String? @db.VarChar(150)
+    content3 String? @db.VarChar(150)
+    content4 String? @db.VarChar(150)
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model define_site_config {
+    idx     Int      @default(autoincrement())
+    objName String   @db.VarChar(32)
+    content String   @db.VarChar(32)
+    note    String?  @db.VarChar(300)
+    regDate DateTime @default(now(), map: "DF__define_si__regDa__74794A92") @db.DateTime
+
+    @@index([content], map: "idx_content")
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model define_zipcode {
+    zipcode String? @db.VarChar(8)
+    sido    String? @db.NVarChar(50)
+    gugun   String? @db.NVarChar(50)
+    dong    String? @db.NVarChar(50)
+    ri      String? @db.NVarChar(50)
+    bldg    String? @db.NVarChar(50)
+    bunji   String? @db.NVarChar(50)
+    seq     String? @db.NVarChar(50)
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model event_chuchun {
+    idx        Int      @default(autoincrement())
+    accountIDX Int
+    friendIDX  Int
+    flag       Int      @default(0, map: "DF__event_chuc__flag__7755B73D") @db.TinyInt
+    userIP     String   @db.VarChar(15)
+    userType   Int      @default(0, map: "DF__event_chu__userT__7849DB76") @db.TinyInt
+    itemFlag   Int      @default(0, map: "DF__event_chu__itemF__793DFFAF") @db.TinyInt
+    cpID       String?  @db.NVarChar(32)
+    cpType     Int      @default(0, map: "DF__event_chu__cpTyp__7A3223E8")
+    regDate    DateTime @default(now(), map: "DF__event_chu__regDa__7B264821") @db.DateTime
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model event_chuchun_conndate {
+    accountIDX Int
+    connDate   DateTime @db.DateTime
+
+    @@ignore
+}
+
+model event_item_limited {
+    AccountIDX Int
+    EventType  Int @db.TinyInt
+    GoodsIndex Int
+    GoodsCount Int @db.TinyInt
+
+    @@id([AccountIDX, EventType, GoodsIndex], map: "PK_event_item_limited_AccountIDX")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model itemCode {
+    idx       Int    @default(autoincrement())
+    itemType  Float?
+    itemCode  Float?
+    itemValue Float?
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model LOSA_PRIVATE_UserInfo {
+    userID   String? @db.VarChar(12)
+    UserName String? @db.VarChar(10)
+    email    String? @db.VarChar(50)
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model mannerUserID {
+    accountIDX Int?
+    bonus      Int?
+    cnt        Int?
+
+    @@ignore
+}
+
+model TB_LTS_WEEKTIME {
+    userID    String @db.VarChar(25)
+    GmtCodeNo Int
+    Wday      Int    @db.TinyInt
+    Wtime     Int    @db.TinyInt
+
+    @@id([userID, GmtCodeNo, Wday, Wtime], map: "PK_TB_LTS_WEEKTIME")
+}
+
+model TB_LTS_WEEKTIME_PARENT_CHILD_INFO {
+    PARENT_ID  String    @db.VarChar(25)
+    CHILD_ID   String    @db.VarChar(25)
+    Agree_Type String?   @default("N", map: "DF__TB_LTS_WE__Agree__02C769E9") @db.Char(1)
+    AgreeDate  DateTime? @db.DateTime
+    RegIP      String?   @db.VarChar(15)
+    RegDate    DateTime? @default(now(), map: "DF__TB_LTS_WE__RegDa__03BB8E22") @db.DateTime
+
+    @@id([PARENT_ID, CHILD_ID], map: "PK_TB_LTS_WEEKTIME_PARENT_CHILD_INFO", clustered: false)
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model TB_WEEKTIME {
+    wday  Int @db.TinyInt
+    wtime Int @db.TinyInt
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model TEMP_MONTHLY_MANNER_USER {
+    AccountIDX Int?
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userAbilityDB {
+    idx               Int      @default(autoincrement())
+    accountIDX        Int
+    class1_type       Int      @default(0, map: "DF__userAbili__class__078C1F06")
+    class1_basic01    Int      @default(0, map: "DF__userAbili__class__0880433F") @db.TinyInt
+    class1_basic02    Int      @default(0, map: "DF__userAbili__class__09746778") @db.TinyInt
+    class1_basic03    Int      @default(0, map: "DF__userAbili__class__0A688BB1") @db.TinyInt
+    class1_basic04    Int      @default(0, map: "DF__userAbili__class__0B5CAFEA") @db.TinyInt
+    class1_skill1_sd  Int      @default(0, map: "DF__userAbili__class__0C50D423") @db.TinyInt
+    class1_skill1_asd Int      @default(0, map: "DF__userAbili__class__0D44F85C") @db.TinyInt
+    class1_skill1_ad  Int      @default(0, map: "DF__userAbili__class__0E391C95") @db.TinyInt
+    class1_skill1_as  Int      @default(0, map: "DF__userAbili__class__0F2D40CE") @db.TinyInt
+    class1_timeslot   Int      @default(0, map: "DF__userAbili__class__10216507")
+    class1_limitdate  DateTime @default(now(), map: "DF__userAbili__class__11158940") @db.DateTime
+    class2_type       Int      @default(0, map: "DF__userAbili__class__1209AD79")
+    class2_basic01    Int      @default(0, map: "DF__userAbili__class__12FDD1B2") @db.TinyInt
+    class2_basic02    Int      @default(0, map: "DF__userAbili__class__13F1F5EB") @db.TinyInt
+    class2_basic03    Int      @default(0, map: "DF__userAbili__class__14E61A24") @db.TinyInt
+    class2_basic04    Int      @default(0, map: "DF__userAbili__class__15DA3E5D") @db.TinyInt
+    class2_skill1_sd  Int      @default(0, map: "DF__userAbili__class__16CE6296") @db.TinyInt
+    class2_skill1_asd Int      @default(0, map: "DF__userAbili__class__17C286CF") @db.TinyInt
+    class2_skill1_ad  Int      @default(0, map: "DF__userAbili__class__18B6AB08") @db.TinyInt
+    class2_skill1_as  Int      @default(0, map: "DF__userAbili__class__19AACF41") @db.TinyInt
+    class2_timeslot   Int      @default(0, map: "DF__userAbili__class__1A9EF37A")
+    class2_limitdate  DateTime @default(now(), map: "DF__userAbili__class__1B9317B3") @db.DateTime
+    class3_type       Int      @default(0, map: "DF__userAbili__class__1C873BEC")
+    class3_basic01    Int      @default(0, map: "DF__userAbili__class__1D7B6025") @db.TinyInt
+    class3_basic02    Int      @default(0, map: "DF__userAbili__class__1E6F845E") @db.TinyInt
+    class3_basic03    Int      @default(0, map: "DF__userAbili__class__1F63A897") @db.TinyInt
+    class3_basic04    Int      @default(0, map: "DF__userAbili__class__2057CCD0") @db.TinyInt
+    class3_skill1_sd  Int      @default(0, map: "DF__userAbili__class__214BF109") @db.TinyInt
+    class3_skill1_asd Int      @default(0, map: "DF__userAbili__class__22401542") @db.TinyInt
+    class3_skill1_ad  Int      @default(0, map: "DF__userAbili__class__2334397B") @db.TinyInt
+    class3_skill1_as  Int      @default(0, map: "DF__userAbili__class__24285DB4") @db.TinyInt
+    class3_timeslot   Int      @default(0, map: "DF__userAbili__class__251C81ED")
+    class3_limitdate  DateTime @default(now(), map: "DF__userAbili__class__2610A626") @db.DateTime
+    class4_type       Int      @default(0, map: "DF__userAbili__class__2704CA5F")
+    class4_basic01    Int      @default(0, map: "DF__userAbili__class__27F8EE98") @db.TinyInt
+    class4_basic02    Int      @default(0, map: "DF__userAbili__class__28ED12D1") @db.TinyInt
+    class4_basic03    Int      @default(0, map: "DF__userAbili__class__29E1370A") @db.TinyInt
+    class4_basic04    Int      @default(0, map: "DF__userAbili__class__2AD55B43") @db.TinyInt
+    class4_skill1_sd  Int      @default(0, map: "DF__userAbili__class__2BC97F7C") @db.TinyInt
+    class4_skill1_asd Int      @default(0, map: "DF__userAbili__class__2CBDA3B5") @db.TinyInt
+    class4_skill1_ad  Int      @default(0, map: "DF__userAbili__class__2DB1C7EE") @db.TinyInt
+    class4_skill1_as  Int      @default(0, map: "DF__userAbili__class__2EA5EC27") @db.TinyInt
+    class4_timeslot   Int      @default(0, map: "DF__userAbili__class__2F9A1060")
+    class4_limitdate  DateTime @default(now(), map: "DF__userAbili__class__308E3499") @db.DateTime
+    class5_type       Int      @default(0, map: "DF__userAbili__class__318258D2")
+    class5_basic01    Int      @default(0, map: "DF__userAbili__class__32767D0B") @db.TinyInt
+    class5_basic02    Int      @default(0, map: "DF__userAbili__class__336AA144") @db.TinyInt
+    class5_basic03    Int      @default(0, map: "DF__userAbili__class__345EC57D") @db.TinyInt
+    class5_basic04    Int      @default(0, map: "DF__userAbili__class__3552E9B6") @db.TinyInt
+    class5_skill1_sd  Int      @default(0, map: "DF__userAbili__class__36470DEF") @db.TinyInt
+    class5_skill1_asd Int      @default(0, map: "DF__userAbili__class__373B3228") @db.TinyInt
+    class5_skill1_ad  Int      @default(0, map: "DF__userAbili__class__382F5661") @db.TinyInt
+    class5_skill1_as  Int      @default(0, map: "DF__userAbili__class__39237A9A") @db.TinyInt
+    class5_timeslot   Int      @default(0, map: "DF__userAbili__class__3A179ED3")
+    class5_limitdate  DateTime @default(now(), map: "DF__userAbili__class__3B0BC30C") @db.DateTime
+    regDate           DateTime @default(now(), map: "DF__userAbili__regDa__3BFFE745") @db.DateTime
+
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+model userAccessoryDB {
+    idx          Int      @default(autoincrement())
+    AccountIDX   Int
+    ItemCode     Int      @default(0, map: "DF__userAcces__ItemC__3DE82FB7")
+    PeriodType   Int      @default(0, map: "DF__userAcces__Perio__3EDC53F0") @db.TinyInt
+    PeriodDate   DateTime @default(dbgenerated("1999-01-01"), map: "DF__userAcces__Perio__3FD07829") @db.DateTime
+    StatValue    Int      @default(0, map: "DF__userAcces__StatV__40C49C62")
+    ClassType    Int      @default(0, map: "DF__userAcces__Class__41B8C09B")
+    RegDate      DateTime @default(now(), map: "DF__userAcces__RegDa__42ACE4D4") @db.DateTime
+    ComposeCode  Int      @default(0, map: "DF__userAcces__Compo__43A1090D")
+    ComposeValue Int      @default(0, map: "DF__userAcces__Compo__44952D46")
+
+    @@id([AccountIDX, idx], map: "PK_userAccessoryDB")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userAttendanceDB {
+    idx        Int      @default(autoincrement())
+    accountIDX Int
+    checkDate  DateTime @db.DateTime
+    regDate    DateTime @default(now(), map: "DF__userAtten__regDa__467D75B8") @db.DateTime
+
+    @@ignore
+}
+
+model userAttendDB {
+    AccountIDX  Int      @id(map: "PK_GAME_LOG_LogIndex")
+    AttendCount Int
+    RewardTable Int
+    ConnectDate DateTime @db.DateTime
+    RegDate     DateTime @db.DateTime
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userAwardDB {
+    idx            Int      @default(autoincrement())
+    accountIDX     Int      @default(0, map: "DF__userAward__accou__4959E263")
+    award1_type    Int      @default(0, map: "DF__userAward__award__4A4E069C")
+    award1_number  Int      @default(0, map: "DF__userAward__award__4B422AD5")
+    award1_point   Int      @default(0, map: "DF__userAward__award__4C364F0E")
+    award2_type    Int      @default(0, map: "DF__userAward__award__4D2A7347")
+    award2_number  Int      @default(0, map: "DF__userAward__award__4E1E9780")
+    award2_point   Int      @default(0, map: "DF__userAward__award__4F12BBB9")
+    award3_type    Int      @default(0, map: "DF__userAward__award__5006DFF2")
+    award3_number  Int      @default(0, map: "DF__userAward__award__50FB042B")
+    award3_point   Int      @default(0, map: "DF__userAward__award__51EF2864")
+    award4_type    Int      @default(0, map: "DF__userAward__award__52E34C9D")
+    award4_number  Int      @default(0, map: "DF__userAward__award__53D770D6")
+    award4_point   Int      @default(0, map: "DF__userAward__award__54CB950F")
+    award5_type    Int      @default(0, map: "DF__userAward__award__55BFB948")
+    award5_number  Int      @default(0, map: "DF__userAward__award__56B3DD81")
+    award5_point   Int      @default(0, map: "DF__userAward__award__57A801BA")
+    award6_type    Int      @default(0, map: "DF__userAward__award__589C25F3")
+    award6_number  Int      @default(0, map: "DF__userAward__award__59904A2C")
+    award6_point   Int      @default(0, map: "DF__userAward__award__5A846E65")
+    award7_type    Int      @default(0, map: "DF__userAward__award__5B78929E")
+    award7_number  Int      @default(0, map: "DF__userAward__award__5C6CB6D7")
+    award7_point   Int      @default(0, map: "DF__userAward__award__5D60DB10")
+    award8_type    Int      @default(0, map: "DF__userAward__award__5E54FF49")
+    award8_number  Int      @default(0, map: "DF__userAward__award__5F492382")
+    award8_point   Int      @default(0, map: "DF__userAward__award__603D47BB")
+    award9_type    Int      @default(0, map: "DF__userAward__award__61316BF4")
+    award9_number  Int      @default(0, map: "DF__userAward__award__6225902D")
+    award9_point   Int      @default(0, map: "DF__userAward__award__6319B466")
+    award10_type   Int      @default(0, map: "DF__userAward__award__640DD89F")
+    award10_number Int      @default(0, map: "DF__userAward__award__6501FCD8")
+    award10_point  Int      @default(0, map: "DF__userAward__award__65F62111")
+    regDate        DateTime @default(now(), map: "DF__userAward__regDa__66EA454A") @db.DateTime
+
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userCardMatchingDB {
+    AccountIDX   Int
+    MissionCount Int      @default(0, map: "DF__userCardM__Missi__68D28DBC")
+    MissionType  Int      @default(0, map: "DF__userCardM__Missi__69C6B1F5") @db.TinyInt
+    MissionMark1 Int      @default(0, map: "DF__userCardM__Missi__6ABAD62E") @db.TinyInt
+    MissionMark2 Int      @default(0, map: "DF__userCardM__Missi__6BAEFA67") @db.TinyInt
+    Mark1        Int      @default(0, map: "DF__userCardM__Mark1__6CA31EA0") @db.TinyInt
+    Mark2        Int      @default(0, map: "DF__userCardM__Mark2__6D9742D9") @db.TinyInt
+    UpdateTime   DateTime @db.DateTime
+    RegDate      DateTime @db.DateTime
+
+    @@ignore
+}
+
+model userCashDB {
+    accountIDX Int          @id(map: "PK_userCashDB")
+    amtCash    Int          @default(0, map: "DF__userCashD__amtCa__6F7F8B4B")
+    amtBonus   Int          @default(0, map: "DF__userCashD__amtBo__7073AF84")
+    amtLimit   Int          @default(99900, map: "DF__userCashD__amtLi__7167D3BD")
+    amtSum     Int          @default(0, map: "DF__userCashD__amtSu__725BF7F6")
+    chgDate    DateTime     @default(now(), map: "DF__userCashD__chgDa__73501C2F") @db.DateTime
+    regDate    DateTime     @default(now(), map: "DF__userCashD__regDa__74444068") @db.DateTime
+    user       userMemberDB @relation(fields: [accountIDX], references: [accountIDX], onDelete: Cascade, onUpdate: NoAction)
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userCharacterDB {
+    idx          Int      @default(autoincrement())
+    accountIDX   Int
+    ClassType    Int      @default(0, map: "DF__userChara__Class__762C88DA")
+    CI_type      Int      @default(0, map: "DF__userChara__CI_ty__7720AD13")
+    CI_gender    Int      @default(0, map: "DF__userChara__CI_ge__7814D14C")
+    CI_beard     Int      @default(0, map: "DF__userChara__CI_be__7908F585")
+    CI_face      Int      @default(0, map: "DF__userChara__CI_fa__79FD19BE")
+    CI_hair      Int      @default(0, map: "DF__userChara__CI_ha__7AF13DF7")
+    CI_skinColor Int      @default(0, map: "DF__userChara__CI_sk__7BE56230")
+    CI_hairColor Int      @default(0, map: "DF__userChara__CI_ha__7CD98669")
+    CI_trinket   Int      @default(0, map: "DF__userChara__CI_tr__7DCDAAA2")
+    CI_position  Int      @default(-1, map: "DF__userChara__CI_po__7EC1CEDB")
+    CI_underwear Int      @default(0, map: "DF__userChara__CI_un__7FB5F314")
+    EI1_type     Int      @default(0, map: "DF__userChara__EI1_t__00AA174D")
+    EI2_type     Int      @default(0, map: "DF__userChara__EI2_t__019E3B86")
+    EI3_type     Int      @default(0, map: "DF__userChara__EI3_t__02925FBF")
+    EI4_type     Int      @default(0, map: "DF__userChara__EI4_t__038683F8")
+    limitTime    Int      @default(0, map: "DF__userChara__limit__047AA831")
+    limitType    Int      @default(0, map: "DF__userChara__limit__056ECC6A")
+    leaderType   Int      @default(0, map: "DF__userChara__leade__0662F0A3") @db.SmallInt
+    rentalType   Int      @default(0, map: "DF__userChara__renta__075714DC") @db.SmallInt
+    rentalTime   Int      @default(0, map: "DF__userChara__renta__084B3915")
+    awakeType    Int      @default(0, map: "DF__userChara__awake__093F5D4E") @db.TinyInt
+    awakeTime    Int      @default(0, map: "DF__userChara__awake__0A338187")
+    regDate      DateTime @default(now(), map: "DF__userChara__regDa__0B27A5C0") @db.DateTime
+
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userClassDB {
+    idx            Int @default(autoincrement())
+    accountIDX     Int
+    class1_type    Int @default(0, map: "DF__userClass__class__0D0FEE32")
+    class1_level   Int @default(0, map: "DF__userClass__class__0E04126B")
+    class1_expert  Int @default(0, map: "DF__userClass__class__0EF836A4")
+    class1_stat    Int @default(0, map: "DF__userClass__class__0FEC5ADD") @db.TinyInt
+    class2_type    Int @default(0, map: "DF__userClass__class__10E07F16")
+    class2_level   Int @default(0, map: "DF__userClass__class__11D4A34F")
+    class2_expert  Int @default(0, map: "DF__userClass__class__12C8C788")
+    class2_stat    Int @default(0, map: "DF__userClass__class__13BCEBC1") @db.TinyInt
+    class3_type    Int @default(0, map: "DF__userClass__class__14B10FFA")
+    class3_level   Int @default(0, map: "DF__userClass__class__15A53433")
+    class3_expert  Int @default(0, map: "DF__userClass__class__1699586C")
+    class3_stat    Int @default(0, map: "DF__userClass__class__178D7CA5") @db.TinyInt
+    class4_type    Int @default(0, map: "DF__userClass__class__1881A0DE")
+    class4_level   Int @default(0, map: "DF__userClass__class__1975C517")
+    class4_expert  Int @default(0, map: "DF__userClass__class__1A69E950")
+    class4_stat    Int @default(0, map: "DF__userClass__class__1B5E0D89") @db.TinyInt
+    class5_type    Int @default(0, map: "DF__userClass__class__1C5231C2")
+    class5_level   Int @default(0, map: "DF__userClass__class__1D4655FB")
+    class5_expert  Int @default(0, map: "DF__userClass__class__1E3A7A34")
+    class5_stat    Int @default(0, map: "DF__userClass__class__1F2E9E6D") @db.TinyInt
+    class6_type    Int @default(0, map: "DF__userClass__class__2022C2A6")
+    class6_level   Int @default(0, map: "DF__userClass__class__2116E6DF")
+    class6_expert  Int @default(0, map: "DF__userClass__class__220B0B18")
+    class6_stat    Int @default(0, map: "DF__userClass__class__22FF2F51") @db.TinyInt
+    class7_type    Int @default(0, map: "DF__userClass__class__23F3538A")
+    class7_level   Int @default(0, map: "DF__userClass__class__24E777C3")
+    class7_expert  Int @default(0, map: "DF__userClass__class__25DB9BFC")
+    class7_stat    Int @default(0, map: "DF__userClass__class__26CFC035") @db.TinyInt
+    class8_type    Int @default(0, map: "DF__userClass__class__27C3E46E")
+    class8_level   Int @default(0, map: "DF__userClass__class__28B808A7")
+    class8_expert  Int @default(0, map: "DF__userClass__class__29AC2CE0")
+    class8_stat    Int @default(0, map: "DF__userClass__class__2AA05119") @db.TinyInt
+    class9_type    Int @default(0, map: "DF__userClass__class__2B947552")
+    class9_level   Int @default(0, map: "DF__userClass__class__2C88998B")
+    class9_expert  Int @default(0, map: "DF__userClass__class__2D7CBDC4")
+    class9_stat    Int @default(0, map: "DF__userClass__class__2E70E1FD") @db.TinyInt
+    class10_type   Int @default(0, map: "DF__userClass__class__2F650636")
+    class10_level  Int @default(0, map: "DF__userClass__class__30592A6F")
+    class10_expert Int @default(0, map: "DF__userClass__class__314D4EA8")
+    class10_stat   Int @default(0, map: "DF__userClass__class__324172E1") @db.TinyInt
+
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+model userCloverDB {
+    accountIDX     Int      @id(map: "PK_userCloverDB")
+    CloverCnt      Int      @default(0, map: "DF__userClove__Clove__3429BB53")
+    LastChargeDate Int      @default(0, map: "DF__userClove__LastC__351DDF8C")
+    RemainTime     Int      @default(0, map: "DF__userClove__Remai__361203C5") @db.SmallInt
+    regDate        DateTime @default(now(), map: "DF__userClove__regDa__370627FE") @db.DateTime
+}
+
+model userCoinDB {
+    AccountIDX Int
+    UpdateDate DateTime @db.DateTime
+    CoinType   Int      @default(0, map: "DF__userCoinD__CoinT__38EE7070") @db.TinyInt
+    RegDate    DateTime @default(dbgenerated("0"), map: "DF__userCoinD__RegDa__39E294A9") @db.DateTime
+
+    @@id([AccountIDX, CoinType], map: "PK_userCoinDB")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userConfigDB {
+    idx        Int      @default(autoincrement())
+    accountIDX Int
+    keyvalue   String   @db.VarChar(255)
+    regDate    DateTime @default(now(), map: "DF__userConfi__regDa__3BCADD1B") @db.DateTime
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userConfigDB_TEST {
+    idx        Int      @default(autoincrement())
+    accountIDX Int
+    keyvalue   String   @db.VarChar(200)
+    regDate    DateTime @default(now(), map: "DF__userConfi__regDa__3DB3258D") @db.DateTime
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userCooperationDB {
+    idx        Int      @default(autoincrement())
+    accountIDX Int
+    userID     String   @db.VarChar(12)
+    cpIDX      Int?     @default(0, map: "DF__userCoope__cpIDX__3F9B6DFF")
+    cpID       String   @db.VarChar(32)
+    cpType     Int
+    note       String?  @db.VarChar(100)
+    regDate    DateTime @default(now(), map: "DF__userCoope__regDa__408F9238") @db.DateTime
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@index([cpID], map: "idx_cpID")
+    @@ignore
+}
+
+model userCostumeDB {
+    idx        Int      @default(autoincrement())
+    accountIDX Int
+    itemCode   Int      @default(0, map: "DF__userCostu__itemC__4277DAAA")
+    mcustom    Int      @default(0, map: "DF__userCostu__mcust__436BFEE3")
+    fcustom    Int      @default(0, map: "DF__userCostu__fcust__4460231C")
+    periodType Int      @default(0, map: "DF__userCostu__perio__45544755") @db.TinyInt
+    periodDate DateTime @default(dbgenerated("1999-01-01"), map: "DF__userCostu__perio__46486B8E") @db.DateTime
+    classType  Int      @default(0, map: "DF__userCostu__class__473C8FC7")
+    regDate    DateTime @default(now(), map: "DF__userCostu__regDa__4830B400") @db.DateTime
+
+    @@id([idx, accountIDX], map: "PK_userCostumeDB")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userCustomMedalDB {
+    idx            Int      @default(autoincrement())
+    AccountIDX     Int      @default(0, map: "DF__userCusto__Accou__4A18FC72")
+    MedalCode      Int      @default(0, map: "DF__userCusto__Medal__4B0D20AB")
+    BasicGrowth1   Int      @default(0, map: "DF__userCusto__Basic__4C0144E4")
+    BasicGrowth2   Int      @default(0, map: "DF__userCusto__Basic__4CF5691D")
+    BasicGrowth3   Int      @default(0, map: "DF__userCusto__Basic__4DE98D56")
+    BasicGrowth4   Int      @default(0, map: "DF__userCusto__Basic__4EDDB18F")
+    SkillGrowth1   Int      @default(0, map: "DF__userCusto__Skill__4FD1D5C8")
+    SkillGrowth2   Int      @default(0, map: "DF__userCusto__Skill__50C5FA01")
+    SkillGrowth3   Int      @default(0, map: "DF__userCusto__Skill__51BA1E3A")
+    SkillGrowth4   Int      @default(0, map: "DF__userCusto__Skill__52AE4273")
+    SetCharaterNum Int      @default(0, map: "DF__userCusto__SetCh__53A266AC")
+    LimitType      Int      @default(0, map: "DF__userCusto__Limit__54968AE5")
+    LimitDate      DateTime @default(now(), map: "DF__userCusto__Limit__558AAF1E") @db.DateTime
+    regDate        DateTime @default(now(), map: "DF__userCusto__regDa__567ED357") @db.DateTime
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userDiceGameDB {
+    AccountIDX   Int
+    Position     Int
+    Trace01      Int
+    Trace02      Int
+    Trace03      Int
+    Trace04      Int
+    Trace05      Int
+    Trace06      Int
+    Board        Int       @db.TinyInt
+    RewardStep01 Int
+    RewardStep02 Int
+    RewardStep03 Int
+    RewardStep04 Int
+    RewardStep05 Int
+    RewardStep06 Int
+    RewardStep07 Int
+    RewardStep08 Int
+    RewardStep09 Int
+    RewardStep10 Int
+    UpdateTime   DateTime? @db.DateTime
+    RegDate      DateTime? @db.DateTime
+
+    @@ignore
+}
+
+model userEventBingo_Number {
+    accountidx Int      @id(map: "PK_userEventBingo_Number")
+    number1    Int      @db.TinyInt
+    number2    Int      @db.TinyInt
+    number3    Int      @db.TinyInt
+    number4    Int      @db.TinyInt
+    number5    Int      @db.TinyInt
+    number6    Int      @db.TinyInt
+    number7    Int      @db.TinyInt
+    number8    Int      @db.TinyInt
+    number9    Int      @db.TinyInt
+    number10   Int      @db.TinyInt
+    number11   Int      @db.TinyInt
+    number12   Int      @db.TinyInt
+    number13   Int      @db.TinyInt
+    number14   Int      @db.TinyInt
+    number15   Int      @db.TinyInt
+    number16   Int      @db.TinyInt
+    number17   Int      @db.TinyInt
+    number18   Int      @db.TinyInt
+    number19   Int      @db.TinyInt
+    number20   Int      @db.TinyInt
+    number21   Int      @db.TinyInt
+    number22   Int      @db.TinyInt
+    number23   Int      @db.TinyInt
+    number24   Int      @db.TinyInt
+    number25   Int      @db.TinyInt
+    regDate    DateTime @db.DateTime
+}
+
+model userEventBingo_Present {
+    accountidx Int      @id(map: "PK_userEventBingo_Present")
+    item1      Int      @db.TinyInt
+    item2      Int      @db.TinyInt
+    item3      Int      @db.TinyInt
+    item4      Int      @db.TinyInt
+    item5      Int      @db.TinyInt
+    item6      Int      @db.TinyInt
+    item7      Int      @db.TinyInt
+    item8      Int      @db.TinyInt
+    item9      Int      @db.TinyInt
+    item10     Int      @db.TinyInt
+    item11     Int      @db.TinyInt
+    item12     Int      @db.TinyInt
+    item13     Int      @db.TinyInt
+    regDate    DateTime @db.DateTime
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userEventDB {
+    idx        Int      @default(autoincrement())
+    accountIDX Int
+    value1     Int      @default(0, map: "DF__userEvent__value__5B438874")
+    value2     Int      @default(0, map: "DF__userEvent__value__5C37ACAD")
+    eventType  Int      @default(0, map: "DF__userEvent__event__5D2BD0E6")
+    regDate    DateTime @default(now(), map: "DF__userEvent__regDa__5E1FF51F") @db.DateTime
+
+    @@index([accountIDX, eventType], map: "idx_accidx_evntype")
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+model userEventPirateRoulette_Number {
+    accountidx Int      @id(map: "PK_userEventPirateRoulette_Number")
+    HP         Int
+    slot1      Int      @default(0, map: "DF__userEvent__slot1__60083D91") @db.TinyInt
+    slot2      Int      @default(0, map: "DF__userEvent__slot2__60FC61CA") @db.TinyInt
+    slot3      Int      @default(0, map: "DF__userEvent__slot3__61F08603") @db.TinyInt
+    slot4      Int      @default(0, map: "DF__userEvent__slot4__62E4AA3C") @db.TinyInt
+    slot5      Int      @default(0, map: "DF__userEvent__slot5__63D8CE75") @db.TinyInt
+    slot6      Int      @default(0, map: "DF__userEvent__slot6__64CCF2AE") @db.TinyInt
+    slot7      Int      @default(0, map: "DF__userEvent__slot7__65C116E7") @db.TinyInt
+    slot8      Int      @default(0, map: "DF__userEvent__slot8__66B53B20") @db.TinyInt
+    slot9      Int      @default(0, map: "DF__userEvent__slot9__67A95F59") @db.TinyInt
+    slot10     Int      @default(0, map: "DF__userEvent__slot1__689D8392") @db.TinyInt
+    slot11     Int      @default(0, map: "DF__userEvent__slot1__6991A7CB") @db.TinyInt
+    slot12     Int      @default(0, map: "DF__userEvent__slot1__6A85CC04") @db.TinyInt
+    slot13     Int      @default(0, map: "DF__userEvent__slot1__6B79F03D") @db.TinyInt
+    slot14     Int      @default(0, map: "DF__userEvent__slot1__6C6E1476") @db.TinyInt
+    slot15     Int      @default(0, map: "DF__userEvent__slot1__6D6238AF") @db.TinyInt
+    slot16     Int      @default(0, map: "DF__userEvent__slot1__6E565CE8") @db.TinyInt
+    slot17     Int      @default(0, map: "DF__userEvent__slot1__6F4A8121") @db.TinyInt
+    slot18     Int      @default(0, map: "DF__userEvent__slot1__703EA55A") @db.TinyInt
+    slot19     Int      @default(0, map: "DF__userEvent__slot1__7132C993") @db.TinyInt
+    slot20     Int      @default(0, map: "DF__userEvent__slot2__7226EDCC") @db.TinyInt
+    slot21     Int      @default(0, map: "DF__userEvent__slot2__731B1205") @db.TinyInt
+    slot22     Int      @default(0, map: "DF__userEvent__slot2__740F363E") @db.TinyInt
+    slot23     Int      @default(0, map: "DF__userEvent__slot2__75035A77") @db.TinyInt
+    slot24     Int      @default(0, map: "DF__userEvent__slot2__75F77EB0") @db.TinyInt
+    slot25     Int      @default(0, map: "DF__userEvent__slot2__76EBA2E9") @db.TinyInt
+    slot26     Int      @default(0, map: "DF__userEvent__slot2__77DFC722") @db.TinyInt
+    slot27     Int      @default(0, map: "DF__userEvent__slot2__78D3EB5B") @db.TinyInt
+    slot28     Int      @default(0, map: "DF__userEvent__slot2__79C80F94") @db.TinyInt
+    slot29     Int      @default(0, map: "DF__userEvent__slot2__7ABC33CD") @db.TinyInt
+    slot30     Int      @default(0, map: "DF__userEvent__slot3__7BB05806") @db.TinyInt
+    slot31     Int      @default(0, map: "DF__userEvent__slot3__7CA47C3F") @db.TinyInt
+    slot32     Int      @default(0, map: "DF__userEvent__slot3__7D98A078") @db.TinyInt
+    slot33     Int      @default(0, map: "DF__userEvent__slot3__7E8CC4B1") @db.TinyInt
+    slot34     Int      @default(0, map: "DF__userEvent__slot3__7F80E8EA") @db.TinyInt
+    slot35     Int      @default(0, map: "DF__userEvent__slot3__00750D23") @db.TinyInt
+    slot36     Int      @default(0, map: "DF__userEvent__slot3__0169315C") @db.TinyInt
+    slot37     Int      @default(0, map: "DF__userEvent__slot3__025D5595") @db.TinyInt
+    slot38     Int      @default(0, map: "DF__userEvent__slot3__035179CE") @db.TinyInt
+    slot39     Int      @default(0, map: "DF__userEvent__slot3__04459E07") @db.TinyInt
+    slot40     Int      @default(0, map: "DF__userEvent__slot4__0539C240") @db.TinyInt
+    regDate    DateTime @db.DateTime
+}
+
+model userEventPirateRoulette_Present {
+    accountidx Int      @id(map: "PK_userEventPirateRoulette_Present")
+    reward1    Int      @default(0, map: "DF__userEvent__rewar__07220AB2") @db.TinyInt
+    reward2    Int      @default(0, map: "DF__userEvent__rewar__08162EEB") @db.TinyInt
+    reward3    Int      @default(0, map: "DF__userEvent__rewar__090A5324") @db.TinyInt
+    reward4    Int      @default(0, map: "DF__userEvent__rewar__09FE775D") @db.TinyInt
+    reward5    Int      @default(0, map: "DF__userEvent__rewar__0AF29B96") @db.TinyInt
+    reward6    Int      @default(0, map: "DF__userEvent__rewar__0BE6BFCF") @db.TinyInt
+    reward7    Int      @default(0, map: "DF__userEvent__rewar__0CDAE408") @db.TinyInt
+    reward8    Int      @default(0, map: "DF__userEvent__rewar__0DCF0841") @db.TinyInt
+    reward9    Int      @default(0, map: "DF__userEvent__rewar__0EC32C7A") @db.TinyInt
+    reward10   Int      @default(0, map: "DF__userEvent__rewar__0FB750B3") @db.TinyInt
+    reward11   Int      @default(0, map: "DF__userEvent__rewar__10AB74EC") @db.TinyInt
+    reward12   Int      @default(0, map: "DF__userEvent__rewar__119F9925") @db.TinyInt
+    reward13   Int      @default(0, map: "DF__userEvent__rewar__1293BD5E") @db.TinyInt
+    reward14   Int      @default(0, map: "DF__userEvent__rewar__1387E197") @db.TinyInt
+    reward15   Int      @default(0, map: "DF__userEvent__rewar__147C05D0") @db.TinyInt
+    regDate    DateTime @db.DateTime
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userFishDB {
+    idx         Int      @default(autoincrement())
+    accountIDX  Int
+    fish1_type  Int      @default(0, map: "DF__userFishD__fish1__16644E42") @db.TinyInt
+    fish1_an    Int      @default(0, map: "DF__userFishD__fish1__1758727B")
+    fish2_type  Int      @default(0, map: "DF__userFishD__fish2__184C96B4") @db.TinyInt
+    fish2_an    Int      @default(0, map: "DF__userFishD__fish2__1940BAED")
+    fish3_type  Int      @default(0, map: "DF__userFishD__fish3__1A34DF26") @db.TinyInt
+    fish3_an    Int      @default(0, map: "DF__userFishD__fish3__1B29035F")
+    fish4_type  Int      @default(0, map: "DF__userFishD__fish4__1C1D2798") @db.TinyInt
+    fish4_an    Int      @default(0, map: "DF__userFishD__fish4__1D114BD1")
+    fish5_type  Int      @default(0, map: "DF__userFishD__fish5__1E05700A") @db.TinyInt
+    fish5_an    Int      @default(0, map: "DF__userFishD__fish5__1EF99443")
+    fish6_type  Int      @default(0, map: "DF__userFishD__fish6__1FEDB87C") @db.TinyInt
+    fish6_an    Int      @default(0, map: "DF__userFishD__fish6__20E1DCB5")
+    fish7_type  Int      @default(0, map: "DF__userFishD__fish7__21D600EE") @db.TinyInt
+    fish7_an    Int      @default(0, map: "DF__userFishD__fish7__22CA2527")
+    fish8_type  Int      @default(0, map: "DF__userFishD__fish8__23BE4960") @db.TinyInt
+    fish8_an    Int      @default(0, map: "DF__userFishD__fish8__24B26D99")
+    fish9_type  Int      @default(0, map: "DF__userFishD__fish9__25A691D2") @db.TinyInt
+    fish9_an    Int      @default(0, map: "DF__userFishD__fish9__269AB60B")
+    fish10_type Int      @default(0, map: "DF__userFishD__fish1__278EDA44") @db.TinyInt
+    fish10_an   Int      @default(0, map: "DF__userFishD__fish1__2882FE7D")
+    fish11_type Int      @default(0, map: "DF__userFishD__fish1__297722B6") @db.TinyInt
+    fish11_an   Int      @default(0, map: "DF__userFishD__fish1__2A6B46EF")
+    fish12_type Int      @default(0, map: "DF__userFishD__fish1__2B5F6B28") @db.TinyInt
+    fish12_an   Int      @default(0, map: "DF__userFishD__fish1__2C538F61")
+    fish13_type Int      @default(0, map: "DF__userFishD__fish1__2D47B39A") @db.TinyInt
+    fish13_an   Int      @default(0, map: "DF__userFishD__fish1__2E3BD7D3")
+    fish14_type Int      @default(0, map: "DF__userFishD__fish1__2F2FFC0C") @db.TinyInt
+    fish14_an   Int      @default(0, map: "DF__userFishD__fish1__30242045")
+    fish15_type Int      @default(0, map: "DF__userFishD__fish1__3118447E") @db.TinyInt
+    fish15_an   Int      @default(0, map: "DF__userFishD__fish1__320C68B7")
+    fish16_type Int      @default(0, map: "DF__userFishD__fish1__33008CF0") @db.TinyInt
+    fish16_an   Int      @default(0, map: "DF__userFishD__fish1__33F4B129")
+    fish17_type Int      @default(0, map: "DF__userFishD__fish1__34E8D562") @db.TinyInt
+    fish17_an   Int      @default(0, map: "DF__userFishD__fish1__35DCF99B")
+    fish18_type Int      @default(0, map: "DF__userFishD__fish1__36D11DD4") @db.TinyInt
+    fish18_an   Int      @default(0, map: "DF__userFishD__fish1__37C5420D")
+    fish19_type Int      @default(0, map: "DF__userFishD__fish1__38B96646") @db.TinyInt
+    fish19_an   Int      @default(0, map: "DF__userFishD__fish1__39AD8A7F")
+    fish20_type Int      @default(0, map: "DF__userFishD__fish2__3AA1AEB8") @db.TinyInt
+    fish20_an   Int      @default(0, map: "DF__userFishD__fish2__3B95D2F1")
+    regDate     DateTime @default(now(), map: "DF__userFishD__regDa__3C89F72A") @db.DateTime
+
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userFriendBestDB {
+    idx        Int      @default(autoincrement())
+    accountIDX Int
+    friendIDX  Int
+    flag       Int      @default(0, map: "DF__userFriend__flag__3E723F9C")
+    flagTime   Int      @default(0, map: "DF__userFrien__flagT__3F6663D5")
+    regDate    DateTime @default(now(), map: "DF__userFrien__regDa__405A880E") @db.DateTime
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@index([flag], map: "idx_flag")
+    @@index([friendIDX], map: "idx_friendIDX")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userFriendDB {
+    idx               Int      @default(autoincrement())
+    userAccIDX        Int
+    friendAccIDX      Int
+    sendCloverCnt     Int      @default(0, map: "DF__userFrien__sendC__4242D080")
+    sendCloverDate    Int      @default(0, map: "DF__userFrien__sendC__4336F4B9")
+    receiveCloverCnt  Int      @default(0, map: "DF__userFrien__recei__442B18F2")
+    receiveCloverDate Int      @default(0, map: "DF__userFrien__recei__451F3D2B")
+    receiveBCloverCnt Int      @default(0, map: "DF__userFrien__recei__46136164")
+    flag              Int      @default(0, map: "DF__userFriend__flag__4707859D") @db.TinyInt
+    regDate           DateTime @default(now(), map: "DF__userFrien__regDa__47FBA9D6") @db.DateTime
+
+    @@index([userAccIDX, friendAccIDX], map: "idx_accIDX")
+    @@index([friendAccIDX], map: "idx_friendAccIDX")
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+model userGameDB {
+    accountIDX          Int          @id(map: "PK_userGameDB")
+    userState           Int          @default(0, map: "DF__userGameD__userS__49E3F248")
+    gameMoney           BigInt       @default(0, map: "DF__userGameD__gameM__4AD81681")
+    playTime            Int          @default(0, map: "DF__userGameD__playT__4BCC3ABA")
+    conn_count          Int          @default(0, map: "DF__userGameD__conn___4CC05EF3")
+    userLevel           Int          @default(0, map: "DF__userGameD__userL__4DB4832C")
+    userEXP             Int          @default(0, map: "DF__userGameD__userE__4EA8A765")
+    userFishingLevel    Int          @default(0, map: "DF__userGameD__userF__4F9CCB9E")
+    userFishingEXP      Int          @default(0, map: "DF__userGameD__userF__5090EFD7")
+    userExcavationLevel Int          @default(0, map: "DF__userGameD__userE__51851410")
+    userExcavationEXP   Int          @default(0, map: "DF__userGameD__userE__52793849")
+    userHerocEXP        Int          @default(0, map: "DF__userGameD__userH__536D5C82")
+    userHerosEXP        Int          @default(0, map: "DF__userGameD__userH__546180BB")
+    rencpoint           Int          @default(0, map: "DF__userGameD__rencp__5555A4F4")
+    renspoint           Int          @default(0, map: "DF__userGameD__rensp__5649C92D")
+    relateLevel         Int          @default(0, map: "DF__userGameD__relat__573DED66")
+    regionType          Int          @default(0, map: "DF__userGameD__regio__5832119F")
+    refillData          Int          @default(0, map: "DF__userGameD__refil__592635D8")
+    connDate            DateTime     @default(now(), map: "DF__userGameD__connD__5A1A5A11") @db.DateTime
+    regDate             DateTime     @default(now(), map: "DF__userGameD__regDa__5B0E7E4A") @db.DateTime
+    Practice            Int          @default(1, map: "DF__userGameD__Pract__5C02A283") @db.SmallInt
+    userMemberDB        userMemberDB @relation(fields: [accountIDX], references: [accountIDX], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model userGoldDB {
+    idx            Int      @default(autoincrement())
+    AccountIDX     Int
+    OriginalAmount Int      @default(0, map: "DF__userGoldD__Origi__5DEAEAF5")
+    Amount         Int      @default(0, map: "DF__userGoldD__Amoun__5EDF0F2E")
+    GoldType       Int      @default(1, map: "DF__userGoldD__GoldT__5FD33367") @db.TinyInt
+    GoldStatus     Int      @default(0, map: "DF__userGoldD__GoldS__60C757A0") @db.TinyInt
+    ExpirationDate DateTime @default(now(), map: "DF__userGoldD__Expir__61BB7BD9") @db.DateTime
+    RegDate        DateTime @default(now(), map: "DF__userGoldD__RegDa__62AFA012") @db.DateTime
+
+    @@id([AccountIDX, GoldType, ExpirationDate, idx], map: "PK_userGoldDB")
+    @@index([idx], map: "NC_userGoldDB_idx")
+}
+
+model userGuildAttendDB {
+    InitDate   DateTime @db.DateTime
+    AccountIDX Int
+    GuildIDX   Int
+    RegDate    DateTime @db.DateTime
+
+    @@id([InitDate, AccountIDX], map: "PK_userGuildAttendDB_RegDate_AccountIDX", clustered: false)
+}
+
+model userGuildDB {
+    idx         Int      @default(autoincrement())
+    guildName   String   @id(map: "PK_userGuildDB") @db.VarChar(20)
+    aboutguild  String   @db.VarChar(110)
+    guildmark   Int
+    ranking     Int      @default(0, map: "DF__userGuild__ranki__658C0CBD")
+    point       Int      @default(0, map: "DF__userGuild__point__668030F6")
+    todaypoint  Int      @default(0, map: "DF__userGuild__today__6774552F")
+    guildLevel  Int      @default(0, map: "DF__userGuild__guild__68687968")
+    maxcount    Int      @default(0, map: "DF__userGuild__maxco__695C9DA1")
+    membercount Int      @default(0, map: "DF__userGuild__membe__6A50C1DA")
+    today_vc    Int      @default(0, map: "DF__userGuild__today__6B44E613")
+    total_vc    Int      @default(0, map: "DF__userGuild__total__6C390A4C")
+    regDate     DateTime @default(now(), map: "DF__userGuild__regDa__6D2D2E85") @db.DateTime
+
+    @@index([idx], map: "idx_idx")
+}
+
+model userGuildHQDB {
+    GuildIDX      Int
+    ItemSerial    BigInt @default(autoincrement())
+    ItemCode      Int
+    ItemXZ        Int    @default(0, map: "DF__userGuild__ItemX__6F1576F7")
+    ItemY         Int    @default(0, map: "DF__userGuild__ItemY__70099B30")
+    ItemRotate    Int    @default(0, map: "DF__userGuild__ItemR__70FDBF69") @db.TinyInt
+    ItemDecoScore Int    @default(0, map: "DF__userGuild__ItemD__71F1E3A2")
+    ItemStatus    Int    @default(0, map: "DF__userGuild__ItemS__72E607DB") @db.TinyInt
+
+    @@id([GuildIDX, ItemSerial], map: "PK_userGuildHQDB")
+    @@index([ItemSerial], map: "ncx_userGuildHQDB_ItemSerial")
+}
+
+model userGuildHQVerDB {
+    GuildIDX  Int      @id(map: "PK_userGuildHQVerDB")
+    VerStatus BigInt   @default(0, map: "DF__userGuild__VerSt__74CE504D")
+    UptDate   DateTime @default(dbgenerated("0"), map: "DF__userGuild__UptDa__75C27486") @db.DateTime
+    RegDate   DateTime @default(now(), map: "DF__userGuild__RegDa__76B698BF") @db.DateTime
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userGuildInfoDB {
+    idx           Int      @default(autoincrement())
+    accountIDX    Int
+    guildIDX      Int
+    guildPosition String?  @db.NVarChar(20)
+    guildJoinType Int      @default(0, map: "DF__userGuild__guild__789EE131")
+    msg           Int      @default(0, map: "DF__userGuildIn__msg__7993056A")
+    AttendDate    DateTime @default(dbgenerated("0"), map: "DF__userGuild__Atten__7A8729A3") @db.DateTime
+    GuildRankDate DateTime @default(dbgenerated("0"), map: "DF__userGuild__Guild__7B7B4DDC") @db.DateTime
+    regDate       DateTime @default(now(), map: "DF__userGuild__regDa__7C6F7215") @db.DateTime
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+model userHqDB {
+    idx          Int      @default(autoincrement())
+    accountIDX   Int      @id(map: "PK_userHqDB")
+    class1_type  Int      @default(0, map: "DF__userHqDB__class1__7E57BA87")
+    class1_posx  Int      @default(0, map: "DF__userHqDB__class1__7F4BDEC0")
+    class1_posy  Int      @default(0, map: "DF__userHqDB__class1__004002F9")
+    class2_type  Int      @default(0, map: "DF__userHqDB__class2__01342732")
+    class2_posx  Int      @default(0, map: "DF__userHqDB__class2__02284B6B")
+    class2_posy  Int      @default(0, map: "DF__userHqDB__class2__031C6FA4")
+    class3_type  Int      @default(0, map: "DF__userHqDB__class3__041093DD")
+    class3_posx  Int      @default(0, map: "DF__userHqDB__class3__0504B816")
+    class3_posy  Int      @default(0, map: "DF__userHqDB__class3__05F8DC4F")
+    class4_type  Int      @default(0, map: "DF__userHqDB__class4__06ED0088")
+    class4_posx  Int      @default(0, map: "DF__userHqDB__class4__07E124C1")
+    class4_posy  Int      @default(0, map: "DF__userHqDB__class4__08D548FA")
+    class5_type  Int      @default(0, map: "DF__userHqDB__class5__09C96D33")
+    class5_posx  Int      @default(0, map: "DF__userHqDB__class5__0ABD916C")
+    class5_posy  Int      @default(0, map: "DF__userHqDB__class5__0BB1B5A5")
+    class6_type  Int      @default(0, map: "DF__userHqDB__class6__0CA5D9DE")
+    class6_posx  Int      @default(0, map: "DF__userHqDB__class6__0D99FE17")
+    class6_posy  Int      @default(0, map: "DF__userHqDB__class6__0E8E2250")
+    class7_type  Int      @default(0, map: "DF__userHqDB__class7__0F824689")
+    class7_posx  Int      @default(0, map: "DF__userHqDB__class7__10766AC2")
+    class7_posy  Int      @default(0, map: "DF__userHqDB__class7__116A8EFB")
+    class8_type  Int      @default(0, map: "DF__userHqDB__class8__125EB334")
+    class8_posx  Int      @default(0, map: "DF__userHqDB__class8__1352D76D")
+    class8_posy  Int      @default(0, map: "DF__userHqDB__class8__1446FBA6")
+    class9_type  Int      @default(0, map: "DF__userHqDB__class9__153B1FDF")
+    class9_posx  Int      @default(0, map: "DF__userHqDB__class9__162F4418")
+    class9_posy  Int      @default(0, map: "DF__userHqDB__class9__17236851")
+    class10_type Int      @default(0, map: "DF__userHqDB__class1__18178C8A")
+    class10_posx Int      @default(0, map: "DF__userHqDB__class1__190BB0C3")
+    class10_posy Int      @default(0, map: "DF__userHqDB__class1__19FFD4FC")
+    lockType     Int      @default(0, map: "DF__userHqDB__lockTy__1AF3F935") @db.SmallInt
+    regDate      DateTime @default(now(), map: "DF__userHqDB__regDat__1BE81D6E") @db.DateTime
+}
+
+model userInfoBDB {
+    accountIDX Int      @id(map: "PK_userInfoBDB")
+    tel        String?  @db.VarChar(16)
+    mobile     String?  @db.VarChar(16)
+    zipcode    String   @db.VarChar(8)
+    address1   String   @db.VarChar(150)
+    address2   String   @db.VarChar(50)
+    regDate    DateTime @default(now(), map: "DF__userInfoB__regDa__1DD065E0") @db.DateTime
+
+    @@index([mobile], map: "idx_mobile")
+}
+
+model userInfoDB {
+    accountIDX   Int          @id(map: "PK_userInfoDB")
+    visit_count  Int          @default(0) @db.Int
+    checkDate    DateTime     @default(now()) @db.DateTime
+    rec_index    Int          @default(0) @db.Int
+    rec_inc      Int          @default(0) @db.Int
+    rec_dec      Int          @default(0) @db.Int
+    cnnDate      DateTime     @default(now(), map: "DF__userInfoD__cnnDa__1FB8AE52") @db.DateTime
+    clickDate    DateTime?    @db.DateTime
+    userIP       String?      @default("0.0.0.0") @db.VarChar(15)
+    regDate      DateTime     @default(now(), map: "DF__userInfoD__regDa__20ACD28B") @db.DateTime
+    userImage    String?      @default("default.jpg") @db.Text
+    bio          String?      @db.Text
+    userMemberDB userMemberDB @relation(fields: [accountIDX], references: [accountIDX], onDelete: Cascade, onUpdate: NoAction)
+
+    @@index([userIP], map: "idx_userIP")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userItemDB {
+    idx         Int @default(autoincrement())
+    accountIDX  Int
+    item1_type  Int @default(0, map: "DF__userItemD__item1__22951AFD")
+    item1_code  Int @default(0, map: "DF__userItemD__item1__23893F36")
+    item2_type  Int @default(0, map: "DF__userItemD__item2__247D636F")
+    item2_code  Int @default(0, map: "DF__userItemD__item2__257187A8")
+    item3_type  Int @default(0, map: "DF__userItemD__item3__2665ABE1")
+    item3_code  Int @default(0, map: "DF__userItemD__item3__2759D01A")
+    item4_type  Int @default(0, map: "DF__userItemD__item4__284DF453")
+    item4_code  Int @default(0, map: "DF__userItemD__item4__2942188C")
+    item5_type  Int @default(0, map: "DF__userItemD__item5__2A363CC5")
+    item5_code  Int @default(0, map: "DF__userItemD__item5__2B2A60FE")
+    item6_type  Int @default(0, map: "DF__userItemD__item6__2C1E8537")
+    item6_code  Int @default(0, map: "DF__userItemD__item6__2D12A970")
+    item7_type  Int @default(0, map: "DF__userItemD__item7__2E06CDA9")
+    item7_code  Int @default(0, map: "DF__userItemD__item7__2EFAF1E2")
+    item8_type  Int @default(0, map: "DF__userItemD__item8__2FEF161B")
+    item8_code  Int @default(0, map: "DF__userItemD__item8__30E33A54")
+    item9_type  Int @default(0, map: "DF__userItemD__item9__31D75E8D")
+    item9_code  Int @default(0, map: "DF__userItemD__item9__32CB82C6")
+    item10_type Int @default(0, map: "DF__userItemD__item1__33BFA6FF")
+    item10_code Int @default(0, map: "DF__userItemD__item1__34B3CB38")
+    item11_type Int @default(0, map: "DF__userItemD__item1__35A7EF71")
+    item11_code Int @default(0, map: "DF__userItemD__item1__369C13AA")
+    item12_type Int @default(0, map: "DF__userItemD__item1__379037E3")
+    item12_code Int @default(0, map: "DF__userItemD__item1__38845C1C")
+    item13_type Int @default(0, map: "DF__userItemD__item1__39788055")
+    item13_code Int @default(0, map: "DF__userItemD__item1__3A6CA48E")
+    item14_type Int @default(0, map: "DF__userItemD__item1__3B60C8C7")
+    item14_code Int @default(0, map: "DF__userItemD__item1__3C54ED00")
+    item15_type Int @default(0, map: "DF__userItemD__item1__3D491139")
+    item15_code Int @default(0, map: "DF__userItemD__item1__3E3D3572")
+    item16_type Int @default(0, map: "DF__userItemD__item1__3F3159AB")
+    item16_code Int @default(0, map: "DF__userItemD__item1__40257DE4")
+    item17_type Int @default(0, map: "DF__userItemD__item1__4119A21D")
+    item17_code Int @default(0, map: "DF__userItemD__item1__420DC656")
+    item18_type Int @default(0, map: "DF__userItemD__item1__4301EA8F")
+    item18_code Int @default(0, map: "DF__userItemD__item1__43F60EC8")
+    item19_type Int @default(0, map: "DF__userItemD__item1__44EA3301")
+    item19_code Int @default(0, map: "DF__userItemD__item1__45DE573A")
+    item20_type Int @default(0, map: "DF__userItemD__item2__46D27B73")
+    item20_code Int @default(0, map: "DF__userItemD__item2__47C69FAC")
+
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userItemEtcDB {
+    idx           Int @default(autoincrement())
+    accountIDX    Int
+    item1_type    Int @default(0, map: "DF__userItemE__item1__49AEE81E")
+    item1_value1  Int @default(0, map: "DF__userItemE__item1__4AA30C57")
+    item1_value2  Int @default(0, map: "DF__userItemE__item1__4B973090")
+    item2_type    Int @default(0, map: "DF__userItemE__item2__4C8B54C9")
+    item2_value1  Int @default(0, map: "DF__userItemE__item2__4D7F7902")
+    item2_value2  Int @default(0, map: "DF__userItemE__item2__4E739D3B")
+    item3_type    Int @default(0, map: "DF__userItemE__item3__4F67C174")
+    item3_value1  Int @default(0, map: "DF__userItemE__item3__505BE5AD")
+    item3_value2  Int @default(0, map: "DF__userItemE__item3__515009E6")
+    item4_type    Int @default(0, map: "DF__userItemE__item4__52442E1F")
+    item4_value1  Int @default(0, map: "DF__userItemE__item4__53385258")
+    item4_value2  Int @default(0, map: "DF__userItemE__item4__542C7691")
+    item5_type    Int @default(0, map: "DF__userItemE__item5__55209ACA")
+    item5_value1  Int @default(0, map: "DF__userItemE__item5__5614BF03")
+    item5_value2  Int @default(0, map: "DF__userItemE__item5__5708E33C")
+    item6_type    Int @default(0, map: "DF__userItemE__item6__57FD0775")
+    item6_value1  Int @default(0, map: "DF__userItemE__item6__58F12BAE")
+    item6_value2  Int @default(0, map: "DF__userItemE__item6__59E54FE7")
+    item7_type    Int @default(0, map: "DF__userItemE__item7__5AD97420")
+    item7_value1  Int @default(0, map: "DF__userItemE__item7__5BCD9859")
+    item7_value2  Int @default(0, map: "DF__userItemE__item7__5CC1BC92")
+    item8_type    Int @default(0, map: "DF__userItemE__item8__5DB5E0CB")
+    item8_value1  Int @default(0, map: "DF__userItemE__item8__5EAA0504")
+    item8_value2  Int @default(0, map: "DF__userItemE__item8__5F9E293D")
+    item9_type    Int @default(0, map: "DF__userItemE__item9__60924D76")
+    item9_value1  Int @default(0, map: "DF__userItemE__item9__618671AF")
+    item9_value2  Int @default(0, map: "DF__userItemE__item9__627A95E8")
+    item10_type   Int @default(0, map: "DF__userItemE__item1__636EBA21")
+    item10_value1 Int @default(0, map: "DF__userItemE__item1__6462DE5A")
+    item10_value2 Int @default(0, map: "DF__userItemE__item1__65570293")
+    item11_type   Int @default(0, map: "DF__userItemE__item1__664B26CC")
+    item11_value1 Int @default(0, map: "DF__userItemE__item1__673F4B05")
+    item11_value2 Int @default(0, map: "DF__userItemE__item1__68336F3E")
+    item12_type   Int @default(0, map: "DF__userItemE__item1__69279377")
+    item12_value1 Int @default(0, map: "DF__userItemE__item1__6A1BB7B0")
+    item12_value2 Int @default(0, map: "DF__userItemE__item1__6B0FDBE9")
+    item13_type   Int @default(0, map: "DF__userItemE__item1__6C040022")
+    item13_value1 Int @default(0, map: "DF__userItemE__item1__6CF8245B")
+    item13_value2 Int @default(0, map: "DF__userItemE__item1__6DEC4894")
+    item14_type   Int @default(0, map: "DF__userItemE__item1__6EE06CCD")
+    item14_value1 Int @default(0, map: "DF__userItemE__item1__6FD49106")
+    item14_value2 Int @default(0, map: "DF__userItemE__item1__70C8B53F")
+    item15_type   Int @default(0, map: "DF__userItemE__item1__71BCD978")
+    item15_value1 Int @default(0, map: "DF__userItemE__item1__72B0FDB1")
+    item15_value2 Int @default(0, map: "DF__userItemE__item1__73A521EA")
+    item16_type   Int @default(0, map: "DF__userItemE__item1__74994623")
+    item16_value1 Int @default(0, map: "DF__userItemE__item1__758D6A5C")
+    item16_value2 Int @default(0, map: "DF__userItemE__item1__76818E95")
+    item17_type   Int @default(0, map: "DF__userItemE__item1__7775B2CE")
+    item17_value1 Int @default(0, map: "DF__userItemE__item1__7869D707")
+    item17_value2 Int @default(0, map: "DF__userItemE__item1__795DFB40")
+    item18_type   Int @default(0, map: "DF__userItemE__item1__7A521F79")
+    item18_value1 Int @default(0, map: "DF__userItemE__item1__7B4643B2")
+    item18_value2 Int @default(0, map: "DF__userItemE__item1__7C3A67EB")
+    item19_type   Int @default(0, map: "DF__userItemE__item1__7D2E8C24")
+    item19_value1 Int @default(0, map: "DF__userItemE__item1__7E22B05D")
+    item19_value2 Int @default(0, map: "DF__userItemE__item1__7F16D496")
+    item20_type   Int @default(0, map: "DF__userItemE__item2__000AF8CF")
+    item20_value1 Int @default(0, map: "DF__userItemE__item2__00FF1D08")
+    item20_value2 Int @default(0, map: "DF__userItemE__item2__01F34141")
+
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userItemExtraDB {
+    idx              Int      @default(autoincrement())
+    accountIDX       Int
+    item1_type       Int      @default(0, map: "DF__userItemE__item1__03DB89B3")
+    item1_reinforce  Int      @default(0, map: "DF__userItemE__item1__04CFADEC")
+    item1_slotindex  Int      @default(0, map: "DF__userItemE__item1__05C3D225")
+    item1_tradetype  Int      @default(0, map: "DF__userItemE__item1__06B7F65E")
+    item1_mcustom    Int      @default(0, map: "DF__userItemE__item1__07AC1A97")
+    item1_fcustom    Int      @default(0, map: "DF__userItemE__item1__08A03ED0")
+    item1_failexp    Int      @default(0, map: "DF__userItemE__item1__09946309") @db.SmallInt
+    item1_limitType  Int      @default(0, map: "DF__userItemE__item1__0A888742")
+    item1_limitDate  DateTime @db.DateTime
+    item2_type       Int      @default(0, map: "DF__userItemE__item2__0B7CAB7B")
+    item2_reinforce  Int      @default(0, map: "DF__userItemE__item2__0C70CFB4")
+    item2_slotindex  Int      @default(0, map: "DF__userItemE__item2__0D64F3ED")
+    item2_tradetype  Int      @default(0, map: "DF__userItemE__item2__0E591826")
+    item2_mcustom    Int      @default(0, map: "DF__userItemE__item2__0F4D3C5F")
+    item2_fcustom    Int      @default(0, map: "DF__userItemE__item2__10416098")
+    item2_failexp    Int      @default(0, map: "DF__userItemE__item2__113584D1") @db.SmallInt
+    item2_limitType  Int      @default(0, map: "DF__userItemE__item2__1229A90A")
+    item2_limitDate  DateTime @db.DateTime
+    item3_type       Int      @default(0, map: "DF__userItemE__item3__131DCD43")
+    item3_reinforce  Int      @default(0, map: "DF__userItemE__item3__1411F17C")
+    item3_slotindex  Int      @default(0, map: "DF__userItemE__item3__150615B5")
+    item3_tradetype  Int      @default(0, map: "DF__userItemE__item3__15FA39EE")
+    item3_mcustom    Int      @default(0, map: "DF__userItemE__item3__16EE5E27")
+    item3_fcustom    Int      @default(0, map: "DF__userItemE__item3__17E28260")
+    item3_failexp    Int      @default(0, map: "DF__userItemE__item3__18D6A699") @db.SmallInt
+    item3_limitType  Int      @default(0, map: "DF__userItemE__item3__19CACAD2")
+    item3_limitDate  DateTime @db.DateTime
+    item4_type       Int      @default(0, map: "DF__userItemE__item4__1ABEEF0B")
+    item4_reinforce  Int      @default(0, map: "DF__userItemE__item4__1BB31344")
+    item4_slotindex  Int      @default(0, map: "DF__userItemE__item4__1CA7377D")
+    item4_tradetype  Int      @default(0, map: "DF__userItemE__item4__1D9B5BB6")
+    item4_mcustom    Int      @default(0, map: "DF__userItemE__item4__1E8F7FEF")
+    item4_fcustom    Int      @default(0, map: "DF__userItemE__item4__1F83A428")
+    item4_failexp    Int      @default(0, map: "DF__userItemE__item4__2077C861") @db.SmallInt
+    item4_limitType  Int      @default(0, map: "DF__userItemE__item4__216BEC9A")
+    item4_limitDate  DateTime @db.DateTime
+    item5_type       Int      @default(0, map: "DF__userItemE__item5__226010D3")
+    item5_reinforce  Int      @default(0, map: "DF__userItemE__item5__2354350C")
+    item5_slotindex  Int      @default(0, map: "DF__userItemE__item5__24485945")
+    item5_tradetype  Int      @default(0, map: "DF__userItemE__item5__253C7D7E")
+    item5_mcustom    Int      @default(0, map: "DF__userItemE__item5__2630A1B7")
+    item5_fcustom    Int      @default(0, map: "DF__userItemE__item5__2724C5F0")
+    item5_failexp    Int      @default(0, map: "DF__userItemE__item5__2818EA29") @db.SmallInt
+    item5_limitType  Int      @default(0, map: "DF__userItemE__item5__290D0E62")
+    item5_limitDate  DateTime @db.DateTime
+    item6_type       Int      @default(0, map: "DF__userItemE__item6__2A01329B")
+    item6_reinforce  Int      @default(0, map: "DF__userItemE__item6__2AF556D4")
+    item6_slotindex  Int      @default(0, map: "DF__userItemE__item6__2BE97B0D")
+    item6_tradetype  Int      @default(0, map: "DF__userItemE__item6__2CDD9F46")
+    item6_mcustom    Int      @default(0, map: "DF__userItemE__item6__2DD1C37F")
+    item6_fcustom    Int      @default(0, map: "DF__userItemE__item6__2EC5E7B8")
+    item6_failexp    Int      @default(0, map: "DF__userItemE__item6__2FBA0BF1") @db.SmallInt
+    item6_limitType  Int      @default(0, map: "DF__userItemE__item6__30AE302A")
+    item6_limitDate  DateTime @db.DateTime
+    item7_type       Int      @default(0, map: "DF__userItemE__item7__31A25463")
+    item7_reinforce  Int      @default(0, map: "DF__userItemE__item7__3296789C")
+    item7_slotindex  Int      @default(0, map: "DF__userItemE__item7__338A9CD5")
+    item7_tradetype  Int      @default(0, map: "DF__userItemE__item7__347EC10E")
+    item7_mcustom    Int      @default(0, map: "DF__userItemE__item7__3572E547")
+    item7_fcustom    Int      @default(0, map: "DF__userItemE__item7__36670980")
+    item7_failexp    Int      @default(0, map: "DF__userItemE__item7__375B2DB9") @db.SmallInt
+    item7_limitType  Int      @default(0, map: "DF__userItemE__item7__384F51F2")
+    item7_limitDate  DateTime @db.DateTime
+    item8_type       Int      @default(0, map: "DF__userItemE__item8__3943762B")
+    item8_reinforce  Int      @default(0, map: "DF__userItemE__item8__3A379A64")
+    item8_slotindex  Int      @default(0, map: "DF__userItemE__item8__3B2BBE9D")
+    item8_tradetype  Int      @default(0, map: "DF__userItemE__item8__3C1FE2D6")
+    item8_mcustom    Int      @default(0, map: "DF__userItemE__item8__3D14070F")
+    item8_fcustom    Int      @default(0, map: "DF__userItemE__item8__3E082B48")
+    item8_failexp    Int      @default(0, map: "DF__userItemE__item8__3EFC4F81") @db.SmallInt
+    item8_limitType  Int      @default(0, map: "DF__userItemE__item8__3FF073BA")
+    item8_limitDate  DateTime @db.DateTime
+    item9_type       Int      @default(0, map: "DF__userItemE__item9__40E497F3")
+    item9_reinforce  Int      @default(0, map: "DF__userItemE__item9__41D8BC2C")
+    item9_slotindex  Int      @default(0, map: "DF__userItemE__item9__42CCE065")
+    item9_tradetype  Int      @default(0, map: "DF__userItemE__item9__43C1049E")
+    item9_mcustom    Int      @default(0, map: "DF__userItemE__item9__44B528D7")
+    item9_fcustom    Int      @default(0, map: "DF__userItemE__item9__45A94D10")
+    item9_failexp    Int      @default(0, map: "DF__userItemE__item9__469D7149") @db.SmallInt
+    item9_limitType  Int      @default(0, map: "DF__userItemE__item9__47919582")
+    item9_limitDate  DateTime @db.DateTime
+    item10_type      Int      @default(0, map: "DF__userItemE__item1__4885B9BB")
+    item10_reinforce Int      @default(0, map: "DF__userItemE__item1__4979DDF4")
+    item10_slotindex Int      @default(0, map: "DF__userItemE__item1__4A6E022D")
+    item10_tradetype Int      @default(0, map: "DF__userItemE__item1__4B622666")
+    item10_mcustom   Int      @default(0, map: "DF__userItemE__item1__4C564A9F")
+    item10_fcustom   Int      @default(0, map: "DF__userItemE__item1__4D4A6ED8")
+    item10_failexp   Int      @default(0, map: "DF__userItemE__item1__4E3E9311") @db.SmallInt
+    item10_limitType Int      @default(0, map: "DF__userItemE__item1__4F32B74A")
+    item10_limitDate DateTime @db.DateTime
+    regDate          DateTime @default(now(), map: "DF__userItemE__regDa__5026DB83") @db.DateTime
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userItemMedalDB {
+    idx              Int      @default(autoincrement())
+    accountIDX       Int
+    item1_type       Int      @default(0, map: "DF__userItemM__item1__520F23F5")
+    item1_class      Int      @default(0, map: "DF__userItemM__item1__5303482E")
+    item1_limitType  Int      @default(0, map: "DF__userItemM__item1__53F76C67")
+    item1_limitDate  DateTime @db.DateTime
+    item2_type       Int      @default(0, map: "DF__userItemM__item2__54EB90A0")
+    item2_class      Int      @default(0, map: "DF__userItemM__item2__55DFB4D9")
+    item2_limitType  Int      @default(0, map: "DF__userItemM__item2__56D3D912")
+    item2_limitDate  DateTime @db.DateTime
+    item3_type       Int      @default(0, map: "DF__userItemM__item3__57C7FD4B")
+    item3_class      Int      @default(0, map: "DF__userItemM__item3__58BC2184")
+    item3_limitType  Int      @default(0, map: "DF__userItemM__item3__59B045BD")
+    item3_limitDate  DateTime @db.DateTime
+    item4_type       Int      @default(0, map: "DF__userItemM__item4__5AA469F6")
+    item4_class      Int      @default(0, map: "DF__userItemM__item4__5B988E2F")
+    item4_limitType  Int      @default(0, map: "DF__userItemM__item4__5C8CB268")
+    item4_limitDate  DateTime @db.DateTime
+    item5_type       Int      @default(0, map: "DF__userItemM__item5__5D80D6A1")
+    item5_class      Int      @default(0, map: "DF__userItemM__item5__5E74FADA")
+    item5_limitType  Int      @default(0, map: "DF__userItemM__item5__5F691F13")
+    item5_limitDate  DateTime @db.DateTime
+    item6_type       Int      @default(0, map: "DF__userItemM__item6__605D434C")
+    item6_class      Int      @default(0, map: "DF__userItemM__item6__61516785")
+    item6_limitType  Int      @default(0, map: "DF__userItemM__item6__62458BBE")
+    item6_limitDate  DateTime @db.DateTime
+    item7_type       Int      @default(0, map: "DF__userItemM__item7__6339AFF7")
+    item7_class      Int      @default(0, map: "DF__userItemM__item7__642DD430")
+    item7_limitType  Int      @default(0, map: "DF__userItemM__item7__6521F869")
+    item7_limitDate  DateTime @db.DateTime
+    item8_type       Int      @default(0, map: "DF__userItemM__item8__66161CA2")
+    item8_class      Int      @default(0, map: "DF__userItemM__item8__670A40DB")
+    item8_limitType  Int      @default(0, map: "DF__userItemM__item8__67FE6514")
+    item8_limitDate  DateTime @db.DateTime
+    item9_type       Int      @default(0, map: "DF__userItemM__item9__68F2894D")
+    item9_class      Int      @default(0, map: "DF__userItemM__item9__69E6AD86")
+    item9_limitType  Int      @default(0, map: "DF__userItemM__item9__6ADAD1BF")
+    item9_limitDate  DateTime @db.DateTime
+    item10_type      Int      @default(0, map: "DF__userItemM__item1__6BCEF5F8")
+    item10_class     Int      @default(0, map: "DF__userItemM__item1__6CC31A31")
+    item10_limitType Int      @default(0, map: "DF__userItemM__item1__6DB73E6A")
+    item10_limitDate DateTime @db.DateTime
+    regDate          DateTime @default(now(), map: "DF__userItemM__regDa__6EAB62A3") @db.DateTime
+
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userItemMedalExtendDB {
+    idx            Int    @default(autoincrement())
+    accountIDX     Int
+    medal1_class   Int    @default(0, map: "DF__userItemM__medal__7093AB15")
+    medal1_slot    Int    @default(0, map: "DF__userItemM__medal__7187CF4E") @db.TinyInt
+    medal1_period  Int    @default(0, map: "DF__userItemM__medal__727BF387")
+    medal2_class   Int    @default(0, map: "DF__userItemM__medal__737017C0")
+    medal2_slot    Int    @default(0, map: "DF__userItemM__medal__74643BF9") @db.TinyInt
+    medal2_period  Int    @default(0, map: "DF__userItemM__medal__75586032")
+    medal3_class   Int    @default(0, map: "DF__userItemM__medal__764C846B")
+    medal3_slot    Int    @default(0, map: "DF__userItemM__medal__7740A8A4") @db.TinyInt
+    medal3_period  Int    @default(0, map: "DF__userItemM__medal__7834CCDD")
+    medal4_class   Int    @default(0, map: "DF__userItemM__medal__7928F116")
+    medal4_slot    Int    @default(0, map: "DF__userItemM__medal__7A1D154F") @db.TinyInt
+    medal4_period  Int    @default(0, map: "DF__userItemM__medal__7B113988")
+    medal5_class   Int    @default(0, map: "DF__userItemM__medal__7C055DC1")
+    medal5_slot    Int    @default(0, map: "DF__userItemM__medal__7CF981FA") @db.TinyInt
+    medal5_period  Int    @default(0, map: "DF__userItemM__medal__7DEDA633")
+    medal6_class   Int    @default(0, map: "DF__userItemM__medal__7EE1CA6C")
+    medal6_slot    Int    @default(0, map: "DF__userItemM__medal__7FD5EEA5") @db.TinyInt
+    medal6_period  Int    @default(0, map: "DF__userItemM__medal__00CA12DE")
+    medal7_class   Int    @default(0, map: "DF__userItemM__medal__01BE3717")
+    medal7_slot    Int    @default(0, map: "DF__userItemM__medal__02B25B50") @db.TinyInt
+    medal7_period  Int    @default(0, map: "DF__userItemM__medal__03A67F89")
+    medal8_class   Int    @default(0, map: "DF__userItemM__medal__049AA3C2")
+    medal8_slot    Int    @default(0, map: "DF__userItemM__medal__058EC7FB") @db.TinyInt
+    medal8_period  Int    @default(0, map: "DF__userItemM__medal__0682EC34")
+    medal9_class   Int    @default(0, map: "DF__userItemM__medal__0777106D")
+    medal9_slot    Int    @default(0, map: "DF__userItemM__medal__086B34A6") @db.TinyInt
+    medal9_period  Int    @default(0, map: "DF__userItemM__medal__095F58DF")
+    medal10_class  Int    @default(0, map: "DF__userItemM__medal__0A537D18")
+    medal10_slot   Int    @default(0, map: "DF__userItemM__medal__0B47A151") @db.TinyInt
+    medal10_period Int    @default(0, map: "DF__userItemM__medal__0C3BC58A")
+    regDate        String @default("getdate()", map: "DF__userItemM__regDa__0D2FE9C3") @db.NChar(10)
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userLeagueAuthDB {
+    idx        Int      @default(autoincrement())
+    leagueIDX  Int
+    accountIDX Int
+    regDate    DateTime @default(now(), map: "DF__userLeagu__regDa__0F183235") @db.DateTime
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@index([leagueIDX], map: "idx_leagueIDX")
+    @@ignore
+}
+
+model userLeagueCheerDB {
+    idx        Int      @id(map: "PK_userLeagueCheerDB") @default(autoincrement())
+    accountIDX Int
+    leagueIDX  Int
+    teamIDX    Int
+    regDate    DateTime @db.DateTime
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@index([leagueIDX], map: "idx_leagueIDX")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userLeagueInfoDB {
+    idx         Int      @default(autoincrement())
+    leagueIDX   Int      @default(0, map: "DF__userLeagu__leagu__11F49EE0")
+    leagueName  String   @db.NVarChar(20)
+    maxRound    Int      @db.SmallInt
+    bannerA     Int      @default(0, map: "DF__userLeagu__banne__12E8C319")
+    bannerB     Int      @default(0, map: "DF__userLeagu__banne__13DCE752")
+    modeType    Int      @default(0, map: "DF__userLeagu__modeT__14D10B8B")
+    maxcount    Int      @default(0, map: "DF__userLeagu__maxco__15C52FC4") @db.TinyInt
+    autoType    Int      @default(0, map: "DF__userLeagu__autoT__16B953FD") @db.TinyInt
+    announce    String   @db.NVarChar(512)
+    recruitDate Int      @default(0, map: "DF__userLeagu__recru__17AD7836")
+    waitDate    Int      @default(0, map: "DF__userLeagu__waitD__18A19C6F")
+    regDate     DateTime @default(now(), map: "DF__userLeagu__regDa__1995C0A8") @db.DateTime
+
+    @@index([leagueIDX], map: "idx_leagueIDX")
+    @@ignore
+}
+
+model userLeagueListDB {
+    idx         Int      @id(map: "PK_userLeagueListDB") @default(autoincrement())
+    accountIDX  Int
+    startDate   Int
+    endDate     Int
+    leagueType  Int      @default(0, map: "DF__userLeagu__leagu__1B7E091A") @db.TinyInt
+    leagueState Int      @default(0, map: "DF__userLeagu__leagu__1C722D53") @db.TinyInt
+    regDate     DateTime @default(now(), map: "DF__userLeagu__regDa__1D66518C") @db.DateTime
+
+    @@index([accountIDX], map: "idx_accountIDX")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userLeagueRewardCheerDB {
+    idx        Int      @default(autoincrement())
+    accountIDX Int
+    rewardPeso Int
+    startDate  Int
+    flag       Int      @default(0, map: "DF__userLeague__flag__1F4E99FE") @db.TinyInt
+    regDate    DateTime @db.DateTime
+
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userLeagueRewardDB {
+    idx               Int      @default(autoincrement())
+    accountIDX        Int
+    startDate         Int
+    currentRound      Int      @default(0, map: "DF__userLeagu__curre__2136E270") @db.TinyInt
+    userFactionType   Int      @default(0, map: "DF__userLeagu__userF__222B06A9")
+    winnerFactionType Int      @default(0, map: "DF__userLeagu__winne__231F2AE2")
+    rewardPeso        Int      @default(0, map: "DF__userLeagu__rewar__24134F1B")
+    factionRank       Int      @default(0, map: "DF__userLeagu__facti__25077354")
+    factionPoint      Int      @default(0, map: "DF__userLeagu__facti__25FB978D")
+    regDate           DateTime @default(now(), map: "DF__userLeagu__regDa__26EFBBC6") @db.DateTime
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userLeagueRewardUserDB {
+    idx          Int      @default(autoincrement())
+    accountIDX   Int
+    leagueIDX    Int      @default(0, map: "DF__userLeagu__leagu__28D80438")
+    sendNickname String   @db.NVarChar(20)
+    leagueName   String   @db.NVarChar(20)
+    roundnum     Int      @default(0, map: "DF__userLeagu__round__29CC2871")
+    maxRound     Int      @default(0, map: "DF__userLeagu__maxRo__2AC04CAA") @db.SmallInt
+    presentCode1 Int      @default(0, map: "DF__userLeagu__prese__2BB470E3")
+    presentCode2 Int      @default(0, map: "DF__userLeagu__prese__2CA8951C")
+    presentCode3 Int      @default(0, map: "DF__userLeagu__prese__2D9CB955")
+    presentCode4 Int      @default(0, map: "DF__userLeagu__prese__2E90DD8E")
+    regDate      DateTime @default(now(), map: "DF__userLeagu__regDa__2F8501C7") @db.DateTime
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userLeagueRoundDB {
+    idx                      Int      @default(autoincrement())
+    infoIDX                  Int      @default(0, map: "DF__userLeagu__infoI__316D4A39")
+    roundType1_playDate      Int      @default(0, map: "DF__userLeagu__round__32616E72")
+    roundType1_presentCode1  Int      @default(0, map: "DF__userLeagu__round__335592AB")
+    roundType1_presentCode2  Int      @default(0, map: "DF__userLeagu__round__3449B6E4")
+    roundType1_presentCode3  Int      @default(0, map: "DF__userLeagu__round__353DDB1D")
+    roundType1_presentCode4  Int      @default(0, map: "DF__userLeagu__round__3631FF56")
+    roundType2_playDate      Int      @default(0, map: "DF__userLeagu__round__3726238F")
+    roundType2_presentCode1  Int      @default(0, map: "DF__userLeagu__round__381A47C8")
+    roundType2_presentCode2  Int      @default(0, map: "DF__userLeagu__round__390E6C01")
+    roundType2_presentCode3  Int      @default(0, map: "DF__userLeagu__round__3A02903A")
+    roundType2_presentCode4  Int      @default(0, map: "DF__userLeagu__round__3AF6B473")
+    roundType3_playDate      Int      @default(0, map: "DF__userLeagu__round__3BEAD8AC")
+    roundType3_presentCode1  Int      @default(0, map: "DF__userLeagu__round__3CDEFCE5")
+    roundType3_presentCode2  Int      @default(0, map: "DF__userLeagu__round__3DD3211E")
+    roundType3_presentCode3  Int      @default(0, map: "DF__userLeagu__round__3EC74557")
+    roundType3_presentCode4  Int      @default(0, map: "DF__userLeagu__round__3FBB6990")
+    roundType4_playDate      Int      @default(0, map: "DF__userLeagu__round__40AF8DC9")
+    roundType4_presentCode1  Int      @default(0, map: "DF__userLeagu__round__41A3B202")
+    roundType4_presentCode2  Int      @default(0, map: "DF__userLeagu__round__4297D63B")
+    roundType4_presentCode3  Int      @default(0, map: "DF__userLeagu__round__438BFA74")
+    roundType4_presentCode4  Int      @default(0, map: "DF__userLeagu__round__44801EAD")
+    roundType5_playDate      Int      @default(0, map: "DF__userLeagu__round__457442E6")
+    roundType5_presentCode1  Int      @default(0, map: "DF__userLeagu__round__4668671F")
+    roundType5_presentCode2  Int      @default(0, map: "DF__userLeagu__round__475C8B58")
+    roundType5_presentCode3  Int      @default(0, map: "DF__userLeagu__round__4850AF91")
+    roundType5_presentCode4  Int      @default(0, map: "DF__userLeagu__round__4944D3CA")
+    roundType6_playDate      Int      @default(0, map: "DF__userLeagu__round__4A38F803")
+    roundType6_presentCode1  Int      @default(0, map: "DF__userLeagu__round__4B2D1C3C")
+    roundType6_presentCode2  Int      @default(0, map: "DF__userLeagu__round__4C214075")
+    roundType6_presentCode3  Int      @default(0, map: "DF__userLeagu__round__4D1564AE")
+    roundType6_presentCode4  Int      @default(0, map: "DF__userLeagu__round__4E0988E7")
+    roundType7_playDate      Int      @default(0, map: "DF__userLeagu__round__4EFDAD20")
+    roundType7_presentCode1  Int      @default(0, map: "DF__userLeagu__round__4FF1D159")
+    roundType7_presentCode2  Int      @default(0, map: "DF__userLeagu__round__50E5F592")
+    roundType7_presentCode3  Int      @default(0, map: "DF__userLeagu__round__51DA19CB")
+    roundType7_presentCode4  Int      @default(0, map: "DF__userLeagu__round__52CE3E04")
+    roundType8_playDate      Int      @default(0, map: "DF__userLeagu__round__53C2623D")
+    roundType8_presentCode1  Int      @default(0, map: "DF__userLeagu__round__54B68676")
+    roundType8_presentCode2  Int      @default(0, map: "DF__userLeagu__round__55AAAAAF")
+    roundType8_presentCode3  Int      @default(0, map: "DF__userLeagu__round__569ECEE8")
+    roundType8_presentCode4  Int      @default(0, map: "DF__userLeagu__round__5792F321")
+    roundType9_playDate      Int      @default(0, map: "DF__userLeagu__round__5887175A")
+    roundType9_presentCode1  Int      @default(0, map: "DF__userLeagu__round__597B3B93")
+    roundType9_presentCode2  Int      @default(0, map: "DF__userLeagu__round__5A6F5FCC")
+    roundType9_presentCode3  Int      @default(0, map: "DF__userLeagu__round__5B638405")
+    roundType9_presentCode4  Int      @default(0, map: "DF__userLeagu__round__5C57A83E")
+    roundType10_playDate     Int      @default(0, map: "DF__userLeagu__round__5D4BCC77")
+    roundType10_presentCode1 Int      @default(0, map: "DF__userLeagu__round__5E3FF0B0")
+    roundType10_presentCode2 Int      @default(0, map: "DF__userLeagu__round__5F3414E9")
+    roundType10_presentCode3 Int      @default(0, map: "DF__userLeagu__round__60283922")
+    roundType10_presentCode4 Int      @default(0, map: "DF__userLeagu__round__611C5D5B")
+    roundType11_playDate     Int      @default(0, map: "DF__userLeagu__round__62108194")
+    roundType11_presentCode1 Int      @default(0, map: "DF__userLeagu__round__6304A5CD")
+    roundType11_presentCode2 Int      @default(0, map: "DF__userLeagu__round__63F8CA06")
+    roundType11_presentCode3 Int      @default(0, map: "DF__userLeagu__round__64ECEE3F")
+    roundType11_presentCode4 Int      @default(0, map: "DF__userLeagu__round__65E11278")
+    regDate                  DateTime @default(now(), map: "DF__userLeagu__regDa__66D536B1") @db.DateTime
+
+    @@index([infoIDX], map: "idx_infoIDX")
+    @@ignore
+}
+
+model userLeagueTeamDB {
+    idx                 Int      @id(map: "PK_userLeagueTeamDB") @default(autoincrement())
+    leagueIDX           Int
+    teamName            String   @db.NVarChar(20)
+    leaderIDX           Int
+    leagueStartPosition Int      @default(0, map: "DF__userLeagu__leagu__68BD7F23") @db.SmallInt
+    leaguePosition      Int      @default(0, map: "DF__userLeagu__leagu__69B1A35C") @db.SmallInt
+    maxcount            Int      @default(0, map: "DF__userLeagu__maxco__6AA5C795") @db.TinyInt
+    cheerPoint          Int      @default(0, map: "DF__userLeagu__cheer__6B99EBCE")
+    currentRound        Int      @default(0, map: "DF__userLeagu__curre__6C8E1007") @db.TinyInt
+    factionPoint        Int      @default(0, map: "DF__userLeagu__facti__6D823440")
+    factionType         Int      @default(0, map: "DF__userLeagu__facti__6E765879") @db.TinyInt
+    regDate             DateTime @default(now(), map: "DF__userLeagu__regDa__6F6A7CB2") @db.DateTime
+
+    @@index([leaderIDX], map: "idx_leaderIDX")
+    @@index([leagueIDX], map: "idx_leagueIDX")
+}
+
+model userLeagueTeamMemberDB {
+    idx        Int      @id(map: "PK_userLeagueTeamMemberDB") @default(autoincrement())
+    accountIDX Int
+    leagueIDX  Int      @default(0, map: "DF__userLeagu__leagu__7152C524")
+    teamIDX    Int      @default(0, map: "DF__userLeagu__teamI__7246E95D")
+    joinType   Int      @default(0, map: "DF__userLeagu__joinT__733B0D96") @db.TinyInt
+    regDate    DateTime @default(now(), map: "DF__userLeagu__regDa__742F31CF") @db.DateTime
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@index([leagueIDX], map: "idx_leagueIDX")
+    @@index([teamIDX], map: "idx_teamIDX")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userLeagueWinnerHistoryDB {
+    idx         Int      @default(autoincrement())
+    leagueTitle String   @db.NVarChar(20)
+    startDate   Int
+    endDate     Int
+    teamIDX     Int
+    teamName    String?  @db.NVarChar(20)
+    factionName String?  @db.NVarChar(20)
+    factionType Int
+    regDate     DateTime @default(now(), map: "DF__userLeagu__regDa__76177A41") @db.DateTime
+
+    @@index([endDate], map: "idx_endDate")
+    @@index([startDate], map: "idx_startDate")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userLeagueWinnerInfoDB {
+    idx            Int      @default(autoincrement())
+    accountIDX     Int
+    nickName       String   @db.NVarChar(20)
+    userLevel      Int
+    historyIDX     Int      @default(0, map: "DF__userLeagu__histo__77FFC2B3")
+    teamIDX        Int      @default(0, map: "DF__userLeagu__teamI__78F3E6EC")
+    classType      Int      @default(0, map: "DF__userLeagu__class__79E80B25")
+    classGender    Int      @default(0, map: "DF__userLeagu__class__7ADC2F5E")
+    classFace      Int      @default(0, map: "DF__userLeagu__class__7BD05397")
+    classHair      Int      @default(0, map: "DF__userLeagu__class__7CC477D0")
+    classSkinColor Int      @default(0, map: "DF__userLeagu__class__7DB89C09")
+    classHairColor Int      @default(0, map: "DF__userLeagu__class__7EACC042")
+    classUnderwear Int      @default(0, map: "DF__userLeagu__class__7FA0E47B")
+    classGear1     Int      @default(0, map: "DF__userLeagu__class__009508B4")
+    classGear2     Int      @default(0, map: "DF__userLeagu__class__01892CED")
+    classGear3     Int      @default(0, map: "DF__userLeagu__class__027D5126")
+    classGear4     Int      @default(0, map: "DF__userLeagu__class__0371755F")
+    regDate        DateTime @default(now(), map: "DF__userLeagu__regDa__04659998") @db.DateTime
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@index([historyIDX], map: "idx_historyIDX")
+    @@ignore
+}
+
+model userLoginDB {
+    accountIDX   Int          @id(map: "PK_userLoginDB")
+    encodeKey    String       @default("111111111111111.", map: "DF__userLogin__encod__064DE20A") @db.Char(15)
+    gameServerID BigInt       @default(0, map: "DF__userLogin__gameS__07420643")
+    userIP       String?      @db.VarChar(15)
+    connDate     DateTime     @default(now(), map: "DF__userLogin__connD__08362A7C") @db.DateTime
+    webToken     String?      @db.Text
+    userMemberDB userMemberDB @relation(fields: [accountIDX], references: [accountIDX], onDelete: Cascade, onUpdate: NoAction)
+
+    @@index([gameServerID], map: "idx_gameserverID")
+}
+
+model userMatchModeDailyRankingDB {
+    Ranking    Int
+    AccountIDX Int
+    MatchPoint Int @default(0, map: "DF__userMatch__Match__0A1E72EE")
+
+    @@id([AccountIDX, Ranking], map: "PK_userMatchModeDailyRankingDB")
+}
+
+model userMatchModeDB {
+    AccountIDX  Int      @id(map: "PK_userMatchModeDB")
+    MatchPoint  Int
+    WinCount    Int      @default(0, map: "DF__userMatch__WinCo__0C06BB60")
+    LoseCount   Int      @default(0, map: "DF__userMatch__LoseC__0CFADF99")
+    MaxWinCount Int      @default(0, map: "DF__userMatch__MaxWi__0DEF03D2")
+    PlayCount   Int      @default(0, map: "DF__userMatch__PlayC__0EE3280B")
+    RankMMR     Int      @default(0, map: "DF__userMatch__RankM__0FD74C44")
+    RegDate     DateTime @default(now(), map: "DF__userMatch__RegDa__10CB707D") @db.DateTime
+}
+
+model userMatchModeHistoryDB {
+    idx                  Int      @default(autoincrement())
+    AccountIDX           Int
+    WinLoseType          Int      @default(0, map: "DF__userMatch__WinLo__12B3B8EF") @db.TinyInt
+    TeamWinCount         Int      @default(0, map: "DF__userMatch__TeamW__13A7DD28")
+    OpposingTeamWinCount Int      @default(0, map: "DF__userMatch__Oppos__149C0161")
+    PlayDate             DateTime @default(now(), map: "DF__userMatch__PlayD__1590259A") @db.DateTime
+
+    @@id([AccountIDX, PlayDate, idx], map: "PK_userMatchModeHistoryDB")
+}
+
+model userMatchModeSeasonRankingDB {
+    AccountIDX    Int      @id(map: "PK_userMatchModeSeasonRankingDB")
+    S1_Ranking    Int      @default(0, map: "DF__userMatch__S1_Ra__17786E0C")
+    S1_MatchPoint Int      @default(0, map: "DF__userMatch__S1_Ma__186C9245")
+    S1_SeasonDate DateTime @default(dbgenerated("0"), map: "DF__userMatch__S1_Se__1960B67E") @db.DateTime
+    S2_Ranking    Int      @default(0, map: "DF__userMatch__S2_Ra__1A54DAB7")
+    S2_MatchPoint Int      @default(0, map: "DF__userMatch__S2_Ma__1B48FEF0")
+    S2_SeasonDate DateTime @default(dbgenerated("0"), map: "DF__userMatch__S2_Se__1C3D2329") @db.DateTime
+    S3_Ranking    Int      @default(0, map: "DF__userMatch__S3_Ra__1D314762")
+    S3_MatchPoint Int      @default(0, map: "DF__userMatch__S3_Ma__1E256B9B")
+    S3_SeasonDate DateTime @default(dbgenerated("0"), map: "DF__userMatch__S3_Se__1F198FD4") @db.DateTime
+    S4_Ranking    Int      @default(0, map: "DF__userMatch__S4_Ra__200DB40D")
+    S4_MatchPoint Int      @default(0, map: "DF__userMatch__S4_Ma__2101D846")
+    S4_SeasonDate DateTime @default(dbgenerated("0"), map: "DF__userMatch__S4_Se__21F5FC7F") @db.DateTime
+    S5_Ranking    Int      @default(0, map: "DF__userMatch__S5_Ra__22EA20B8")
+    S5_MatchPoint Int      @default(0, map: "DF__userMatch__S5_Ma__23DE44F1")
+    S5_SeasonDate DateTime @default(dbgenerated("0"), map: "DF__userMatch__S5_Se__24D2692A") @db.DateTime
+    S6_Ranking    Int      @default(0, map: "DF__userMatch__S6_Ra__25C68D63")
+    S6_MatchPoint Int      @default(0, map: "DF__userMatch__S6_Ma__26BAB19C")
+    S6_SeasonDate DateTime @default(dbgenerated("0"), map: "DF__userMatch__S6_Se__27AED5D5") @db.DateTime
+    S7_Ranking    Int      @default(0, map: "DF__userMatch__S7_Ra__28A2FA0E")
+    S7_MatchPoint Int      @default(0, map: "DF__userMatch__S7_Ma__29971E47")
+    S7_SeasonDate DateTime @default(dbgenerated("0"), map: "DF__userMatch__S7_Se__2A8B4280") @db.DateTime
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userMedalDB {
+    idx          Int      @default(autoincrement())
+    accountIDX   Int
+    medal1_type  Int      @default(0, map: "DF__userMedal__medal__2C738AF2")
+    medal2_type  Int      @default(0, map: "DF__userMedal__medal__2D67AF2B")
+    medal3_type  Int      @default(0, map: "DF__userMedal__medal__2E5BD364")
+    medal4_type  Int      @default(0, map: "DF__userMedal__medal__2F4FF79D")
+    medal5_type  Int      @default(0, map: "DF__userMedal__medal__30441BD6")
+    medal6_type  Int      @default(0, map: "DF__userMedal__medal__3138400F")
+    medal7_type  Int      @default(0, map: "DF__userMedal__medal__322C6448")
+    medal8_type  Int      @default(0, map: "DF__userMedal__medal__33208881")
+    medal9_type  Int      @default(0, map: "DF__userMedal__medal__3414ACBA")
+    medal10_type Int      @default(0, map: "DF__userMedal__medal__3508D0F3")
+    regDate      DateTime @default(now(), map: "DF__userMedal__regDa__35FCF52C") @db.DateTime
+
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userMedalDB_receive {
+    idx        Int      @default(autoincrement())
+    accountIDX Int
+    medalIDX   Int
+    flag       Int      @default(0, map: "DF__userMedalD__flag__37E53D9E") @db.TinyInt
+    regDate    DateTime @default(now(), map: "DF__userMedal__regDa__38D961D7") @db.DateTime
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@ignore
+}
+
+model userMemberDB {
+    accountIDX   Int      @unique @default(autoincrement())
+    userID       String   @id(map: "PK_userMemberDB_1") @unique @db.VarChar(14)
+    nickName     String   @unique(map: "UK_userMemberDB") @db.NVarChar(50)
+    userPWD      String   @db.VarChar(255)
+    email        String   @db.VarChar(50)
+    mailling     Int      @default(0) @db.TinyInt
+    userType     Int      @default(100, map: "DF__userMembe__userT__3AC1AA49") @db.SmallInt
+    joinType     Int      @default(1, map: "DF__userMembe__joinT__3BB5CE82") @db.SmallInt
+    eventType    Int      @default(0, map: "DF__userMembe__event__3CA9F2BB")
+    cpType       Int      @default(0, map: "DF__userMembe__cpTyp__3D9E16F4") @db.SmallInt
+    limitType    Int      @default(0, map: "DF__userMembe__limit__3E923B2D") @db.SmallInt
+    limitDate    DateTime @default(dbgenerated("0"), map: "DF__userMembe__limit__3F865F66") @db.DateTime
+    trackingcode Int      @default(0, map: "DF__userMembe__track__407A839F")
+    regDate      DateTime @default(now(), map: "DF__userMembe__regDa__416EA7D8") @db.DateTime
+    makeType     Int      @default(0, map: "DF__userMembe__makeT__4262CC11") @db.TinyInt
+    role         String   @default("USER") @db.VarChar(20)
+    twofa_email  Int      @default(0) @db.Int
+
+    userinfo     userInfoDB?
+    gameinfo     userGameDB?
+    logininfo    userLoginDB?
+    battlerecord userRecordBattleDB?
+    languageinfo userLanguageDB?
+    walletinfo   userWalletDB?
+    discordinfo  userDiscordDB?
+    vipinfo      userVIPDB?
+    otpinfo      userOTPDB?
+    cashinfo     userCashDB?
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@index([email], map: "idx_email")
+}
+
+model userMissionDB {
+    AccountIDX    Int
+    MissionType   Int      @db.TinyInt
+    MissionCode   Int
+    MissionValue  Int
+    MissionStatus Int      @default(1, map: "DF__userMissi__Missi__444B1483") @db.TinyInt
+    RegDate       DateTime @default(now(), map: "DF__userMissi__RegDa__453F38BC") @db.DateTime
+
+    @@id([AccountIDX, MissionType, MissionCode], map: "PK_userMissionDB_AccountIDX")
+}
+
+model userNameDB {
+    accountIDX   Int      @id(map: "PK_userNameDB")
+    userName     String   @db.VarChar(10)
+    userBirthday String   @db.Char(6)
+    userJumin1   String?  @db.Char(12)
+    userJumin2   String?  @db.Char(14)
+    virtualJumin String?  @db.VarChar(13)
+    ipinCI       String?  @db.VarChar(88)
+    ipinDI       String?  @db.VarChar(64)
+    userEnCode   String   @db.VarChar(64)
+    userNumber   Int      @db.TinyInt
+    userGender   Int      @db.TinyInt
+    returnValue  Int      @db.TinyInt
+    userIP       String?  @db.VarChar(15)
+    realType     Int      @default(0, map: "DF__userNameD__realT__4727812E") @db.TinyInt
+    certType     String   @default("J", map: "DF__userNameD__certT__481BA567") @db.Char(1)
+    regDate      DateTime @default(now(), map: "DF__userNameD__regDa__490FC9A0") @db.DateTime
+
+    @@index([userJumin1, userJumin2], map: "idx_jumin")
+    @@index([userEnCode], map: "idx_userencode")
+    @@index([userName], map: "idx_userName")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userOakBarrelDB {
+    AccountIDX Int
+    Step       Int      @default(0, map: "DF__userOakBar__Step__4AF81212") @db.TinyInt
+    Slot1      Int      @default(0, map: "DF__userOakBa__Slot1__4BEC364B") @db.TinyInt
+    Slot2      Int      @default(0, map: "DF__userOakBa__Slot2__4CE05A84") @db.TinyInt
+    Slot3      Int      @default(0, map: "DF__userOakBa__Slot3__4DD47EBD") @db.TinyInt
+    Slot4      Int      @default(0, map: "DF__userOakBa__Slot4__4EC8A2F6") @db.TinyInt
+    Slot5      Int      @default(0, map: "DF__userOakBa__Slot5__4FBCC72F") @db.TinyInt
+    Slot6      Int      @default(0, map: "DF__userOakBa__Slot6__50B0EB68") @db.TinyInt
+    Slot7      Int      @default(0, map: "DF__userOakBa__Slot7__51A50FA1") @db.TinyInt
+    Slot8      Int      @default(0, map: "DF__userOakBa__Slot8__529933DA") @db.TinyInt
+    Slot9      Int      @default(0, map: "DF__userOakBa__Slot9__538D5813") @db.TinyInt
+    Slot10     Int      @default(0, map: "DF__userOakBa__Slot1__54817C4C") @db.TinyInt
+    Slot11     Int      @default(0, map: "DF__userOakBa__Slot1__5575A085") @db.TinyInt
+    Slot12     Int      @default(0, map: "DF__userOakBa__Slot1__5669C4BE") @db.TinyInt
+    UpdateTime DateTime @default(now(), map: "DF__userOakBa__Updat__575DE8F7") @db.DateTime
+    RegDate    DateTime @default(now(), map: "DF__userOakBa__RegDa__58520D30") @db.DateTime
+    LimitSword Int      @default(0, map: "DF__userOakBa__Limit__59463169")
+
+    @@ignore
+}
+
+model userParentDB {
+    accountIDX   Int       @id(map: "PK_userParentDB")
+    parentName   String    @db.VarChar(50)
+    parentBirth  String?   @db.Char(6)
+    parentJumin1 String?   @db.Char(12)
+    parentJumin2 String?   @db.Char(14)
+    parentEncode String?   @db.VarChar(64)
+    parentNumber Int?      @db.TinyInt
+    email        String?   @db.VarChar(50)
+    agreeSDate   DateTime? @db.DateTime
+    agreeEDate   DateTime? @db.DateTime
+    agreeType    Int       @default(0, map: "DF__userParen__agree__5B2E79DB") @db.TinyInt
+    logIDX       Int       @default(0, map: "DF__userParen__logID__5C229E14")
+    regDate      DateTime  @default(now(), map: "DF__userParen__regDa__5D16C24D") @db.DateTime
+    Certify_Type String?   @default("R", map: "DF__userParen__Certi__5E0AE686") @db.Char(1)
+    PIpinCI      String?   @db.VarChar(100)
+    PIpinDI      String?   @db.VarChar(100)
+
+    @@index([parentEncode], map: "idx_parentencode")
+}
+
+model userPCBangPlayTimeDB {
+    PCBangDate     String @default("", map: "DF__userPCBan__PCBan__5FF32EF8") @db.NVarChar(10)
+    PCBangIndex    Int    @default(0, map: "DF__userPCBan__PCBan__60E75331")
+    AccountIDX     Int    @default(0, map: "DF__userPCBan__Accou__61DB776A")
+    PCBangPlayTime Int    @default(0, map: "DF__userPCBan__PCBan__62CF9BA3")
+
+    @@id([PCBangDate, PCBangIndex, AccountIDX], map: "PK_userPCBangPlayTimeDB")
+}
+
+model userPCBangPregentDB {
+    PCBangDate      String @default("", map: "DF__userPCBan__PCBan__64B7E415") @db.NVarChar(10)
+    AccountIDX      Int    @default(0, map: "DF__userPCBan__Accou__65AC084E")
+    PCBangCount     Int    @default(0, map: "DF__userPCBan__PCBan__66A02C87")
+    PCBangBonusCash Int    @default(0, map: "DF__userPCBan__PCBan__679450C0")
+
+    @@id([PCBangDate, AccountIDX], map: "PK_userPCBangPregentDB")
+}
+
+model userPersonalHQDB {
+    AccountIDX    Int
+    ItemSerial    BigInt @default(autoincrement())
+    ItemCode      Int
+    ItemXZ        Int    @default(0, map: "DF__userPerso__ItemX__697C9932")
+    ItemY         Int    @default(0, map: "DF__userPerso__ItemY__6A70BD6B")
+    ItemRotate    Int    @default(0, map: "DF__userPerso__ItemR__6B64E1A4") @db.TinyInt
+    ItemDecoScore Int    @default(0, map: "DF__userPerso__ItemD__6C5905DD")
+    ItemStatus    Int    @default(0, map: "DF__userPerso__ItemS__6D4D2A16") @db.TinyInt
+
+    @@id([AccountIDX, ItemSerial], map: "PK_userPersonalHQDB")
+    @@index([ItemSerial], map: "ncx_userPersonalHQDB_ItemSerial")
+}
+
+model userPetDB {
+    accountIDX Int
+    petIDX     Int      @default(autoincrement())
+    petCode    Int      @default(0, map: "DF__userPetDB__petCo__6F357288")
+    petRank    Int      @default(0, map: "DF__userPetDB__petRa__702996C1") @db.TinyInt
+    petLevel   Int      @default(0, map: "DF__userPetDB__petLe__711DBAFA")
+    petExp     Int      @default(0, map: "DF__userPetDB__petEx__7211DF33")
+    petEquip   Int      @default(0, map: "DF__userPetDB__petEq__7306036C") @db.TinyInt
+    petStatus  Int      @default(1, map: "DF__userPetDB__petSt__73FA27A5") @db.TinyInt
+    regDate    DateTime @default(now(), map: "DF__userPetDB__regDa__74EE4BDE") @db.DateTime
+
+    @@id([accountIDX, petIDX], map: "PK_userPetDB_accountIDX_PetIDX")
+}
+
+model userPieceDB {
+    idx            Int      @id(map: "PK_userPieceDB") @default(autoincrement())
+    accountIDX     Int
+    piece1_type    Int      @default(0, map: "DF__userPiece__piece__76D69450")
+    piece1_value1  Int      @default(0, map: "DF__userPiece__piece__77CAB889")
+    piece1_value2  Int      @default(0, map: "DF__userPiece__piece__78BEDCC2")
+    piece1_cnt     Int      @default(0, map: "DF__userPiece__piece__79B300FB")
+    piece2_type    Int      @default(0, map: "DF__userPiece__piece__7AA72534")
+    piece2_value1  Int      @default(0, map: "DF__userPiece__piece__7B9B496D")
+    piece2_value2  Int      @default(0, map: "DF__userPiece__piece__7C8F6DA6")
+    piece2_cnt     Int      @default(0, map: "DF__userPiece__piece__7D8391DF")
+    piece3_type    Int      @default(0, map: "DF__userPiece__piece__7E77B618")
+    piece3_value1  Int      @default(0, map: "DF__userPiece__piece__7F6BDA51")
+    piece3_value2  Int      @default(0, map: "DF__userPiece__piece__005FFE8A")
+    piece3_cnt     Int      @default(0, map: "DF__userPiece__piece__015422C3")
+    piece4_type    Int      @default(0, map: "DF__userPiece__piece__024846FC")
+    piece4_value1  Int      @default(0, map: "DF__userPiece__piece__033C6B35")
+    piece4_value2  Int      @default(0, map: "DF__userPiece__piece__04308F6E")
+    piece4_cnt     Int      @default(0, map: "DF__userPiece__piece__0524B3A7")
+    piece5_type    Int      @default(0, map: "DF__userPiece__piece__0618D7E0")
+    piece5_value1  Int      @default(0, map: "DF__userPiece__piece__070CFC19")
+    piece5_value2  Int      @default(0, map: "DF__userPiece__piece__08012052")
+    piece5_cnt     Int      @default(0, map: "DF__userPiece__piece__08F5448B")
+    piece6_type    Int      @default(0, map: "DF__userPiece__piece__09E968C4")
+    piece6_value1  Int      @default(0, map: "DF__userPiece__piece__0ADD8CFD")
+    piece6_value2  Int      @default(0, map: "DF__userPiece__piece__0BD1B136")
+    piece6_cnt     Int      @default(0, map: "DF__userPiece__piece__0CC5D56F")
+    piece7_type    Int      @default(0, map: "DF__userPiece__piece__0DB9F9A8")
+    piece7_value1  Int      @default(0, map: "DF__userPiece__piece__0EAE1DE1")
+    piece7_value2  Int      @default(0, map: "DF__userPiece__piece__0FA2421A")
+    piece7_cnt     Int      @default(0, map: "DF__userPiece__piece__10966653")
+    piece8_type    Int      @default(0, map: "DF__userPiece__piece__118A8A8C")
+    piece8_value1  Int      @default(0, map: "DF__userPiece__piece__127EAEC5")
+    piece8_value2  Int      @default(0, map: "DF__userPiece__piece__1372D2FE")
+    piece8_cnt     Int      @default(0, map: "DF__userPiece__piece__1466F737")
+    piece9_type    Int      @default(0, map: "DF__userPiece__piece__155B1B70")
+    piece9_value1  Int      @default(0, map: "DF__userPiece__piece__164F3FA9")
+    piece9_value2  Int      @default(0, map: "DF__userPiece__piece__174363E2")
+    piece9_cnt     Int      @default(0, map: "DF__userPiece__piece__1837881B")
+    piece10_type   Int      @default(0, map: "DF__userPiece__piece__192BAC54")
+    piece10_value1 Int      @default(0, map: "DF__userPiece__piece__1A1FD08D")
+    piece10_value2 Int      @default(0, map: "DF__userPiece__piece__1B13F4C6")
+    piece10_cnt    Int      @default(0, map: "DF__userPiece__piece__1C0818FF")
+    regDate        DateTime @default(now(), map: "DF__userPiece__regDa__1CFC3D38") @db.DateTime
+
+    @@index([accountIDX], map: "idx_accountIDX")
+}
+
+model userPopStoreDB {
+    AccountIDX Int
+    PopupSlot  Int
+    RegDate    DateTime @default(now(), map: "DF__userPopSt__RegDa__1EE485AA") @db.DateTime
+
+    @@id([AccountIDX, PopupSlot], map: "PK_userPopStoreDB_AccountIDX")
+}
+
+model userPracticeDB {
+    AccountIDX    Int
+    PracticeIDX   Int      @default(0, map: "DF__userPract__Pract__20CCCE1C")
+    PracticeCount Int      @default(0, map: "DF__userPract__Pract__21C0F255")
+    PracticeGrade Int      @default(0, map: "DF__userPract__Pract__22B5168E")
+    PracticeTime  Int      @default(999999999, map: "DF__userPract__Pract__23A93AC7")
+    PracticeRank  Int      @default(99999999, map: "DF__userPract__Pract__249D5F00")
+    UpdateDate    DateTime @default(now(), map: "DF__userPract__Updat__25918339") @db.DateTime
+    regDate       DateTime @default(now(), map: "DF__userPract__regDa__2685A772") @db.DateTime
+
+    @@id([AccountIDX, PracticeIDX], map: "PK_userPracticeDB")
+}
+
+model userPracticeDB_Present {
+    PresentValue Int @id(map: "PK_userPracticeDB_Present")
+    PresentType1 Int
+    Code1        Int
+    Value1       Int
+    PresentType2 Int
+    Code2        Int
+    Value2       Int
+    PresentType3 Int
+    Code3        Int
+    Value3       Int
+    PresentType4 Int
+    Code4        Int
+    Value4       Int
+    PresentType5 Int
+    Code5        Int
+    Value5       Int
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userPracticeDB_Ranking {
+    StartDate    String    @db.NVarChar(10)
+    EndDate      String    @db.NVarChar(10)
+    AccountIDX   Int
+    PracticeIDX  Int       @default(0, map: "DF__userPract__Pract__2962141D")
+    PracticeRank Int       @default(999999999, map: "DF__userPract__Pract__2A563856")
+    sendIDX      Int
+    value        Int
+    msgType      Int?
+    limitDate    DateTime? @db.DateTime
+
+    @@index([AccountIDX, PracticeIDX], map: "NCI_userPracticeDB_Ranking")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userPresentDB {
+    idx         Int      @default(autoincrement())
+    sendIDX     Int
+    receiveIDX  Int
+    presentType Int      @default(0, map: "DF__userPrese__prese__2C3E80C8") @db.SmallInt
+    value1      Int      @default(0, map: "DF__userPrese__value__2D32A501")
+    value2      Int      @default(0, map: "DF__userPrese__value__2E26C93A")
+    value3      Int      @default(0, map: "DF__userPrese__value__2F1AED73")
+    value4      Int      @default(0, map: "DF__userPrese__value__300F11AC")
+    msgType     Int      @db.SmallInt
+    flag        Int      @db.SmallInt
+    limitDate   DateTime @db.DateTime
+    regDate     DateTime @default(now(), map: "DF__userPrese__regDa__310335E5") @db.DateTime
+    TranIDX     BigInt   @default(0, map: "DF__userPrese__TranI__31F75A1E")
+
+    @@index([receiveIDX], map: "idx_receiveIDX")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userQuestCompleteDB {
+    idx          Int      @default(autoincrement())
+    accountIDX   Int
+    quest1_type  Int      @default(0, map: "DF__userQuest__quest__33DFA290")
+    quest1_time  Int      @default(0, map: "DF__userQuest__quest__34D3C6C9")
+    quest2_type  Int      @default(0, map: "DF__userQuest__quest__35C7EB02")
+    quest2_time  Int      @default(0, map: "DF__userQuest__quest__36BC0F3B")
+    quest3_type  Int      @default(0, map: "DF__userQuest__quest__37B03374")
+    quest3_time  Int      @default(0, map: "DF__userQuest__quest__38A457AD")
+    quest4_type  Int      @default(0, map: "DF__userQuest__quest__39987BE6")
+    quest4_time  Int      @default(0, map: "DF__userQuest__quest__3A8CA01F")
+    quest5_type  Int      @default(0, map: "DF__userQuest__quest__3B80C458")
+    quest5_time  Int      @default(0, map: "DF__userQuest__quest__3C74E891")
+    quest6_type  Int      @default(0, map: "DF__userQuest__quest__3D690CCA")
+    quest6_time  Int      @default(0, map: "DF__userQuest__quest__3E5D3103")
+    quest7_type  Int      @default(0, map: "DF__userQuest__quest__3F51553C")
+    quest7_time  Int      @default(0, map: "DF__userQuest__quest__40457975")
+    quest8_type  Int      @default(0, map: "DF__userQuest__quest__41399DAE")
+    quest8_time  Int      @default(0, map: "DF__userQuest__quest__422DC1E7")
+    quest9_type  Int      @default(0, map: "DF__userQuest__quest__4321E620")
+    quest9_time  Int      @default(0, map: "DF__userQuest__quest__44160A59")
+    quest10_type Int      @default(0, map: "DF__userQuest__quest__450A2E92")
+    quest10_time Int      @default(0, map: "DF__userQuest__quest__45FE52CB")
+    quest11_type Int      @default(0, map: "DF__userQuest__quest__46F27704")
+    quest11_time Int      @default(0, map: "DF__userQuest__quest__47E69B3D")
+    quest12_type Int      @default(0, map: "DF__userQuest__quest__48DABF76")
+    quest12_time Int      @default(0, map: "DF__userQuest__quest__49CEE3AF")
+    quest13_type Int      @default(0, map: "DF__userQuest__quest__4AC307E8")
+    quest13_time Int      @default(0, map: "DF__userQuest__quest__4BB72C21")
+    quest14_type Int      @default(0, map: "DF__userQuest__quest__4CAB505A")
+    quest14_time Int      @default(0, map: "DF__userQuest__quest__4D9F7493")
+    quest15_type Int      @default(0, map: "DF__userQuest__quest__4E9398CC")
+    quest15_time Int      @default(0, map: "DF__userQuest__quest__4F87BD05")
+    quest16_type Int      @default(0, map: "DF__userQuest__quest__507BE13E")
+    quest16_time Int      @default(0, map: "DF__userQuest__quest__51700577")
+    quest17_type Int      @default(0, map: "DF__userQuest__quest__526429B0")
+    quest17_time Int      @default(0, map: "DF__userQuest__quest__53584DE9")
+    quest18_type Int      @default(0, map: "DF__userQuest__quest__544C7222")
+    quest18_time Int      @default(0, map: "DF__userQuest__quest__5540965B")
+    quest19_type Int      @default(0, map: "DF__userQuest__quest__5634BA94")
+    quest19_time Int      @default(0, map: "DF__userQuest__quest__5728DECD")
+    quest20_type Int      @default(0, map: "DF__userQuest__quest__581D0306")
+    quest20_time Int      @default(0, map: "DF__userQuest__quest__5911273F")
+    regDate      DateTime @default(now(), map: "DF__userQuest__regDa__5A054B78") @db.DateTime
+
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userQuestDB {
+    idx            Int      @default(autoincrement())
+    accountIDX     Int
+    quest1_type    Int      @default(0, map: "DF__userQuest__quest__5BED93EA")
+    quest1_value1  Int      @default(0, map: "DF__userQuest__quest__5CE1B823")
+    quest1_value2  Int      @default(0, map: "DF__userQuest__quest__5DD5DC5C")
+    quest1_time    Int      @default(0, map: "DF__userQuest__quest__5ECA0095")
+    quest2_type    Int      @default(0, map: "DF__userQuest__quest__5FBE24CE")
+    quest2_value1  Int      @default(0, map: "DF__userQuest__quest__60B24907")
+    quest2_value2  Int      @default(0, map: "DF__userQuest__quest__61A66D40")
+    quest2_time    Int      @default(0, map: "DF__userQuest__quest__629A9179")
+    quest3_type    Int      @default(0, map: "DF__userQuest__quest__638EB5B2")
+    quest3_value1  Int      @default(0, map: "DF__userQuest__quest__6482D9EB")
+    quest3_value2  Int      @default(0, map: "DF__userQuest__quest__6576FE24")
+    quest3_time    Int      @default(0, map: "DF__userQuest__quest__666B225D")
+    quest4_type    Int      @default(0, map: "DF__userQuest__quest__675F4696")
+    quest4_value1  Int      @default(0, map: "DF__userQuest__quest__68536ACF")
+    quest4_value2  Int      @default(0, map: "DF__userQuest__quest__69478F08")
+    quest4_time    Int      @default(0, map: "DF__userQuest__quest__6A3BB341")
+    quest5_type    Int      @default(0, map: "DF__userQuest__quest__6B2FD77A")
+    quest5_value1  Int      @default(0, map: "DF__userQuest__quest__6C23FBB3")
+    quest5_value2  Int      @default(0, map: "DF__userQuest__quest__6D181FEC")
+    quest5_time    Int      @default(0, map: "DF__userQuest__quest__6E0C4425")
+    quest6_type    Int      @default(0, map: "DF__userQuest__quest__6F00685E")
+    quest6_value1  Int      @default(0, map: "DF__userQuest__quest__6FF48C97")
+    quest6_value2  Int      @default(0, map: "DF__userQuest__quest__70E8B0D0")
+    quest6_time    Int      @default(0, map: "DF__userQuest__quest__71DCD509")
+    quest7_type    Int      @default(0, map: "DF__userQuest__quest__72D0F942")
+    quest7_value1  Int      @default(0, map: "DF__userQuest__quest__73C51D7B")
+    quest7_value2  Int      @default(0, map: "DF__userQuest__quest__74B941B4")
+    quest7_time    Int      @default(0, map: "DF__userQuest__quest__75AD65ED")
+    quest8_type    Int      @default(0, map: "DF__userQuest__quest__76A18A26")
+    quest8_value1  Int      @default(0, map: "DF__userQuest__quest__7795AE5F")
+    quest8_value2  Int      @default(0, map: "DF__userQuest__quest__7889D298")
+    quest8_time    Int      @default(0, map: "DF__userQuest__quest__797DF6D1")
+    quest9_type    Int      @default(0, map: "DF__userQuest__quest__7A721B0A")
+    quest9_value1  Int      @default(0, map: "DF__userQuest__quest__7B663F43")
+    quest9_value2  Int      @default(0, map: "DF__userQuest__quest__7C5A637C")
+    quest9_time    Int      @default(0, map: "DF__userQuest__quest__7D4E87B5")
+    quest10_type   Int      @default(0, map: "DF__userQuest__quest__7E42ABEE")
+    quest10_value1 Int      @default(0, map: "DF__userQuest__quest__7F36D027")
+    quest10_value2 Int      @default(0, map: "DF__userQuest__quest__002AF460")
+    quest10_time   Int      @default(0, map: "DF__userQuest__quest__011F1899")
+    quest11_type   Int      @default(0, map: "DF__userQuest__quest__02133CD2")
+    quest11_value1 Int      @default(0, map: "DF__userQuest__quest__0307610B")
+    quest11_value2 Int      @default(0, map: "DF__userQuest__quest__03FB8544")
+    quest11_time   Int      @default(0, map: "DF__userQuest__quest__04EFA97D")
+    quest12_type   Int      @default(0, map: "DF__userQuest__quest__05E3CDB6")
+    quest12_value1 Int      @default(0, map: "DF__userQuest__quest__06D7F1EF")
+    quest12_value2 Int      @default(0, map: "DF__userQuest__quest__07CC1628")
+    quest12_time   Int      @default(0, map: "DF__userQuest__quest__08C03A61")
+    quest13_type   Int      @default(0, map: "DF__userQuest__quest__09B45E9A")
+    quest13_value1 Int      @default(0, map: "DF__userQuest__quest__0AA882D3")
+    quest13_value2 Int      @default(0, map: "DF__userQuest__quest__0B9CA70C")
+    quest13_time   Int      @default(0, map: "DF__userQuest__quest__0C90CB45")
+    quest14_type   Int      @default(0, map: "DF__userQuest__quest__0D84EF7E")
+    quest14_value1 Int      @default(0, map: "DF__userQuest__quest__0E7913B7")
+    quest14_value2 Int      @default(0, map: "DF__userQuest__quest__0F6D37F0")
+    quest14_time   Int      @default(0, map: "DF__userQuest__quest__10615C29")
+    quest15_type   Int      @default(0, map: "DF__userQuest__quest__11558062")
+    quest15_value1 Int      @default(0, map: "DF__userQuest__quest__1249A49B")
+    quest15_value2 Int      @default(0, map: "DF__userQuest__quest__133DC8D4")
+    quest15_time   Int      @default(0, map: "DF__userQuest__quest__1431ED0D")
+    quest16_type   Int      @default(0, map: "DF__userQuest__quest__15261146")
+    quest16_value1 Int      @default(0, map: "DF__userQuest__quest__161A357F")
+    quest16_value2 Int      @default(0, map: "DF__userQuest__quest__170E59B8")
+    quest16_time   Int      @default(0, map: "DF__userQuest__quest__18027DF1")
+    quest17_type   Int      @default(0, map: "DF__userQuest__quest__18F6A22A")
+    quest17_value1 Int      @default(0, map: "DF__userQuest__quest__19EAC663")
+    quest17_value2 Int      @default(0, map: "DF__userQuest__quest__1ADEEA9C")
+    quest17_time   Int      @default(0, map: "DF__userQuest__quest__1BD30ED5")
+    quest18_type   Int      @default(0, map: "DF__userQuest__quest__1CC7330E")
+    quest18_value1 Int      @default(0, map: "DF__userQuest__quest__1DBB5747")
+    quest18_value2 Int      @default(0, map: "DF__userQuest__quest__1EAF7B80")
+    quest18_time   Int      @default(0, map: "DF__userQuest__quest__1FA39FB9")
+    quest19_type   Int      @default(0, map: "DF__userQuest__quest__2097C3F2")
+    quest19_value1 Int      @default(0, map: "DF__userQuest__quest__218BE82B")
+    quest19_value2 Int      @default(0, map: "DF__userQuest__quest__22800C64")
+    quest19_time   Int      @default(0, map: "DF__userQuest__quest__2374309D")
+    quest20_type   Int      @default(0, map: "DF__userQuest__quest__246854D6")
+    quest20_value1 Int      @default(0, map: "DF__userQuest__quest__255C790F")
+    quest20_value2 Int      @default(0, map: "DF__userQuest__quest__26509D48")
+    quest20_time   Int      @default(0, map: "DF__userQuest__quest__2744C181")
+    regDate        DateTime @default(now(), map: "DF__userQuest__regDa__2838E5BA") @db.DateTime
+
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+model userRankingDB {
+    accountIDX Int      @id(map: "PK_userRankingDB")
+    class      Int      @default(0, map: "DF__userRanki__class__2A212E2C")
+    battle     Int      @default(0, map: "DF__userRanki__battl__2B155265")
+    training   Int      @default(0, map: "DF__userRanki__train__2C09769E")
+    award      Int      @default(0, map: "DF__userRanki__award__2CFD9AD7")
+    medal      Int      @default(0, map: "DF__userRanki__medal__2DF1BF10")
+    tester     Int      @default(0, map: "DF__userRanki__teste__2EE5E349")
+    region     Int      @default(0, map: "DF__userRanki__regio__2FDA0782")
+    regDate    DateTime @default(now(), map: "DF__userRanki__regDa__30CE2BBB") @db.SmallDateTime
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRankingDB_award {
+    accountIDX    Int
+    awardLevel    Int      @default(0, map: "DF__userRanki__award__32B6742D")
+    expert        Int      @default(0, map: "DF__userRanki__exper__33AA9866")
+    award1_prev   Int      @default(0, map: "DF__userRanki__award__349EBC9F")
+    award1_now    Int      @default(0, map: "DF__userRanki__award__3592E0D8")
+    award1_point  Int      @default(0, map: "DF__userRanki__award__36870511")
+    award2_prev   Int      @default(0, map: "DF__userRanki__award__377B294A")
+    award2_now    Int      @default(0, map: "DF__userRanki__award__386F4D83")
+    award2_point  Int      @default(0, map: "DF__userRanki__award__396371BC")
+    award3_prev   Int      @default(0, map: "DF__userRanki__award__3A5795F5")
+    award3_now    Int      @default(0, map: "DF__userRanki__award__3B4BBA2E")
+    award3_point  Int      @default(0, map: "DF__userRanki__award__3C3FDE67")
+    award4_prev   Int      @default(0, map: "DF__userRanki__award__3D3402A0")
+    award4_now    Int      @default(0, map: "DF__userRanki__award__3E2826D9")
+    award4_point  Int      @default(0, map: "DF__userRanki__award__3F1C4B12")
+    award5_prev   Int      @default(0, map: "DF__userRanki__award__40106F4B")
+    award5_now    Int      @default(0, map: "DF__userRanki__award__41049384")
+    award5_point  Int      @default(0, map: "DF__userRanki__award__41F8B7BD")
+    award6_prev   Int      @default(0, map: "DF__userRanki__award__42ECDBF6")
+    award6_now    Int      @default(0, map: "DF__userRanki__award__43E1002F")
+    award6_point  Int      @default(0, map: "DF__userRanki__award__44D52468")
+    award7_prev   Int      @default(0, map: "DF__userRanki__award__45C948A1")
+    award7_now    Int      @default(0, map: "DF__userRanki__award__46BD6CDA")
+    award7_point  Int      @default(0, map: "DF__userRanki__award__47B19113")
+    award8_prev   Int      @default(0, map: "DF__userRanki__award__48A5B54C")
+    award8_now    Int      @default(0, map: "DF__userRanki__award__4999D985")
+    award8_point  Int      @default(0, map: "DF__userRanki__award__4A8DFDBE")
+    award9_prev   Int      @default(0, map: "DF__userRanki__award__4B8221F7")
+    award9_now    Int      @default(0, map: "DF__userRanki__award__4C764630")
+    award9_point  Int      @default(0, map: "DF__userRanki__award__4D6A6A69")
+    award10_prev  Int      @default(0, map: "DF__userRanki__award__4E5E8EA2")
+    award10_now   Int      @default(0, map: "DF__userRanki__award__4F52B2DB")
+    award10_point Int      @default(0, map: "DF__userRanki__award__5046D714")
+    award11_prev  Int      @default(0, map: "DF__userRanki__award__513AFB4D")
+    award11_now   Int      @default(0, map: "DF__userRanki__award__522F1F86")
+    award11_point Int      @default(0, map: "DF__userRanki__award__532343BF")
+    award12_prev  Int      @default(0, map: "DF__userRanki__award__541767F8")
+    award12_now   Int      @default(0, map: "DF__userRanki__award__550B8C31")
+    award12_point Int      @default(0, map: "DF__userRanki__award__55FFB06A")
+    award13_prev  Int      @default(0, map: "DF__userRanki__award__56F3D4A3")
+    award13_now   Int      @default(0, map: "DF__userRanki__award__57E7F8DC")
+    award13_point Int      @default(0, map: "DF__userRanki__award__58DC1D15")
+    award14_prev  Int      @default(0, map: "DF__userRanki__award__59D0414E")
+    award14_now   Int      @default(0, map: "DF__userRanki__award__5AC46587")
+    award14_point Int      @default(0, map: "DF__userRanki__award__5BB889C0")
+    award15_prev  Int      @default(0, map: "DF__userRanki__award__5CACADF9")
+    award15_now   Int      @default(0, map: "DF__userRanki__award__5DA0D232")
+    award15_point Int      @default(0, map: "DF__userRanki__award__5E94F66B")
+    award16_prev  Int      @default(0, map: "DF__userRanki__award__5F891AA4")
+    award16_now   Int      @default(0, map: "DF__userRanki__award__607D3EDD")
+    award16_point Int      @default(0, map: "DF__userRanki__award__61716316")
+    award17_prev  Int      @default(0, map: "DF__userRanki__award__6265874F")
+    award17_now   Int      @default(0, map: "DF__userRanki__award__6359AB88")
+    award17_point Int      @default(0, map: "DF__userRanki__award__644DCFC1")
+    award18_prev  Int      @default(0, map: "DF__userRanki__award__6541F3FA")
+    award18_now   Int      @default(0, map: "DF__userRanki__award__66361833")
+    award18_point Int      @default(0, map: "DF__userRanki__award__672A3C6C")
+    award19_prev  Int      @default(0, map: "DF__userRanki__award__681E60A5")
+    award19_now   Int      @default(0, map: "DF__userRanki__award__691284DE")
+    award19_point Int      @default(0, map: "DF__userRanki__award__6A06A917")
+    award20_prev  Int      @default(0, map: "DF__userRanki__award__6AFACD50")
+    award20_now   Int      @default(0, map: "DF__userRanki__award__6BEEF189")
+    award20_point Int      @default(0, map: "DF__userRanki__award__6CE315C2")
+    award21_prev  Int      @default(0, map: "DF__userRanki__award__6DD739FB")
+    award21_now   Int      @default(0, map: "DF__userRanki__award__6ECB5E34")
+    award21_point Int      @default(0, map: "DF__userRanki__award__6FBF826D")
+    award22_prev  Int      @default(0, map: "DF__userRanki__award__70B3A6A6")
+    award22_now   Int      @default(0, map: "DF__userRanki__award__71A7CADF")
+    award22_point Int      @default(0, map: "DF__userRanki__award__729BEF18")
+    award23_prev  Int      @default(0, map: "DF__userRanki__award__73901351")
+    award23_now   Int      @default(0, map: "DF__userRanki__award__7484378A")
+    award23_point Int      @default(0, map: "DF__userRanki__award__75785BC3")
+    award24_prev  Int      @default(0, map: "DF__userRanki__award__766C7FFC")
+    award24_now   Int      @default(0, map: "DF__userRanki__award__7760A435")
+    award24_point Int      @default(0, map: "DF__userRanki__award__7854C86E")
+    award25_prev  Int      @default(0, map: "DF__userRanki__award__7948ECA7")
+    award25_now   Int      @default(0, map: "DF__userRanki__award__7A3D10E0")
+    award25_point Int      @default(0, map: "DF__userRanki__award__7B313519")
+    award26_prev  Int      @default(0, map: "DF__userRanki__award__7C255952")
+    award26_now   Int      @default(0, map: "DF__userRanki__award__7D197D8B")
+    award26_point Int      @default(0, map: "DF__userRanki__award__7E0DA1C4")
+    award27_prev  Int      @default(0, map: "DF__userRanki__award__7F01C5FD")
+    award27_now   Int      @default(0, map: "DF__userRanki__award__7FF5EA36")
+    award27_point Int      @default(0, map: "DF__userRanki__award__00EA0E6F")
+    regDate       DateTime @default(now(), map: "DF__userRanki__regDa__01DE32A8") @db.DateTime
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRankingDB_award_top100 {
+    idx        Int     @default(autoincrement())
+    accountIDX Int
+    nickName   String? @db.VarChar(20)
+    userLevel  Int?
+    guildIDX   Int?
+    awardType  Int     @default(0, map: "DF__userRanki__award__03C67B1A")
+    rank_prev  Int     @default(0, map: "DF__userRanki__rank___04BA9F53")
+    rank_now   Int     @default(0, map: "DF__userRanki__rank___05AEC38C")
+    awardEXP   Int     @default(0, map: "DF__userRanki__award__06A2E7C5")
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRankingDB_award_top3 {
+    idx              Int    @default(autoincrement())
+    awardType        Int
+    rank1_accountIDX Int
+    rank1_userLevel  Int
+    rank1_nickName   String @db.VarChar(20)
+    rank2_accountIDX Int
+    rank2_userLevel  Int
+    rank2_nickName   String @db.VarChar(20)
+    rank3_accountIDX Int
+    rank3_userLevel  Int
+    rank3_nickName   String @db.VarChar(20)
+    dateIDX          String @db.Char(8)
+
+    @@index([awardType], map: "idx_awardType")
+    @@ignore
+}
+
+model userRankingDB_battle {
+    accountIDX  Int      @id(map: "PK_userRankingDB_battle")
+    win_fix     Int      @default(0, map: "DF__userRanki__win_f__097F5470")
+    tie_fix     Int      @default(0, map: "DF__userRanki__tie_f__0A7378A9")
+    lose_fix    Int      @default(0, map: "DF__userRanki__lose___0B679CE2")
+    win_prev    Int      @default(0, map: "DF__userRanki__win_p__0C5BC11B")
+    tie_prev    Int      @default(0, map: "DF__userRanki__tie_p__0D4FE554")
+    lose_prev   Int      @default(0, map: "DF__userRanki__lose___0E44098D")
+    rank_prev   Int      @default(0, map: "DF__userRanki__rank___0F382DC6")
+    rank_now    Int      @default(0, map: "DF__userRanki__rank___102C51FF")
+    rank_total  Int      @default(0, map: "DF__userRanki__rank___11207638")
+    rank_battle Int      @default(0, map: "DF__userRanki__rank___12149A71")
+    regDate     DateTime @default(now(), map: "DF__userRanki__regDa__1308BEAA") @db.SmallDateTime
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRankingDB_class {
+    accountIDX  Int?
+    classType   Int?
+    prevRanking Int?
+    nowRanking  Int?
+    userLevel   Int?
+    expert      Int?
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@index([classType], map: "idx_classType")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRankingDB_class_top100 {
+    idx        Int     @default(autoincrement())
+    accountIDX Int
+    nickName   String? @db.VarChar(20)
+    userLevel  Int?
+    guildIDX   Int?
+    classType  Int     @default(0, map: "DF__userRanki__class__15E52B55")
+    rank_prev  Int     @default(0, map: "DF__userRanki__rank___16D94F8E")
+    rank_now   Int     @default(0, map: "DF__userRanki__rank___17CD73C7")
+    classLevel Int     @default(0, map: "DF__userRanki__class__18C19800")
+    classEXP   Int     @default(0, map: "DF__userRanki__class__19B5BC39")
+
+    @@index([classType], map: "idx_classType")
+    @@index([guildIDX], map: "idx_guildIDX")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRankingDB_class_top3 {
+    idx              Int    @default(autoincrement())
+    classType        Int
+    rank1_accountIDX Int
+    rank1_userLevel  Int
+    rank1_nickName   String @db.VarChar(20)
+    rank2_accountIDX Int
+    rank2_userLevel  Int
+    rank2_nickName   String @db.VarChar(20)
+    rank3_accountIDX Int
+    rank3_userLevel  Int
+    rank3_nickName   String @db.VarChar(20)
+    dateIDX          String @db.Char(8)
+
+    @@index([classType], map: "idx_classType")
+    @@ignore
+}
+
+model userRankingDB_classgroup {
+    accountIDX   Int      @id(clustered: false, map: "PK_userRankingDB_classgroup")
+    nickName     String?  @db.NVarChar(20)
+    userLevel    Int      @default(0, map: "DF__userRanki__userL__1C9228E4")
+    expert       Int      @default(0, map: "DF__userRanki__exper__1D864D1D")
+    ranking_8day Int      @default(0, map: "DF__userRanki__ranki__1E7A7156")
+    ranking_7day Int      @default(0, map: "DF__userRanki__ranki__1F6E958F")
+    ranking_6day Int      @default(0, map: "DF__userRanki__ranki__2062B9C8")
+    ranking_5day Int      @default(0, map: "DF__userRanki__ranki__2156DE01")
+    ranking_4day Int      @default(0, map: "DF__userRanki__ranki__224B023A")
+    ranking_3day Int      @default(0, map: "DF__userRanki__ranki__233F2673")
+    ranking_2day Int      @default(0, map: "DF__userRanki__ranki__24334AAC")
+    ranking_1day Int      @default(0, map: "DF__userRanki__ranki__25276EE5")
+    regDate      DateTime @default(now(), map: "DF__userRanki__regDa__261B931E") @db.DateTime
+
+    @@index([ranking_1day], map: "idx_ranking1day")
+    @@index([userLevel], map: "idx_userLevel")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRankingDB_classgroup_top10000 {
+    idx        Int      @default(autoincrement())
+    accountIDX Int
+    nickName   String?  @db.NVarChar(20)
+    userLevel  Int
+    expert     Int
+    rank_now   Int
+    rank_prev  Int
+    guildIDX   Int?
+    guildName  String?  @db.NVarChar(20)
+    guildMark  Int?
+    regDate    DateTime @db.DateTime
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@ignore
+}
+
+model userRankingDB_faction {
+    accountIDX   Int      @id(map: "PK_userRankingDB_faction")
+    win_fix      Int      @default(0, map: "DF__userRanki__win_f__28F7FFC9")
+    tie_fix      Int      @default(0, map: "DF__userRanki__tie_f__29EC2402")
+    lose_fix     Int      @default(0, map: "DF__userRanki__lose___2AE0483B")
+    win_prev     Int      @default(0, map: "DF__userRanki__win_p__2BD46C74")
+    tie_prev     Int      @default(0, map: "DF__userRanki__tie_p__2CC890AD")
+    lose_prev    Int      @default(0, map: "DF__userRanki__lose___2DBCB4E6")
+    rank_prev    Int      @default(0, map: "DF__userRanki__rank___2EB0D91F")
+    rank_now     Int      @default(0, map: "DF__userRanki__rank___2FA4FD58")
+    rank_total   Int      @default(0, map: "DF__userRanki__rank___30992191")
+    rank_faction Int      @default(0, map: "DF__userRanki__rank___318D45CA")
+    regDate      DateTime @default(now(), map: "DF__userRanki__regDa__32816A03") @db.SmallDateTime
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRankingDB_hero {
+    idx        Int      @default(autoincrement())
+    accountIDX Int
+    title      Int      @default(0, map: "DF__userRanki__title__3469B275")
+    daily      Int      @default(0, map: "DF__userRanki__daily__355DD6AE")
+    dailyB     Int      @default(0, map: "DF__userRanki__daily__3651FAE7")
+    season1    Int      @default(0, map: "DF__userRanki__seaso__37461F20")
+    season2    Int      @default(0, map: "DF__userRanki__seaso__383A4359")
+    season3    Int      @default(0, map: "DF__userRanki__seaso__392E6792")
+    season4    Int      @default(0, map: "DF__userRanki__seaso__3A228BCB")
+    season5    Int      @default(0, map: "DF__userRanki__seaso__3B16B004")
+    season6    Int      @default(0, map: "DF__userRanki__seaso__3C0AD43D")
+    regDate    DateTime @default(now(), map: "DF__userRanki__regDa__3CFEF876") @db.DateTime
+
+    @@index([daily], map: "idx_daily")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRankingDB_medal {
+    accountIDX   Int
+    medalLevel   Int      @default(0, map: "DF__userRanki__medal__3EE740E8")
+    expert       Int      @default(0, map: "DF__userRanki__exper__3FDB6521")
+    ranking_prev Int      @default(0, map: "DF__userRanki__ranki__40CF895A")
+    ranking_now  Int      @default(0, map: "DF__userRanki__ranki__41C3AD93")
+    regDate      DateTime @default(now(), map: "DF__userRanki__regDa__42B7D1CC") @db.DateTime
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRankingDB_temp {
+    accountIDX Int
+    rank       BigInt?
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRankingDB_temp_expert {
+    accountIDX Int
+    expert     Int
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRankingDB_temp_level {
+    accountIDX Int
+    level      Int
+    expert     Int
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRankingDB_temp_ranking {
+    idx        Int @default(autoincrement())
+    accountIDX Int
+
+    @@ignore
+}
+
+model userRecordBattleDB {
+    accountIDX   Int          @id(map: "PK_userRecordBattleDB")
+    type1_win    Int          @default(0, map: "DF__userRecor__type1__4870AB22")
+    type1_lose   Int          @default(0, map: "DF__userRecor__type1__4964CF5B")
+    type1_kill   Int          @default(0, map: "DF__userRecor__type1__4A58F394")
+    type1_death  Int          @default(0, map: "DF__userRecor__type1__4B4D17CD")
+    type2_win    Int          @default(0, map: "DF__userRecor__type2__4C413C06")
+    type2_lose   Int          @default(0, map: "DF__userRecor__type2__4D35603F")
+    type2_kill   Int          @default(0, map: "DF__userRecor__type2__4E298478")
+    type2_death  Int          @default(0, map: "DF__userRecor__type2__4F1DA8B1")
+    type3_win    Int          @default(0, map: "DF__userRecor__type3__5011CCEA")
+    type3_lose   Int          @default(0, map: "DF__userRecor__type3__5105F123")
+    type3_kill   Int          @default(0, map: "DF__userRecor__type3__51FA155C")
+    type3_death  Int          @default(0, map: "DF__userRecor__type3__52EE3995")
+    type4_win    Int          @default(0, map: "DF__userRecor__type4__53E25DCE")
+    type4_lose   Int          @default(0, map: "DF__userRecor__type4__54D68207")
+    type4_kill   Int          @default(0, map: "DF__userRecor__type4__55CAA640")
+    type4_death  Int          @default(0, map: "DF__userRecor__type4__56BECA79")
+    regDate      DateTime     @default(now(), map: "DF__userRecor__regDa__57B2EEB2") @db.DateTime
+    userMemberDB userMemberDB @relation(fields: [accountIDX], references: [accountIDX], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model userRecordGuildDB {
+    guildIDX    Int      @id(map: "PK_userRecordGuildDB")
+    type1_win   Int      @default(0, map: "DF__userRecor__type1__599B3724")
+    type1_lose  Int      @default(0, map: "DF__userRecor__type1__5A8F5B5D")
+    type1_kill  Int      @default(0, map: "DF__userRecor__type1__5B837F96")
+    type1_death Int      @default(0, map: "DF__userRecor__type1__5C77A3CF")
+    regDate     DateTime @default(now(), map: "DF__userRecor__regDa__5D6BC808") @db.DateTime
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRegionDB {
+    idx            Int      @default(autoincrement())
+    rt1point       Int      @default(0, map: "DF__userRegio__rt1po__5F54107A")
+    rt1point_bonus Int      @default(0, map: "DF__userRegio__rt1po__604834B3")
+    rt1point_today Int      @default(0, map: "DF__userRegio__rt1po__613C58EC")
+    rt2point       Int      @default(0, map: "DF__userRegio__rt2po__62307D25")
+    rt2point_bonus Int      @default(0, map: "DF__userRegio__rt2po__6324A15E")
+    rt2point_today Int      @default(0, map: "DF__userRegio__rt2po__6418C597")
+    regDate        DateTime @default(now(), map: "DF__userRegio__regDa__650CE9D0") @db.DateTime
+
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRegionDB_compen {
+    idx            Int      @default(autoincrement())
+    accountIDX     Int
+    rt1point       Int      @default(0, map: "DF__userRegio__rt1po__66F53242")
+    rt1point_bonus Int      @default(0, map: "DF__userRegio__rt1po__67E9567B")
+    rt1count       Int      @default(0, map: "DF__userRegio__rt1co__68DD7AB4")
+    rt2point       Int      @default(0, map: "DF__userRegio__rt2po__69D19EED")
+    rt2point_bonus Int      @default(0, map: "DF__userRegio__rt2po__6AC5C326")
+    rt2count       Int      @default(0, map: "DF__userRegio__rt2co__6BB9E75F")
+    regionType     Int      @default(0, map: "DF__userRegio__regio__6CAE0B98")
+    renspoint      Int      @default(0, map: "DF__userRegio__rensp__6DA22FD1")
+    regionRanking  Int      @default(0, map: "DF__userRegio__regio__6E96540A")
+    regDate        DateTime @default(now(), map: "DF__userRegio__regDa__6F8A7843") @db.DateTime
+
+    @@index([idx], map: "idx_idx")
+    @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userRegionDB_history {
+    idx         Int      @default(autoincrement())
+    point       Int      @default(0, map: "DF__userRegio__point__7172C0B5")
+    point_bonus Int      @default(0, map: "DF__userRegio__point__7266E4EE")
+    membercount Int      @default(0, map: "DF__userRegio__membe__735B0927")
+    regionType  Int      @default(0, map: "DF__userRegio__regio__744F2D60") @db.TinyInt
+    season      Int      @default(0, map: "DF__userRegio__seaso__75435199")
+    regDate     DateTime @default(now(), map: "DF__userRegio__regDa__763775D2") @db.DateTime
+
+    @@ignore
+}
+
+model userRelativeLevelDB {
+    accountIDX          Int      @id(map: "PK_userRelativeLevelDB")
+    weekend_BackupLevel Int      @default(0, map: "DF__userRelat__weeke__781FBE44")
+    weekend_BackupExp   Int      @default(0, map: "DF__userRelat__weeke__7913E27D")
+    init_time           Int      @default(0, map: "DF__userRelat__init___7A0806B6")
+    reward_State        Int      @default(0, map: "DF__userRelat__rewar__7AFC2AEF") @db.TinyInt
+    regDate             DateTime @db.DateTime
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userSBoxDB {
+    idx         Int      @default(autoincrement())
+    accountIDX  Int
+    presentType Int      @default(0, map: "DF__userSBoxD__prese__7CE47361") @db.SmallInt
+    value1      Int      @default(0, map: "DF__userSBoxD__value__7DD8979A")
+    value2      Int      @default(0, map: "DF__userSBoxD__value__7ECCBBD3")
+    amount      Int      @default(0, map: "DF__userSBoxD__amoun__7FC0E00C")
+    bonusAmount Int      @default(0, map: "DF__userSBoxD__bonus__00B50445")
+    flag        Int      @default(0, map: "DF__userSBoxDB__flag__01A9287E") @db.SmallInt
+    billingID   String   @db.VarChar(64)
+    limitDate   DateTime @db.DateTime
+    regDate     DateTime @default(now(), map: "DF__userSBoxD__regDa__029D4CB7") @db.DateTime
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@ignore
+}
+
+model userSpentGoldDB {
+    AccountIDX    Int      @id(map: "PK_userSpentGoldDB_AccountIDX")
+    UserSpentGold Int
+    RegDate       DateTime @default(now(), map: "DF__userSpent__RegDa__04859529") @db.DateTime
+}
+
+model userSpentGoldLogDB {
+    RegDate       DateTime @db.DateTime
+    AccountIDX    Int
+    UserSpentGold Int
+
+    @@id([RegDate, AccountIDX], map: "PK_userSpentGoldLogDB_RegDate_AccountIDX")
+}
+
+model userSpiritDB {
+    idx         Int      @default(autoincrement())
+    AccountIDX  Int
+    SpiritType  Int      @default(0, map: "DF__userSpiri__Spiri__076201D4")
+    SpiritCount Int      @default(0, map: "DF__userSpiri__Spiri__0856260D")
+    RegDate     DateTime @default(now(), map: "DF__userSpiri__RegDa__094A4A46") @db.DateTime
+
+    @@id([AccountIDX, SpiritType], map: "PK_userSpiritDB")
+    @@index([AccountIDX, idx], map: "NC_userSpiritDB_AccountIDX")
+}
+
+model userTimeCashDB {
+    AccountIDX Int
+    ItemCode   Int
+    ItemCount  Int      @default(0, map: "DF__userTimeC__ItemC__0B3292B8")
+    ItemStatus Int      @default(1, map: "DF__userTimeC__ItemS__0C26B6F1") @db.TinyInt
+    RegDate    DateTime @db.DateTime
+    StartDate  DateTime @db.DateTime
+    OverDate   DateTime @db.DateTime
+    UpdDate    DateTime @db.DateTime
+
+    @@id([AccountIDX, ItemCode], map: "PK_userTimeCashDB_AccountIDX")
+}
+
+model userTimeGateDB {
+    AccountIDX Int      @id(map: "PK_userTimeGateDB")
+    GetTime    DateTime @default(now(), map: "DF__userTimeG__GetTi__0E0EFF63") @db.DateTime
+}
+
+model userTitleDB {
+    AccountIDX   Int
+    TitleCode    Int
+    TitleValue   BigInt
+    TitleLevel   Int      @default(1, map: "DF__userTitle__Title__0FF747D5")
+    TitlePremium Int      @default(0, map: "DF__userTitle__Title__10EB6C0E") @db.TinyInt
+    TitleEquip   Int      @default(0, map: "DF__userTitle__Title__11DF9047") @db.TinyInt
+    TitleStatus  Int      @default(0, map: "DF__userTitle__Title__12D3B480") @db.TinyInt
+    UpdDate      DateTime @default(dbgenerated("0"), map: "DF__userTitle__UpdDa__13C7D8B9") @db.DateTime
+    RegDate      DateTime @default(now(), map: "DF__userTitle__RegDa__14BBFCF2") @db.DateTime
+
+    @@id([AccountIDX, TitleCode], map: "PK_userTitleDB_AccountIDX")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model userTradeDB {
+    idx        Int      @default(autoincrement())
+    accountIDX Int
+    itemType   Int      @default(0, map: "DF__userTrade__itemT__16A44564")
+    value1     Int      @default(0, map: "DF__userTrade__value__1798699D")
+    value2     Int      @default(0, map: "DF__userTrade__value__188C8DD6")
+    price      BigInt   @default(0, map: "DF__userTrade__price__1980B20F")
+    mcustom    Int      @default(0, map: "DF__userTrade__mcust__1A74D648")
+    fcustom    Int      @default(0, map: "DF__userTrade__fcust__1B68FA81")
+    userIP     String?  @db.VarChar(16)
+    periodDate Int      @default(0, map: "DF__userTrade__perio__1C5D1EBA")
+    regDate    DateTime @default(now(), map: "DF__userTrade__regDa__1D5142F3") @db.DateTime
+
+    @@index([accountIDX], map: "idx_accountIDX")
+    @@ignore
+}
+
+model userLanguageDB {
+    accountIDX Int          @unique
+    lang_code  String       @db.VarChar(20)
+    regDate    DateTime     @default(now()) @db.DateTime
+    user       userMemberDB @relation(fields: [accountIDX], references: [accountIDX], onDelete: Cascade, onUpdate: NoAction)
+
+    @@id([accountIDX])
+}
+
+model userDiscordDB {
+    accountIDX    Int
+    discordID     String?  @db.VarChar(50)
+    username      String?  @db.VarChar(50)
+    email         String?  @db.VarChar(255)
+    discriminator String?  @db.VarChar(50)
+    global_name   String?  @db.VarChar(50)
+    avatar        String?  @db.Text
+    banner        String?  @db.Text
+    banner_color  String?  @db.VarChar(50)
+    locale        String?  @db.VarChar(30)
+    premium_type  Int?     @db.Int
+    regDate       DateTime @default(now()) @db.DateTime
+    updateDate    DateTime @default(now()) @db.DateTime
+
+    user userMemberDB @relation(fields: [accountIDX], references: [accountIDX], onDelete: Cascade, onUpdate: NoAction)
+
+    @@id([accountIDX])
+    @@unique([accountIDX])
+}
+
+model userVIPDB {
+    accountIDX Int      @unique @db.Int
+    vipIDX     String   @unique @default(cuid()) @db.VarChar(100)
+    vipType    String   @default("basic") @db.VarChar(50)
+    vipLevel   Int      @default(0) @db.Int
+    vipExpire  DateTime @default(now()) @db.DateTime
+    vipStatus  Int      @default(0) @db.SmallInt
+
+    vipNote    String?   @db.VarChar(150)
+    regDate    DateTime  @default(now()) @db.DateTime
+    updateDate DateTime? @db.DateTime
+
+    user userMemberDB @relation(fields: [accountIDX], references: [accountIDX], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model userOTPDB {
+    idx        String       @id @default(cuid())
+    accountIDX Int          @unique @db.Int
+    otpCode    String       @db.VarChar(8)
+    regDate    DateTime     @default(now()) @db.DateTime
+    updateDate DateTime?    @db.DateTime
+    user       userMemberDB @relation(fields: [accountIDX], references: [accountIDX], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model userWalletDB {
+    walletIDX String  @unique @default(cuid()) @db.VarChar(100)
+    userID    String  @unique @db.VarChar(14)
+    pin       String? @db.VarChar(255)
+    status    Int     @default(0) @db.SmallInt
+
+    dailyLimit      Int?      @default(300000) @db.Int
+    monthlyLimit    Int?      @default(50000000) @db.Int
+    walletType      String    @default("standard") @db.VarChar(50)
+    currency        String    @default("USD") @db.VarChar(10)
+    isVerified      Boolean   @default(false)
+    isLocked        Boolean   @default(false)
+    lockReason      String?   @db.VarChar(150)
+    rewardPoints    Int       @default(0)
+    lastTransaction DateTime? @db.DateTime
+
+    regDate         DateTime            @default(now()) @db.DateTime
+    updateDate      DateTime?           @db.DateTime
+    transactionList userTransactionDB[]
+    user            userMemberDB        @relation(fields: [userID], references: [userID], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model userTransactionDB {
+    transactionIDX  String   @id @default(cuid()) @db.VarChar(100)
+    walletIDX       String   @db.VarChar(100)
+    accountIDX      Int
+    amount          Int      @db.Int
+    transactionType String   @db.VarChar(50)
+    createdAt       DateTime @default(now()) @db.DateTime2
+
+    wallet userWalletDB @relation(fields: [walletIDX], references: [walletIDX], onDelete: Cascade, onUpdate: NoAction)
+}

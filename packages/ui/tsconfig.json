@@ -1,0 +1,12 @@
+{
+  "extends": "@losaweb/typescript-config/react-library.json",
+  "compilerOptions": {
+    //"outDir": "dist"
+    "baseUrl": ".",
+    "paths": {
+      "@losaweb/ui/*": ["./src/*"]
+    }
+  },
+  "include": [".", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "dist"]
+}

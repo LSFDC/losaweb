@@ -1,0 +1,12 @@
+{
+  "extends": "@losaweb/typescript-config/base.json",
+  "compilerOptions": {
+    //"outDir": "dist"
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*.ts"]
+    }
+  },
+  "include": [".", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "dist"]
+}
