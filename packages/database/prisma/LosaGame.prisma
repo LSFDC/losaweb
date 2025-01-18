@@ -2823,3 +2823,24 @@ model userTransactionDB {
 
     wallet userWalletDB @relation(fields: [walletIDX], references: [walletIDX], onDelete: Cascade, onUpdate: NoAction)
 }
+
+model define_launcher_info {
+    launcherKey String   @db.Char(50)
+    status      Int      @default(0) @db.TinyInt
+    regDate     DateTime @default(now()) @db.DateTime
+
+    @@unique([launcherKey])
+}
+
+model define_hwid_blocklist {
+    hwid String @db.VarChar(50)
+
+    @@id([hwid])
+    @@unique([hwid])
+}
+
+model define_launcher_whitelist {
+    username String @db.VarChar(50)
+
+    @@unique([username])
+}
