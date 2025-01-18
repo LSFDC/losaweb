@@ -1,12 +1,11 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../node_modules/.prisma/client/losalogdata"
+  output   = "../node_modules/@prisma/losalogdata"
 }
 
 datasource db {
-  provider     = "sqlserver"
-  url          = env("LOSALOGDATA_URL")
-  relationMode = "prisma"
+  provider = "sqlserver"
+  url      = env("LOSALOGDATA_URL")
 }
 
 model GAME_LOG {
