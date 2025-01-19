@@ -1,4 +1,4 @@
-import { PrismaClient as LosaLogDataClient } from ".prisma/client/losalogdata";
+import { PrismaClient as LosaLogDataClient } from "@prisma/losalogdata";
 
 const globalForPrisma = globalThis as unknown as {
   LosaLogData: LosaLogDataClient;
