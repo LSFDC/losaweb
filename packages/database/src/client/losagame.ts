@@ -1,4 +1,4 @@
-import { PrismaClient as LosaGameClient } from ".prisma/client/losagame";
+import { PrismaClient as LosaGameClient } from "@prisma/losagame";
 
 const globalForPrisma = globalThis as unknown as { LosaGame: LosaGameClient };
 

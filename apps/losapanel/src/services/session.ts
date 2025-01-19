@@ -2,8 +2,6 @@ import { cookies } from "next/headers";
 import { jwtVerify, SignJWT } from "jose";
 import { env } from "@/env/server";
 
-import { encryptUserID } from "@/lib/encryption";
-
 type SessionData = {
   user: { userid: string };
   expires: string;
