@@ -32,7 +32,6 @@ export default async function TopUpPage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          {/* <WalletTopUpForm /> */}
           <TopUpFormWizard
             userdata={userdata!}
             paymentchannel={paymentChannel}
