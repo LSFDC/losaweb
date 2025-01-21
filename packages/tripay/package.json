@@ -2,7 +2,7 @@
   "name": "@losaweb/tripay-sdk",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "license": "ISC",
   "type": "module",

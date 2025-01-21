@@ -1,10 +1,10 @@
-import { TripayConfig } from "../types/config.js";
+import { TripayConfig } from "@/types/config";
 import {
   CreateClosedPaymentPayload,
   FeeCalculator,
   PaymentMethodList,
   TransactionList,
-} from "../types/tryipay.js";
+} from "@/types/tripay";
 import crypto from "crypto";
 
 export class Tripay {

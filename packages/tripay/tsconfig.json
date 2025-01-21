@@ -1,12 +1,16 @@
 {
   "extends": "@losaweb/typescript-config/base.json",
   "compilerOptions": {
-    //"outDir": "dist"
+    "target": "ES2020",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*.ts"]
+      "@/*": ["./src/*"]
     }
   },
-  "include": [".", "**/*.ts", "**/*.tsx"],
+  "include": [".", "**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
