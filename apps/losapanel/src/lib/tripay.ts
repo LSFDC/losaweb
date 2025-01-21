@@ -1,5 +1,5 @@
 import { env } from "@/env/server";
-import { Tripay } from "@losaweb/tripay-sdk/core/tripay";
+import { Tripay } from "@losaweb/tripay-sdk/tripay";
 
 export const tripay = new Tripay({
   api_key: env.TRIPAY_API_KEY,
