@@ -2,12 +2,6 @@
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
   "tasks": {
-    "losagame:generate": {
-      "cache": false
-    },
-    "losalogdata:generate": {
-      "cache": false
-    },
     "build": {
       "dependsOn": ["^build", "^losagame:generate", "^losalogdata:generate"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
@@ -20,10 +14,15 @@
       "dependsOn": ["^check-types"]
     },
     "dev": {
-
       "dependsOn": ["^losagame:generate", "^losalogdata:generate"],
       "cache": false,
       "persistent": true
+    },
+    "losagame:generate": {
+      "cache": false
+    },
+    "losalogdata:generate": {
+      "cache": false
     }
   }
 }
