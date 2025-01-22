@@ -1,0 +1,19 @@
+{
+  "extends": "@losaweb/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@losaweb/ui/*": ["../../packages/ui/src/*"],
+      "@losaweb/database/*": ["../../packages/database/src/*"],
+      "@losaweb/tripay-sdk/*": ["../../packages/tripay/src/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
