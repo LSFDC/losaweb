@@ -1,12 +1,16 @@
 {
   "extends": "@losaweb/typescript-config/base.json",
   "compilerOptions": {
-    //"outDir": "dist"
+    "module": "ESNext",
+    "outDir": "./dist",
+    "allowJs": true,
+    "moduleResolution": "node10",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@losaweb/database/*": ["./src/*"]
     }
   },
-  "include": [".", "**/*.ts", "**/*.tsx"],
+  "include": [".", "**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }

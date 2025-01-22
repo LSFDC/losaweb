@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "build": "tsc",
+    "lint": "eslint . --max-warnings 0",
     "losagame:generate": "prisma generate --schema=./prisma/LosaGame.prisma",
     "losagame:push": "prisma db push --schema=./prisma/LosaGame.prisma",
     "losagame:pull": "prisma db pull --schema=./prisma/LosaGame.prisma",
@@ -11,8 +13,7 @@
     "losaadmin:pull": "prisma db pull --schema=./prisma/LosaAdmin.prisma",
     "losalogdata:generate": "prisma generate --schema=./prisma/LosaLogData.prisma",
     "losalogdata:push": "prisma db push --schema=./prisma/LosaLogData.prisma",
-    "losalogdata:pull": "prisma db pull --schema=./prisma/LosaLogData.prisma",
-    "lint": "eslint . --max-warnings 0"
+    "losalogdata:pull": "prisma db pull --schema=./prisma/LosaLogData.prisma"
   },
   "license": "ISC",
   "type": "module",
@@ -30,6 +31,6 @@
   "exports": {
     "./client": "./src/client/*.ts",
     "./mercenary": "./src/mercenary/index.ts",
-    "./types": "./src/types/*.d.ts"
+    "./types": "./src/types/*.ts"
   }
 }
