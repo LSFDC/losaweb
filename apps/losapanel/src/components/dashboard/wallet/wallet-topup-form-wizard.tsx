@@ -29,7 +29,7 @@ import { Progress } from "@losaweb/ui/components/progress";
 
 import { toast } from "sonner";
 import { amountList } from "@/lib/constant";
-import { PaymentMethodList } from "@losaweb/tripay-sdk/types/tryipay";
+import { PaymentMethodList } from "@losaweb/tripay-sdk/types/tripay";
 import { User } from "@/types/user";
 import { currencyFormatter, getPriceByCurrency } from "@/lib/utils";
 import Link from "next/link";
