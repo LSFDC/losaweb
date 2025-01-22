@@ -1,10 +1,10 @@
-import { TripayConfig } from "@/types/config";
+import { TripayConfig } from "@losaweb/tripay-sdk/types/config";
 import {
   CreateClosedPaymentPayload,
   FeeCalculator,
   PaymentMethodList,
   TransactionList,
-} from "@/types/tripay";
+} from "@losaweb/tripay-sdk/types/tripay";
 import crypto from "crypto";
 
 export class Tripay {
