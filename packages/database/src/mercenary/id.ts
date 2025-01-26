@@ -1,5 +1,5 @@
 //TODO: Bahasa Indonesia localization
-import { Mercenary } from "@/types/mercenary";
+import { Mercenary } from "@losaweb/database/types/mercenary";
 
 export const mercenary: Mercenary[] = [
   {
