@@ -31,7 +31,8 @@ export const toolList = [
     href: "/tools/questgen",
     description: "a web service to create custom quest Lost saga.",
     icon: GiftIcon,
-    active: false,
+    active: true,
+    beta: true,
   },
   {
     name: "Medal Generator",
